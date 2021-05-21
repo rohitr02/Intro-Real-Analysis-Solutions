@@ -1,0 +1,94 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{preamble}
+
+\newcommand\course{311 Self Study}
+\newcommand\hwnumber{1}
+\newcommand\userID{Rohit Rao}
+
+\begin{document}
+\begin{itemize}[leftmargin=!,labelindent=5pt]
+    \item[1.2.1]
+        \begin{itemize}
+            \item [(a)] Prove that $\sqrt{3}$ is irrational. Does a similar argument work to show $\sqrt{6}$ is irrational?
+                \begin{proof}
+                    Assume for the sake of contradiction that $\sqrt{3}$ is rational, that is there exist coprime integers $p$ and $q$ such that $3 = (\frac{p}{q})^2$. 
+                    Then, $3q^2 = p^2$. 
+                    Since $p^2$ is divisible by $3$, $p$ can be represented as $p = 3r$ for some integer $r$.
+                    So, $3q^2 = (3r)^2$ which simplifies to $q^2 = 3r^2$.
+                    Since, $q^2$ is divisible by $3$, we have shown that both $p$ and $q$ are divisible by $3$.
+                    However, this is a contradiction to the original claim that $p$ and $q$ are coprime integers.
+                    Thus, $\sqrt{3}$ is irrational.
+                \end{proof}
+                
+                Yes, a similar argument can be made to show that $\sqrt{6}$ is irrational.
+            \item [(b)] Where does the proof of Theorem 1.1.1 break down if we try to use it to prove $\sqrt{4}$ is irrational?
+            
+            It breaks down when we have that $4q^2 = p^2$ where $p$ and $q$ are coprime integers. It breaks down because $p = 2q$ and so $p$ is not always divisble by $4$ which means that we cannot represent $p$ as $p=4r$ for some $r\in \bbZ$. Thus, the proof fails.
+        \end{itemize}
+    \item[1.2.2] Decide which of the following represent true statements about the nature of sets. For any that are false, provide a specific example where the statement in question does not hold.
+        \begin{itemize}
+            \item [(a)] If $A_1 \supseteq A_2 \supseteq A_3 \supseteq A_4$ ... are all sets containing an infinite number of elements, then the intersection $\bigcap_{n=1}^{\infty}A_n$ is infinite as well.
+            
+            False. Let $A_n = \bbN_{\geq n}$ where $n \in \bbN$. Then, $\bigcap_{n=1}^{\infty}A_n = \emptyset$ which is a size of 0.
+            \item [(b)] If $A_1 \supseteq A_2 \supseteq A_3 \supseteq A_4$ ... are all finite, nonempty sets of real numbers, then the intersection $\bigcap_{n=1}^{\infty}A_n$ is finite and nonempty.
+            
+            True.  Since $\forall n \in \bbN$, $A_n \subseteq A_1$ and $A_n$ is finite and nonempty, there exists an $x$ such that $x \in A_n$ which means $x \in A_1$, and so $x$ is in $\bigcap_{n=1}^{\infty}A_n$. Thus, $\bigcap_{n=1}^{\infty}A_n$ is nonempty. Also, $\forall n \in \bbN$, $A_n$ is finite which means $\bigcap_{n=1}^{\infty}A_n$ is finite since the intersection of finite sets must be finite. Thus, $\bigcap_{n=1}^{\infty}A_n$ is finite and nonempty.
+            \item [(c)] $A \cap (B \cup C) = (A \cap B) \cup C$
+            
+            False, let $A = \{0\}, B = \{1\}, C = \{2\}.$ Then, $A \cap (B \cup C) = \{0\} \cap (\{1\} \cup \{2\}) = \{0\} \cap \{1, 2\} = \emptyset$. But, $(A \cap B) \cup C = (\{0\} \cap \{1\}) \cup \{2\} = \emptyset \cup \{2\} = \{2\}$. $\emptyset \neq \{2\}$.
+            \item [(d)] $A \cap (B \cap C) = (A \cap B) \cap C$
+            
+            True, because set intersection is associative.
+            \begin{proof}
+                By the definition of set intersection, $A \cap (B \cap C)$ is equivalent to \\$(x \in A) \land (x \in B \land x\in C)$. 
+                Since conjunction is associative, this becomes $(x\in A \land x\in B) \land x\in C$ which is equivalent to $(A \cap B) \cap C$.
+            \end{proof}
+            \newpage
+            \item [(e)] $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+            
+            True, because set intersection is distributive over set union.
+            \begin{proof}
+                    By the definition of set union and set intersection, $A \cap (B \cup C)$ is equivalent to $(x \in A) \land (x\in B \lor x\in C)$.
+                    By the distributive rule for conjuction over disjunction, this becomes $(x \in A \land x \in B) \lor (x \in A \land x \in C)$ which is equivalent to $(A \cap B) \cup (A \cap C)$.
+            \end{proof}
+        \end{itemize}
+    \item[1.2.10] Let $y_1 = 1$, and for each $n \in \bbN$ define $y_{n+1}=\frac{3y_n + 4}{4}.$
+        \begin{itemize}
+            \item [(a)] Use induction to prove that the sequence satisfies $y_n < 4$ for all $n \in \mathbb{N}$.
+                \begin{proof}
+                    \ \\
+                    Base Case $(n=1)$: $y_{n+1} = y_{2} = \frac{3(1)+4}{4} = \frac{7}{4} < 4$.
+
+                    Induction Step:
+                        \begin{itemize}
+                            \item Suppose $k \in \bbN$ such that $k \geq 2$.
+                            \item Assume that for all natural numbers $i < k$, $y_{i+1} < 4$.
+                            \item Need to prove that $y_k < 4$, that is $\frac{3y_{k-1}+4}{4} = \frac{3}{4} y_{k-1} + 1 < 4$.
+                            By the induction hypothesis, $y_{k-1} < 4$. So, $\frac{3}{4}y_{k-1} < 3$ which means $\frac{3}{4}y_{k-1} + 1 < 4$.
+                            So, $y_k < 4$.
+                        \end{itemize}
+                    Hence, by the principle of complete induction, $\forall n \in \bbN, y_n < 4$.
+                \end{proof}
+            \item [(b)] Use another induction argument to show the sequence $(y_1, y_2, y_3, ...)$ is increasing.
+                
+                \begin{proof}
+                    We'll write $p(n)$ to denote the statement \enquote{$y_n \leq y_{n+1}$}. Need to prove that $\forall n \in \bbN, p(n)$.
+
+                    Base Case $(n=1)$: Then, $y_n = y_1 = 1$ and $y_{n+1} = y_2 = \frac{7}{4}$. Clearly, $1 \leq \frac{7}{4}$.
+
+                    Induction Step:
+                        \begin{itemize}
+                            \item Suppose $k \in \bbN$ such that $k \geq 2$.
+                            \item Assume that for all natural numbers $i < k$, $p(i)$ is true.
+                            \item Need to prove that $p(k)$ holds true, that is $y_k \leq y_{k+1}$.
+                            By the definition of $y$, $y_k = \frac{3y_{k-1} + 4}{4}$ and $y_{k+1} = \frac{3y_{k} + 4}{4}$.
+                            Need to show that $\frac{3y_{k-1} + 4}{4} \leq \frac{3y_{k} + 4}{4}$, or in more simplified terms $y_{k-1} \leq y_{k}$.
+                            By the induction hypothesis, $p(k-1)$ is true, that is $y_{k-1} \leq y_{k}$. 
+                            So, $\frac{3y_{k-1} + 4}{4} \leq \frac{3y_{k} + 4}{4}$ which means $y_k \leq y_{k+1}$. Thus, $p(k)$ holds true.
+                        \end{itemize}
+                    
+                    Hence, by the principle of complete induction, $\forall n \in \bbN, p(n)$ is true.
+                \end{proof}
+        \end{itemize}
+\end{itemize}
+\end{document}
