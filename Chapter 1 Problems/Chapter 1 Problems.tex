@@ -143,5 +143,160 @@
             False, let $A = [0, 1]$ and $B = (0, 1)$. Then, $\sup A = \sup B = 1$.
             But, there is no $b \in B$ such that $b$ is an upper bound for $A$.
         \end{itemize}
+        \newpage
+        \item[1.4.2] Recall that $\mathbb{I}$ stands for the set of irrational numbers.
+            \begin{itemize}
+                \item [(a)] Show that if $a,b\in \mathbb{Q}$, then $ab$ and $a+b$ are elements of $Q$ as well.
+                    \begin{proof}
+                        Assume $a,b\in \mathbb{Q}$.
+                        Then, $a$ can be represented as $\frac{p}{q}$ for some $p,q \in \mathbb{Z}$ and $b$ can be represented as $\frac{r}{s}$ for some $r,s \in \mathbb{Z}$.
+                        Then, $a+b = \frac{p}{q} + \frac{r}{s} = \frac{ps + qr}{qs}$.
+                        Since $\mathbb{Z}$ is closed under addition and multiplication, $ps + qr \in \mathbb{Z}$ and $qs \in \mathbb{Z}$, which means that $\frac{ps + qr}{qs} \in \mathbb{Q}$.
+                        Similarly, $ab = \frac{p}{q} * \frac{r}{s} = \frac{pr}{qs} \in \mathbb{Q}$.
+                        Thus, $a+b\in \mathbb{Q}$ and $ab\in \mathbb{Q}$.
+                    \end{proof}
+                \item [(b)] Show that if $a\in \mathbb{Q}$ and $t \in \mathbb{I}$, then $a+t\in \mathbb{I}$ and $at \in \mathbb{I}$ as long as $a \neq 0$.
+                    \begin{proof}
+                        Suppose $a\in \mathbb{Q}$ and $t \in \mathbb{I}$.
+                        Assume for the sake of contradiction that $a + t \in \mathbb{Q}$.
+                        Then, $t = (-a) + (a + t)$.
+                        Since $\mathbb{Q}$ is closed under addition, this means $t \in \mathbb{Q}$.
+                        However, this contradicts the initial claim $t \in \mathbb{I}$.
+                        Thus, $a+t\in \mathbb{I}$.
+                    \end{proof}
+                    \begin{proof}
+                        Suppose $a\in \mathbb{Q}$ such that $a \neq 0$ and $t \in \mathbb{I}$.
+                        Assume for the sake of contradiction that for $at \in \mathbb{Q}$.
+                        Then, $t = (\frac{1}{a}) * (at)$.
+                        Since $\mathbb{Q}$ is closed under multiplication, this means that $t \in \mathbb{Q}$.
+                        However, this contradicts the initial claim $t \in \mathbb{I}$.
+                        Thus, $at\in \mathbb{I}$.
+                    \end{proof}
+                \item [(c)] Part (a) can be summarized by saying that $\mathbb{Q}$ is closed under addition and multiplication. Is $\mathbb{I}$ closed under addition and multiplication? Given two irrational numbers $s$ and $t$, what can we say about $s + t$ and $st$?
+                
+                    $\mathbb{I}$ is not closed under addition nor is it closed under multiplication. 
+                    Given $s,t \in \mathbb{I}$, $s+t$ and $st$ can be in $\mathbb{I}$ or not in $\mathbb{I}$ depending on the specific values of $s$ and $t$.
+                    For example, let $s=\sqrt{2}$ and $t = -\sqrt{2}$.
+                    Then, $s+t = 0 \notin \mathbb{I}$ and $st = -2 \notin \mathbb{I}$.
+                    But now let $s = \sqrt{2}$ and $t = \sqrt{3}$.
+                    Then, $s + t = (\sqrt{2} + \sqrt{3}) \in \mathbb{I}$ and $st = \sqrt{6} \in \mathbb{I}$.
+            \end{itemize}
+        \item[1.4.6]
+            \begin{itemize}
+                \item [(a)] Finish the proof of Theorem 1.4.5 by showing that the assumption $\alpha ^2 > 2$ leads to a contradiction of the fact that $\alpha = \sup T$.
+                    \begin{proof}
+                        Assume for the sake of contradiction that $\alpha ^2 > 2$. Then, we get
+                        \begin{align*}
+                            (\alpha - \frac{1}{n})^2 &= \alpha^2 - \frac{2\alpha}{n} + \frac{1}{n^2} \\
+                            &> \alpha^2 - \frac{2\alpha}{n}.
+                        \end{align*}
+                        Choose $n_0 \in \bbN$ such that $\alpha^2 - \frac{2\alpha}{n_0} > 2$ (this is possible by the Archimedian Property and since $\alpha^2 > 2$).
+                        So, $(\alpha - \frac{1}{n_0})^2 > \alpha^2 - \frac{2\alpha}{n_0} > 2$. 
+                        This means $\alpha - \frac{1}{n_0}$ must be an upper bound for $T$. 
+                        However, $\alpha - \frac{1}{n_0} < \alpha$ which contradicts the initial claim that $\alpha = \sup T$. 
+                        So, $\alpha^2 \not > 2$. 
+                        Since, part 1 of the proof showed that $\alpha^2 \not < 2$, the only conclusion left is that $\alpha^2 = 2$ which means $\alpha = \sqrt{2} \in \bbR$.
+                    \end{proof}
+                \newpage
+                \item [(b)] Modify this argument to prove the existence of $\sqrt{b}$ for any real number $b \geq 0$.
+                    \begin{proof}
+                        Suppose $b \in \bbR_{\geq 0}$.
+                        Let $T = \{t \in \mathbb{R} : t^2 < b\}$.
+                        Need to prove that $(\sup T)^2 = b$, that is $(\sup T)^2 \not < b$ and $(\sup T)^2 \not > b$. \\
+
+                        Assume for the sake of contradiction that $\alpha = \sup T$ and $\alpha^2 < b$.
+                        In search of an element of $T$ that is greater than $\alpha$, we get
+                        \begin{align*}
+                            (\alpha + \frac{1}{n})^2 &= \alpha^2 + \frac{2\alpha}{n} + \frac{1}{n^2} \\
+                            &< \alpha^2 + \frac{2\alpha}{n} + \frac{1}{n} \\
+                            &= \alpha^2 + \frac{2\alpha+1}{n}.
+                        \end{align*}
+                        Choose $n_0 \in \bbN$ such that $\alpha^2 + \frac{2\alpha + 1}{n_0} < b$.
+                        So, $(\alpha + \frac{1}{n_0})^2 < \alpha^2 + \frac{2\alpha + 1}{n_0} < b$.
+                        This means $\alpha + \frac{1}{n_0} \in T$ and is an upper bound for $T$.
+                        However, $\alpha+\frac{1}{n_0} > \alpha$ which contradicts the initial claim that $\alpha = \sup T$ since a supremum of a set should be larger than all elements within that set.
+                        So, $\alpha^2 \not < b$. \\
+
+                        Assume for the sake of contradiction that $\alpha = \sup T$ and $\alpha ^2 > b$. Then, we get
+                        \begin{align*}
+                            (\alpha - \frac{1}{n})^2 &= \alpha^2 - \frac{2\alpha}{n} + \frac{1}{n^2} \\
+                            &> \alpha^2 - \frac{2\alpha}{n}.
+                        \end{align*}
+                        Choose $n_0 \in \bbN$ such that $\alpha^2 - \frac{2\alpha}{n_0} > b$ (this is possible by the Archimedian Property and since $\alpha^2 > 2$).
+                        So, $(\alpha - \frac{1}{n_0})^2 > \alpha^2 - \frac{2\alpha}{n_0} > b$. 
+                        This means $\alpha - \frac{1}{n_0}$ must be an upper bound for $T$. 
+                        However, $\alpha - \frac{1}{n_0} < \alpha$ which contradicts the initial claim that $\alpha = \sup T$ since a supremum of a set should be the smallest element amongst all the upper bounds for that set. 
+                        So, $\alpha^2 \not > b$. \\
+
+                        Since $(\sup T)^2 \not < b$ and $(\sup T)^2 \not > b$, $(\sup T)^2 = b$ and so $\sup T = \sqrt{b} \in \bbR$.
+                    \end{proof}
+            \end{itemize}
+        \newpage
+        \item[1.4.8] Use the following outline to supply proofs for the statements in Theorem 1.4.13.
+            \begin{itemize}
+                \item [(a)] First, prove statement (i) for two countable sets, $A_1$ and $A_2$. Example 1.4.8 (ii) may be a useful reference. Some technicalities can be avoided by first replacing $A_2$ with the set $B_2 = A_2-A_1 =\{x\in A_2 : x \not \in A_1\}$. The point of this is that the union $A_1 \cup B_2$ is equal to $A_1 \cup A_2$ and the sets $A_1$ and $B_2$ are disjoint. (What happens if $B_2$ is finite?)
+                
+                    \begin{itemize}
+                        \item [(i)] If $A_1$ and $A_2$ are countable sets, then the union $A_1 \cup A_2$ is countable.
+                            \begin{proof}
+                                Assume $A_1$ and $A_2$ are countable sets. 
+                                Let $B_2 = A_2-A_1 =\{x\in A_2 : x \not \in A_1\}$ which means that $A_1 \cup A_2 = A_1 \cup B_2$ and the sets $A_1$ and $B_2$ are disjoint. 
+                                We need to show that $A_1 \cup B_2$ is countable.
+                                Since, $A_1$ is countable, there exists a bijective function $f : \bbN \to A_1$.
+                                For $B_2$, there are 3 cases to consider: $B_2 = \emptyset$, $B_2$ is a nonempty and finite set, and $B_2$ is an infinite set.\\
+                                
+                                Case 1: Assume $B_2 = \emptyset$.
+                                Then, $A_1 \cup B_2 = A_1$ and since $A_1$ is countable, it would mean that $A_1 \cup B_2$ is countable.\\
+                                
+                                Case 2: Assume $B_2$ is a nonempty, finite set defined as $B_2 = \{b_1, b_2, ... , b_i\}$ for some $i \in \bbN$. 
+                                Need to prove that there exists a bijective function $g : \bbN \to (A_1 \cup B_2)$.
+                                Let $g : \bbN \to (A_1 \cup B_2)$ be defined in the following manner: $\forall n \in \bbN$, $n \leq i \implies g(n) = b_n$ and $n > i \implies g(n) = f(n-i)$.
+                                Since $f$ is a bijection and $A_1$ and $B_2$ are disjoint, $g$ must also be a bijection.\\
+                                
+                                Case 3: Assume $B_2$ is an infinite set. 
+                                Since, $B_2 \subseteq A_2$ and $A_2$ is a countable set, $B_2$ must be a countably infinite set (since its not finite or nonempty) which means that there exists a bijective function $g: \mathbb{N} \to B_2$.
+                                We need to prove that there exists a bijective function $h : \mathbb{N} \to (A_1 \cup B_2)$.
+                                Let $h : \mathbb{N} \to (A_1 \cup B_2)$ be defined in the following manner: $\forall n \in \mathbb{N}$, $n$ is odd $\implies h(n) = f(\frac{n+1}{2})$ and $n$ is even $\implies h(n) = g(\frac{n}{2})$.
+                                Then, since both $f$ and $g$ are bijective functions and $A_1$ and $B_2$ are disjoint, $h$ must also be a bijective function.
+                            \end{proof}
+                    \end{itemize}
+                Now, explain how the more general statement in (i) follows.
+                
+                \ \ \ \ To prove the more general statement about the union of $m$ countable sets, we would need to apply induction.
+                The proof above would serve as the base case.
+                Then, we would need to assume that the union of $m-1$ countable sets is countable and show that the union of $m$ countable sets is also countable.
+                \item [(b)] Explain why induction cannot be used to prove part (ii) of Theorem 1.4.13 from part (i).
+                
+                Induction cannot be used to prove part (ii) of Theorem 1.4.13 from part (i) because it can only be used on $n \in \mathbb{N}$ and $\infty \notin \mathbb{N}$.
+                \item [(c)] Show how arranging N into the two-dimensional array
+                    \begin{align*}
+                        &1 && 3 && 6 && 10 && 15 && ... \\
+                        &2 && 5 && 9 && 14 && ... \\
+                        &4 && 8 && 13 && ... \\
+                        &7 && 12 && ... \\
+                        &11 && ... \\
+                        &...
+                    \end{align*}
+                    leads to a proof of Theorem 1.4.13 (ii).
+                    
+                    \begin{proof}
+                        Assume $A_n$ is a countable set for each $n \in \bbN$.
+                        Need to prove $\bigcup\limits_{n=1}^{\infty} A_n$ is countable.
+                        In order to ensure that the sets in the union are disjoint, 
+                        let $B_1 = A_1$, $B_2 = A_2 - A_1$, $B_3 = A_3 - (A_1 \cup A_2)$, $B_4 = A_4 - (A_1 \cup A_2 \cup A_3)$, ..., $B_n = A_n - \bigcup\limits_{i=1}^{n-1} A_i$ where $n\in \bbN$.
+                        Then, organize the elements of $\bigcup\limits_{i=1}^{\infty} B_i$ into a two-dimensional array similar to above where $b_{rc}$ is the element at the $r$'th row and $c$'th column.
+                        So, \begin{align*}
+                            B_1 = \ & b_{11} && b_{12} && b_{13} && b_{14} && b_{15} && ... \\
+                            B_2 = \ & b_{21} && b_{22} && b_{23} && b_{24} && ... \\
+                            B_3 = \ & b_{31} && b_{32} && b_{33} && ... \\
+                            B_4 = \ & b_{41} && b_{42} && ... \\
+                            B_5 = \ & b_{51} && ... \\
+                            &...
+                        \end{align*}
+                        Now, it is clear to see that every element in both arrays will be uniquely mapped, that is there exists a bijective function $f:\mathbb{N} \to \bigcup\limits_{i=1}^{\infty} B_i$.
+                        Specifically, for any $x \in \bbN, f(x) = b_{pq}$ where $p$ and $q$ are the row and column (respectively) of $x\in \bbN$ in the diagram for $\bbN$ above.
+                        Thus, $\mathbb{N} \sim \bigcup\limits_{i=1}^{\infty} B_i$ so $\bigcup\limits_{i=1}^{\infty} B_i$ is countable which means $\bigcup\limits_{n=1}^{\infty} A_n$ is countable.
+                    \end{proof}
+            \end{itemize}
 \end{itemize}
 \end{document}
