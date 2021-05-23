@@ -298,5 +298,106 @@
                         Thus, $\mathbb{N} \sim \bigcup\limits_{i=1}^{\infty} B_i$ so $\bigcup\limits_{i=1}^{\infty} B_i$ is countable which means $\bigcup\limits_{n=1}^{\infty} A_n$ is countable.
                     \end{proof}
             \end{itemize}
+        \newpage
+        \item[1.5.4] Let $S$ be the set consisting of all sequences of 0’s and 1’s. Observe that $S$ is not a particular sequence, but rather a large set whose elements are sequences; namely, $S = \{(a_1,a_2,a_3,...) : a_n = 0$ or $1\}.$ As an example, the sequence $(1,0,1,0,1,0,1,0,...)$ is an element of $S$, as is the sequence $(1,1,1,1,1,1,...)$. Give a rigorous argument showing that $S$ is uncountable.
+        \begin{proof}
+            Assume for the sake of contradiction that there exists a bijective function $f:\mathbb{N} \to S$.
+            Then, the mapping between $\mathbb{N}$ and $S$ can be represented by the following two-dimensional array:
+            \begin{align*}
+                f(1) = \ & a_{11} && a_{12} && a_{13} && a_{14} && a_{15} && ... \\
+                f(2) = \ & a_{21} && a_{22} && a_{23} && a_{24} && ... \\
+                f(3) = \ & a_{31} && a_{32} && a_{33} && ... \\
+                f(4) = \ & a_{41} && a_{42} && ... \\
+                f(5) = \ & a_{51} && ... \\
+                &...
+            \end{align*}
+            For all $i,j \in \mathbb{N}$, every element $a_{ij}$ of the above array is either $0$ or $1$.
+            Let $x = (x_1, x_2, x_3, ...)$ be a sequence in $S$ defined in the following manner: $\forall n \in \mathbb{N},$ the n'th element of x is $x_n = $ 
+            $\begin{cases} 
+                0,$ if $a_{nn} = 1 \\
+                1,$ otherwise $
+            \end{cases}$
+            Now, we can see that for any sequence $f(n)$ where $n\in\bbN$, $x \neq f(n)$ because there will always be at least one digit that is unequal, namely $a_{nn} \not = x_n$.
+            However, this is a contradiction to the initial claim that $f$ is bijective because $f$ is not onto $S$ since $x\in S$ but not in range of $f$.
+            Thus, $S$ is uncountable.
+        \end{proof}
+        \item[1.5.5]
+            \begin{itemize}
+                \item [(a)] Let $A = \{a,b,c\}.$ List the eight elements of $P(A).$ (Do not forget that $\emptyset$ is considered to be a subset of every set.)
+                
+                $P(A) = \{ \emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{b, c\}, \{a, c\}, \{a, b, c\}\}$
+                \item [(b)] If $A$ is finite with $n$ elements, show that $P(A)$ has $2^n$ elements. (Constructing a particular subset of $A$ can be interpreted as making a series of decisions about whether or not to include each element of $A$.)
+                    \begin{proof}
+                        Let $A$ be a finite set with $n$ elements.
+                        $P(A)$ is defined to be the set containing every subset of $A$.
+                        When creating a subset of $A$, every element of $A$ is either in the subset or not in the subset -- there are strictly 2 choices.
+                        Since there are $n$ elements in $A$, there are a total of $2^n$ choices, and each one makes a unique subset of $A$.
+                        Thus, $P(A)$ has $2^n$ elements.
+                    \end{proof}
+            \end{itemize}
+        \newpage
+        \item[1.5.6]
+            \begin{itemize}
+                \item [(a)] Using the particular set $A = \{a, b, c\}$, exhibit two different 1–1 mappings from $A$ into $P(A)$.
+                    \begin{itemize}
+                        \item [(i)] Let $f_1: A \to P(A)$ be a function defined in the following manner: $f_1(a) = \{a\}$, $f_1(b) = \{b\}$, $f_1(c) = \{c\}$
+                        \item [(ii)] Let $f_2: A \to P(A)$ be a function defined in the following manner: $f_2(a) = \{a,b\}$, $f_2(b) = \{a,c\}$, $f_2(c) = \{b,c\}$
+                    \end{itemize}
+                \item [(b)] Letting $B = \{1,2,3,4\}$, produce an example of a 1–1 map $g : B \to P(B)$.
+                
+                $g(1) = \{1\}$, $g(2) = \{2\}$, $g(3) = \{3\}$, $g(4) = \{4\}$.
+                \item [(c)] Explain why, in parts (a) and (b), it is impossible to construct mappings that are onto.
+                
+                There are more elements in the powerset which means that constructing a mapping to every element in the powerset would involve elements in the original set mapping to more than 1 element in the powerset -- this would violate the definition of a function, namely that every element in the domain must map to exactly one element in the range.
+            \end{itemize}
+        \item[1.5.7] Return to the particular functions contructed in Exercise 1.5.6 and construct the subset $B$ that results using the preceding rule. In each case, note that $B$ is not in the range of the function used.
+            \begin{itemize}
+                \item [(a)]
+                \begin{itemize}
+                    \item [(i)] The set $B = \emptyset$
+                    \item [(ii)] The set $B = \{b\}$
+                \end{itemize}
+                \item [(b)] The set $B = \emptyset$
+            \end{itemize}
+        \item[1.5.8]
+            \begin{itemize}
+                \item [(a)] First, show that the case $a' \in B$ leads to a contradiction.
+                
+                Assume for the sake of contradiction that $a' \in B$.
+                By the definition of $B$, $a' \notin f(a')$.
+                Since $f(a') = B$, it means that $a' \notin B$.
+                This contradicts the claim $a' \in B$.
+                \item [(b)] Now, finish the argument by showing that the case $a' \notin B$ is equally unacceptable.
+                
+                Assume for the sake of contradiction that $a' \notin B$.
+                By the definition of $B$, $a' \in f(a')$.
+                Since $f(a') = B$, it means that $a' \in B$.
+                This contradicts the claim $a' \notin B$.
+            \end{itemize}
+        \item[1.5.9] As a final exercise, answer each of the following by establishing a 1–1 correspondence with a set of known cardinality.
+            \begin{itemize}
+                \item [(a)] Is the set of all functions from $\{0, 1\}$ to $\mathbb{N}$ countable or uncountable?
+                
+                It is countable.
+                We can show this using theorem 1.4.12 which states that if $A \subseteq B$ and $B$ is countable, then $A$ is either countable, finite, or empty.
+                Let $f: \{0,1\} \to \bbN$ be an arbitrary 1-1 function and $(x,y)$ be an ordered pair where $x = f(0) \in \bbN$ and $y = f(1) \in \bbN$.
+                Then, $(x,y) \in \bbN \times \bbN$.
+                Since $\bbN\times \bbN \subseteq \bbN$ and $\bbN$ is countable, $\bbN\times \bbN$ must be countable, finite, or empty.
+                Clearly, $\bbN \times \bbN$ is not empty or finite, so it must be countable.
+                \item [(b)] Is the set of all functions from $\bbN$ to $\{0, 1\}$ countable or uncountable?
+                
+                It is uncountable.
+                This would result in the previous example of a set of bitstrings -- a set of sequences of 0's and 1's.
+                From Exercise 1.5.4, we proved that it was uncountable.
+                \item [(c)] Given a set $B$, a subset $A$ of $P(B)$ is called an antichain if no element of $A$ is a subset of any other element of $A$. Does $P(\mathbb{N})$ contain an uncountable antichain?
+                
+                Yes, it contains an uncountable antichain.
+                In order to find it we first define the set of even natural numbers $E = \{2n : n \in \mathbb{N}\}$ and the set of odd natural numbers $O = \{2n-1 : n \in \mathbb{N}\}$.
+                Then, we can form subsets of $\mathbb{N}$ by picking elements in order from $E$ and $O$.
+                For example, $\{1,4,5,8,9,12,13,...\}$ or $\{2,3,6,7,10,11,14,15,...\}$ are examples of such subsets of $\bbN$.
+                The collection of all such sets is the antichain $A$.
+                This is because for every set in $A$, every index is given two choices -- to pick from $E$ or to pick from $O$.
+                So, in a similar manner to the proof in 1.5.4 with the bitstring, $A$ can be proved to be uncountable -- instead of $0$'s and $1$'s, it is evens and odds at every index of every set in $A$.
+            \end{itemize}
 \end{itemize}
 \end{document}

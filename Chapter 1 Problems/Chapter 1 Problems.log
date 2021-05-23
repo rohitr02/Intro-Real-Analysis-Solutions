@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.14)  23 MAY 2021 13:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.14)  23 MAY 2021 16:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -628,25 +628,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 251--255
 
  []
 
-[6] 
+[6] [7] [8] [9] 
 AED: lastpage setting LastPage
-[7] (/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 1 Problems/Chapter 1 Problems.aux)
+[10] (/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 1 Problems/Chapter 1 Problems.aux)
 Package rerunfilecheck Info: File `"Chapter 1 Problems".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15877 strings out of 478994
- 229607 string characters out of 5858184
- 609647 words of memory out of 5000000
+ 15880 strings out of 478994
+ 229626 string characters out of 5858184
+ 609653 words of memory out of 5000000
  33066 multiletter control sequences out of 15000+600000
  416244 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  96i,12n,103p,583b,656s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 1 Problems/Chapter 1 Problems.pdf" (7 pages, 187841 bytes).
+Output written on "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 1 Problems/Chapter 1 Problems.pdf" (10 pages, 201487 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
