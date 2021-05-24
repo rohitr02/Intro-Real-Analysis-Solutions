@@ -1,0 +1,68 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{preamble}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+% \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\newcommand\course{311 Self Study}
+\newcommand\hwnumber{2}
+\newcommand\userID{Rohit Rao}
+
+\begin{document}
+\begin{itemize}[leftmargin=!,labelindent=5pt]
+    \item [2.2.1] Verify, using the definition of convergence of a sequence, that the following sequences converge to the proposed limit.
+        \begin{enumerate}
+            \item lim $\frac{1}{6n^2 + 1}=0$
+                \begin{proof}
+                    Let $\epsilon > 0$ be arbitrary.
+                    Choose $N \in \mathbb{N}$ with $N > \frac{1}{\sqrt{6\epsilon}}$.
+                    To verify let $n \geq N$ which means $\abs{\frac{1}{6n^2 + 1}} < \abs{\frac{1}{6\frac{1}{6\epsilon} + 1}} = \abs{\frac{1}{\frac{1}{\epsilon} + 1}} = \frac{\epsilon}{\epsilon + 1} < \epsilon$ as desired.
+                \end{proof}
+            \item lim $\frac{3n+1}{2n + 5}=\frac{3}{2}$
+                \begin{proof}
+                    Let $\epsilon > 0$ be arbitrary.
+                    Choose $N \in \mathbb{N}$ with $N > \frac{13-10\epsilon}{4\epsilon}$.
+                    To verify let $n \geq N$ and so $\abs{\frac{3n+1}{2n + 5}} < \abs{\frac{3(\frac{13-10\epsilon}{4\epsilon})+1}{2(\frac{13-10\epsilon}{4\epsilon}) + 5}}= \frac{3}{2}-\epsilon$.
+                    So, $\abs{\frac{3n+1}{2n + 5}-\frac{3}{2}}< \epsilon$ as desired.
+                \end{proof}
+            \item lim $\frac{2}{\sqrt{n+3}}=0$
+                \begin{proof}
+                    Let $\epsilon > 0$ be arbitrary. Choose $N \in \mathbb{N}$ with $N > \frac{4}{\epsilon^2}-3$. To verify let $n \geq N$ which means $\abs{\frac{2}{\sqrt{n+3}}}<\abs{\frac{2}{\sqrt{(\frac{4}{\epsilon^2}-3)+3}}}=\epsilon$ as desired.
+                \end{proof}
+        \end{enumerate}
+    \item [2.2.7] Informally speaking, the sequence $\sqrt{n}$ “converges to infinity.”
+        \begin{itemize}
+            \item [(a)] Imitate the logical structure of Definition 2.2.3 to create a rigorous definition for the mathematical statement lim $x_n = \infty$. Use this definition to prove lim $\sqrt{n} = \infty$. 
+            
+                A sequence $(a_n)$ “converges to infinity” if, for every positive number $\epsilon$, there exists an $N \in \mathbb{N}$ such that whenever $n \geq N$ it follows that $a_n > \epsilon$.
+                
+                \begin{proof}
+                    Let $\epsilon > 0$ be arbitrary. Choose $N \in \mathbb{N}$ with $N > \epsilon^2$. To verify let $n \geq N$ which means $\sqrt{n} > \sqrt{\epsilon^2} = \epsilon$ as desired.
+                \end{proof}
+            \item [(b)] What does your definition in (a) say about the particular sequence $(1,0,2,0,3,0,4,0,5,0,...)$?
+            
+            It does not converge to infinity.
+        \end{itemize}
+    \item [2.2.8] Here are two useful definitions:
+        \begin{enumerate}
+            \item A sequence $(a_n)$ is eventually in a set $A \subseteq \mathbb{R}$ if there exists an $N \in \mathbb{N}$ such that $a_n \in A$ for all $n \geq N$.
+            \item A sequence $(a_n)$ is frequently in a set $A \subseteq \mathbb{R}$ if for every $N \in \mathbb{N}$, there exists an $n \geq N$ such that $a_n \in A$.
+        \end{enumerate}
+        \begin{itemize}
+            \item [(a)] Is the sequence $(-1)^n$ eventually or frequently in the set $\{1\}$?
+            
+            Frequently
+            \item [(b)] Which definition is stronger? Does frequently imply eventually or does eventually imply frequently?
+            
+            Eventually is stronger; eventually implies frequently.
+            \item [(c)] Give an alternate rephrasing of Definition 2.2.3B using either frequently or eventually. Which is the term we want?
+            
+            A sequence $(a_n)$ converges to $a$ if, given any $\epsilon$-neighborhood $V_\epsilon(a)$ of $a$, $(a_n)$ is eventually in the set $V_\epsilon(a)$.
+            \item [(d)] Suppose an infinite number of terms of a sequence $(x_n)$ are equal to 2. Is $(x_n)$ necessarily eventually in the interval $(1.9, 2.1)$? Is it frequently in $(1.9, 2.1)$?
+            
+            $x_n$ is not necessarily eventually in the interval $(1.9, 2.1)$, but it is frequently in $(1.9, 2.1)$. 
+            For example, $(2,2,2,2,...)$ is eventually in the interval $(1.9, 2.1)$, but $(2,-2,2,-2,...)$ is only frequently in the interval $(1.9, 2.1)$.
+        \end{itemize}
+    
+\end{itemize}
+\end{document}
