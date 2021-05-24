@@ -45,8 +45,8 @@
         \end{itemize}
     \item [2.2.8] Here are two useful definitions:
         \begin{enumerate}
-            \item A sequence $(a_n)$ is eventually in a set $A \subseteq \mathbb{R}$ if there exists an $N \in \mathbb{N}$ such that $a_n \in A$ for all $n \geq N$.
-            \item A sequence $(a_n)$ is frequently in a set $A \subseteq \mathbb{R}$ if for every $N \in \mathbb{N}$, there exists an $n \geq N$ such that $a_n \in A$.
+            \item A sequence $(a_n)$ is \textit{eventually} in a set $A \subseteq \mathbb{R}$ if there exists an $N \in \mathbb{N}$ such that $a_n \in A$ for all $n \geq N$.
+            \item A sequence $(a_n)$ is \textit{frequently} in a set $A \subseteq \mathbb{R}$ if for every $N \in \mathbb{N}$, there exists an $n \geq N$ such that $a_n \in A$.
         \end{enumerate}
         \begin{itemize}
             \item [(a)] Is the sequence $(-1)^n$ eventually or frequently in the set $\{1\}$?
@@ -63,6 +63,42 @@
             $x_n$ is not necessarily eventually in the interval $(1.9, 2.1)$, but it is frequently in $(1.9, 2.1)$. 
             For example, $(2,2,2,2,...)$ is eventually in the interval $(1.9, 2.1)$, but $(2,-2,2,-2,...)$ is only frequently in the interval $(1.9, 2.1)$.
         \end{itemize}
-    
+    \item [2.3.3] \textbf{(Squeeze Theorem)}. Show that if $x_n \leq y_n \leq z_n$ for all $n \in \mathbb{N}$, and if lim $x_n =$ lim $z_n = l$, then lim $y_n = l$ as well.
+        \begin{proof}
+            Assume that $\forall n \in \mathbb{N}, x_n \leq y_n \leq z_n$ and $\lim x_n = \lim z_n = l$.
+            Suppose $n \in \mathbb{N}$.
+            Then, by the Order Limit Theorem, since $x_n \leq y_n$, $\lim y_n \geq \lim x_n = l$.
+            Similarly, since $y_n \leq z_n$, $\lim y_n \leq \lim z_n = l$.
+            So, $l \leq \lim y_n \leq l$.
+            Thus, $\lim y_n = l$.
+        \end{proof}
+    \item [2.3.5] Let $(x_n)$ and $(y_n)$ be given, and define $(z_n)$ to be the “shuffled” sequence \\$(x_1, y_1, x_2, y_2, x_3, y_3, . . . , x_n, y_n, . . . )$. Prove that $(z_n)$ is convergent if and only if $(x_n)$ and $(y_n)$ are both convergent with lim $x_n =$ lim $y_n$.
+        \begin{proof}
+            \ \\
+            First we prove that if $(z_n)$ is convergent then $(x_n)$ and $(y_n)$ are both convergent with $\lim x_n = \lim y_n$.
+            Assume $(z_n)$ is convergent to $z$.
+            Let $\epsilon > 0$ be arbitrary.
+            Because $(z_n)$ is convergent to $z$ we know there exists an $N \in \bbN$ such that for all $n \geq N$, $\abs{z_n - z} < \epsilon$.
+            So, $\epsilon > \abs{x_n-z}$ for all $n \geq N$ because $x_n = z_{2n-1}$ and $2n-1 \geq N$.
+            Similarly, $\epsilon > \abs{y_n-z}$ for all $n \geq N$ because $y_n = z_{2n}$ and $2n \geq N$.
+            Therefore, $\lim x_n = z = \lim y_n$.
+
+            Next we prove that if $(x_n)$ and $(y_n)$ are both convergent with $\lim x_n = \lim y_n$ then $(z_n)$ is convergent.
+            Assume $(x_n)$ and $(y_n)$ are both convergent with $\lim x_n = \lim y_n = l$.
+            Let $\epsilon > 0$ be arbitrary.
+            Then, we know that there exists an $N_1 \in \bbN$ such that for all $n \geq N_1$, $\abs{x_n - l} < \epsilon$.
+            Similarly, we know that there exists an $N_2 \in \bbN$ such that for all $n \geq N_2$, $\abs{y_n - l} < \epsilon$.
+            Let $N = $ max $\{2N_1, 2N_2\}$.
+            Then, for all $n \geq N$, we have that $\abs{z_n - l} < \epsilon$ since $(z_n)$ consists of alternating elements from $(x_n)$ and $(y_n)$ which means after $N$ both $\abs{x_n - l} < \epsilon$ and $\abs{y_n - l} < \epsilon$.
+            Thus, $(z_n)$ is convergent.
+        \end{proof}
+    \newpage
+    \item [2.3.10] If $(a_n) \to 0$ and $\abs{b_n - b} \leq a_n$, then show that $(b_n) \to b$.
+        \begin{proof}
+            Assume $(a_n) \to 0$ and $\abs{b_n - b} \leq a_n$. 
+            Let $\epsilon > 0$ be arbitrary.
+            Since $(a_n) \to 0$, we know that there exists $N \in \bbN$ such that for all $n \geq N, \abs{a_n} < \epsilon$.
+            Then, for all $n \geq N$, $\abs{b_n - b} \leq a_n < \epsilon$ which means $\abs{b_n - b} < \epsilon$, and so $(b_n) \to b$.
+        \end{proof}
 \end{itemize}
 \end{document}
