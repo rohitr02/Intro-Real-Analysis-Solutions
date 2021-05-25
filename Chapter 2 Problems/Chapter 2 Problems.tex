@@ -219,5 +219,73 @@
                     Thus, since $\epsilon$ is arbitrary, we get that $\lim\inf a_n = L = \lim\sup a_n$.
                 \end{proof}
         \end{itemize}
+    \item [2.5.2]
+        \begin{itemize}
+            \item [(a)] Prove that if an infinite series converges, then the associative property holds. Assume $a_1 + a_2 + a_3 + a_4 + a_5 +...$ converges to a limit $L$ (i.e., the sequence of partial sums $(s_n) \to L)$. Show that any regrouping of the terms $(a_1 +a_2 +...+a_{n_1})+(a_{n_1+1} +...+a_{n_2})+(a_{n_2+1} +...+a_{n_3})+...$ leads to a series that also converges to $L$.
+                \begin{proof}
+                    Assume $a_1 + a_2 + a_3 + a_4 + a_5 +...$ converges to a limit $L$, that is $s_n = \sum_{i=1}^{i=n} a_i$ and $\lim s_n = L$.
+                    Suppose $b_n = \sum_{j=1}^{j=n} s_{n_j}$.
+                    Then, by the way $s_n$ and $b_n$ are defined, we know that the sequence of partial sums of $b_n$ is a subsequence of the sequence of partial sums of $s_n$ (because the terms of $b_n$ are simply a different grouping of the terms in $s_n$).
+                    So, since $(s_n)$ converges to $L$, $(b_n)$ must also converge to $L$ since it is a subsequence.
+                    Thus, any regrouping of the terms $(a_1 +a_2 +...+ a_{n_1}) +(a_{n_1+1} +...+ a_{n_2}) + (a_{n_2+1} +...+a_{n_3})+...$ leads to a series that also converges to $L$.
+                \end{proof}
+            \item [(b)] Compare this result to the example discussed at the end of Section 2.1 where infinite addition was shown not to be associative. Why doesn’t our proof in (a) apply to this example?
+            
+                The series did not converge in that example.
+        \end{itemize}
+
+    \item [2.5.5] Extend the result proved in Example 2.5.3 to the case $\abs{b} < 1$. Show lim$(b^n) = 0$ whenever $-1 < b < 1$.
+        \begin{proof}\ \\
+            Consider the case $0<b<1$.
+            Then, since $b > b^2 > b^3 > ... > 0$, the sequence $(b^n)$ is bounded and decreasing which means we can apply the Monotone Convergence Theorem to conclude that $(b^n)$ converges to $l$ such that $b>l\geq 0$.
+            Since $(b^{2n})$ is a subsequence, $(b^{2n})$ converges to $l$.
+            Then, $(b^{2n}) = (b^n)(b^n)$ which means it converges to $l*l = l^2$.
+            Because limits are unique, $l^2 = l$ which means $l = 1$ or $l=0$.
+            Since $0 \leq l < b < 1$, $l = 0$.
+
+            Consider the case $b = 0$.
+            Then, the sequence is $(0,0, 0, ...)$ which converges to $0$.
+            
+            Consider the case $-1<b<0$.
+            Let $\epsilon>0$ be arbitrary.
+            Since $0<\abs{b} < 1$, we know from the first case that there exists an $N \in \mathbb{N}$ such that for all $n \geq N$, $\abs{b^n - 0} < \epsilon$ so $\abs{b^n} < \epsilon$. 
+            Because $\abs{b^n} = \abs{\abs{b}^n}$ for $n \geq N$, $\lim(b^n) = 0$ in this case as well. 
+            
+            Combining the above 3 cases, we get that lim$(b^n) = 0$ over the interval $-1 < b < 1$.
+        \end{proof}
+    \item [2.5.6] Let $(a_n)$ be a bounded sequence, and define the set $S=\{x \in \mathbb{R}:x<a_n$ for infinitely many terms $a_n\}$. Show that there exists a subsequence $(a_{n_k})$ converging to $s = \sup S$. (This is a direct proof of the Bolzano–Weierstrass Theorem using the Axiom of Completeness.)
+        \begin{proof}
+            Let $(a_n)$ be a bounded sequence, and define the set $S=\{x \in \mathbb{R}:x<a_n$ for infinitely many terms $a_n\}$.
+            Then, since $(a_n)$ is a bounded sequence, $S$ must be nonempty and bounded from above.
+            By the Axiom of Completeness, $S$ must have a supremum.
+            Let $s = \sup S$.
+            Suppose $\epsilon > 0$.
+            Then, since $s - \epsilon \in S$ and $s - \epsilon < s$, we know by the way $S$ is defined that there exist infinitely many terms from $(a_n)$ such that $a_n > s - \epsilon$.
+            So, we can construct the subsequence in the following manner:
+
+            First, choose $k=1$ and pick $a_{n_1}$ to add to the subsequence such that $a_{n_1} \in (s - \frac{1}{1}, s]$.
+
+            Next, choose $k>1$ and pick $a_{n_k}$ to add to the subsequence such that $a_{n_k} \in (s - \frac{1}{k}, s]$.
+
+            Repeating the 2nd step while always choosing $k$ such that it is strictly greater than the previous choice will yield in the desired subsequence.
+            This is because it is guaranteed there are always infinitely many terms left to pick from the sequence and add to the subsequence by the way $S$ is defined.
+            Thus, this method creates a subsequence of $(a_n)$ which converges to $s$ as the $\frac{1}{k}$ term becomes smaller, that is $\abs{s - a_{n_k}} < \frac{1}{k}$.
+
+        \end{proof}
+    \item [2.6.2] Supply a proof for Theorem 2.6.2.
+    \item [2.6.3]
+        \begin{itemize}
+            \item [(a)] Explain how the following pseudo-Cauchy property differs from the proper definition of a Cauchy sequence: A sequence $(s_n)$ is pseudo-Cauchy if, for all $\epsilon > 0$, there exists an $N$ such that if $n \geq N$, then $\abs{s_{n+1} - s_n} < \epsilon.$
+            \item [(b)] If possible, give an example of a divergent sequence $(s_n)$ that is pseudo-Cauchy.
+        \end{itemize}
+    \item [2.6.4] Assume $(a_n)$ and $(b_n)$ are Cauchy sequences. Use a triangle inequality argument to prove $c_n = \abs{a_n - b_n}$ is Cauchy.
+    \item [2.7.4] Give an example to show that it is possible for both $\sum{x_n}$ and $\sum{y_n}$ to diverge but for $\sum{x_n y_n}$ to converge.
+    \item [2.7.7] Now that we have proved the basic facts about geometric series, supply a proof for Corollary 2.4.7.
+    \item [2.7.13] \textbf{(Dirichlet’s Test).} Dirichlet’s Test for convergence states that if the partial sums of $\sum_{n=1}^{\infty} x_n$ are bounded (but not necessarily convergent), and if $(y_n)$ is a sequence satisfying $y_1 \geq y_2 \geq y_3 \geq ... \geq 0$ with lim $y_n = 0$, then the series $\sum_{n=1}^{\infty} x_n y_n$ converges.
+        \begin{itemize}
+            \item [(a)] Let $M > 0$ be an upper bound for the partial sums of $\sum_{n=1}^{\infty}x_n$. Use Exercise 2.7.12 to show that $\abs{\sum_{j=m+1}^{n} x_j y_j} \leq 2M \abs{y_{m+1}}$.
+            \item [(b)] Prove Dirichlet’s Test just stated.
+            \item [(c)] Show how the Alternating Series Test (Theorem 2.7.7) can be derived as a special case of Dirichlet’s Test.
+        \end{itemize}
 \end{itemize}
 \end{document}

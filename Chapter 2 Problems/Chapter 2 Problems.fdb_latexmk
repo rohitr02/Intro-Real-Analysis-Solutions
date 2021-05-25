@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1621940885 "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.tex" "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.pdf" "Chapter 2 Problems" 1621940887
-  "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.aux" 1621940887 861 b4125716e486154967347d8b4e990ae8 ""
-  "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.tex" 1621940885 16876 745c761c9edad6770b07833e7104e185 ""
+["pdflatex"] 1621975770 "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.tex" "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.pdf" "Chapter 2 Problems" 1621975772
+  "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.aux" 1621975771 861 b01f53665a60746ac2e1fe593f50e009 ""
+  "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.tex" 1621975768 23191 2ed781a7eb08db0dfd4cac01a058a6c4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -160,14 +160,14 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1620966636 2724745 15ab5eecc6c220740dfc92d3892882c8 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "Chapter 2 Problems.aux" 1621940887 861 b4125716e486154967347d8b4e990ae8 "pdflatex"
-  "Chapter 2 Problems.out" 1621940886 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Chapter 2 Problems.tex" 1621940885 16876 745c761c9edad6770b07833e7104e185 ""
+  "Chapter 2 Problems.aux" 1621975771 861 b01f53665a60746ac2e1fe593f50e009 "pdflatex"
+  "Chapter 2 Problems.out" 1621975771 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Chapter 2 Problems.tex" 1621975768 23191 2ed781a7eb08db0dfd4cac01a058a6c4 ""
   "preamble.sty" 1621803189 1557 7f87846d291693bb5d7ab78ac4f65180 ""
   (generated)
   "Chapter 2 Problems.log"
-  "Chapter 2 Problems.pdf"
+  "Chapter 2 Problems.out"
   "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.log"
   "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.pdf"
-  "Chapter 2 Problems.out"
+  "Chapter 2 Problems.pdf"
   "Chapter 2 Problems.aux"
