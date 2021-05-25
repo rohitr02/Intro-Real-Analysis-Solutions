@@ -100,5 +100,124 @@
             Since $(a_n) \to 0$, we know that there exists $N \in \bbN$ such that for all $n \geq N, \abs{a_n} < \epsilon$.
             Then, for all $n \geq N$, $\abs{b_n - b} \leq a_n < \epsilon$ which means $\abs{b_n - b} < \epsilon$, and so $(b_n) \to b$.
         \end{proof}
+    \item [2.4.1] Complete the proof of Theorem 2.4.6 by showing that if the series $\sum_{n=0}^{\infty}2^nb_{2^n}$ diverges, then so does $\sum_{n=1}^{\infty}b_n$. Example 2.4.5 may be a useful reference.
+        \begin{proof}
+            Assume the series $\sum_{n=0}^{\infty}2^nb_{2^n}$ diverges.
+            Then the monotone sequence of its partial sums $(t_k) = b_1 + 2b_2 + ... + 2^kb_{2^k}$ must be unbounded.
+            We need to show that $\sum_{n=1}^{\infty}b_n$ diverges, namely that $(s_m) = b_1 + b_2 + ... + b_m$ is unbounded.
+            Fix $m$ and choose an arbitrary $k$.
+            Then,
+            \begin{align*}
+                s_{2^k} &= b_1 + b_2 + (b_3 + b_4) + (b_5 + b_6 + b_7 + b_8) + ... + (b_{2^{k-1}+1} + ... + b_{2^k})\\
+                &\geq b_1 + b_2 + (b_4 + b_4) + (b_8 + b_8 + b_8 + b_8) + ... + (b_{2^k} + ... + b_{2^k})\\
+                &= b_1 + b_2 + 2b_4 + 4b_8 + ... + 2^{k-1}b_{2^k}\\
+                &= \frac{1}{2} (2b_1 + 2b_2 + 4b_4 + 8b_8 + ... + 2^kb_{2^k})\\
+                &= \frac{1}{2} (b_1 + t_k).
+            \end{align*}
+            Since $(t_k)$ is unbounded and $s_m \geq \frac{t_k}{2}$, it must mean that $(s_m)$ is unbounded, and so $\sum_{n=1}^{\infty}b_n$ diverges.
+        \end{proof}
+    \item [2.4.2]
+        \begin{itemize}
+            \item [(a)] Prove that the sequence defined by $x_1 = 3$ and $x_{n+1} = \frac{1}{4-x_n}$ converges.
+                \begin{proof}
+                    We need to show that the sequence is monotone and bounded, then we can apply the Monotone Convergence Theorem.
+                    First, we need to use induction to show that the sequence is monotone. 
+                    
+                    Base Case ($n=1$): $x_{1+1} = x_2 = \frac{1}{4-x_1} = \frac{1}{4-3} = 1$. $3 > 1$ so $x_1 > x_2$.
+
+                    Induction Step:
+                    \begin{itemize}
+                        \item Suppose $k \in \bbN$ such that $k \geq 2$.
+                        \item Assume for all natural numbers $i < k$, $x_i > x_{i+1}$.
+                        \item Need to show that $x_{k} > x_{k+1}$.
+                            $x_{k} = \frac{1}{4-x_{k-1}}$ and $x_{k+1} = \frac{1}{4-x_k}$.
+                            By the induction hypothesis, we know that $x_{k-1} > x_{k}$.
+                            So, $4 - x_{k-1} < 4 - x_k$ which means $\frac{1}{4-x_{k-1}} > \frac{1}{4-x_k}$.
+                            Thus, $x_{k} > x_{k+1}$.
+                    \end{itemize}
+                    By the principle of complete induction, the sequence is decreasing.
+                    Now, it is clear that $x_1 = 3$ is the upper bound for the sequence.
+                    Next, we need to use induction to show that the sequence is bounded below by $0$.
+
+                    Base Case ($n=1$): $x_{1+1} = x_2 = \frac{1}{4-x_1} = \frac{1}{4-3} = 1 > 0$.
+                    
+                    Induction Step:
+                    \begin{itemize}
+                        \item Suppose $k \in \bbN$ such that $k \geq 2$.
+                        \item Assume for all natural numbers $i < k$, $x_i > 0$.
+                        \item Need to show that $x_{k} > 0$.
+                            $x_{k} = \frac{1}{4-x_{k-1}}$.
+                            By the induction hypothesis, we know that $x_{k-1} > 0$.
+                            Since, $3 \geq x_{k-1} > 0$, $\frac{1}{4-x_{k-1}} > 0$.
+                            Thus, $x_{k} > 0$.
+                    \end{itemize}
+                    By the principle of complete induction, the sequence is always greater than $0$.
+                    So, the sequence is bounded below by $0$.
+                    Thus, the sequence is monotone and bounded. So, by the Monotone Convergence Theorem, the sequence converges.
+                \end{proof}
+            \item [(b)] Now that we know lim $x_n$ exists, explain why lim $x_{n+1}$ must also exist and equal the same value.
+                
+                Since lim $x_n$ exists, lim $x_{n+1}$ must also exist and be the same value because these sequences only differ by their starting value and an index of 1.
+                This means that their end behavior (where the limit will end up) will remain identical.
+            \item [(c)] Take the limit of each side of the recursive equation in part (a) of this exercise to explicitly compute lim $x_n$.
+            
+                Let $L = \lim x_n = \lim x_{n+1}$.
+                Then, $L = \frac{1}{4-L}$ which becomes $L^2 - 4L + 1 = 0$ which results in $L = 2\pm \sqrt{3}$.
+                Since the sequence is decreasing, the only answer is $L = 2 - \sqrt{3}$.
+        \end{itemize}
+    \item [2.4.6] \textbf{(Limit Superior)}. Let $(a_n)$ be a bounded sequence.
+        \begin{itemize}
+            \item [(a)] Prove that the sequence defined by $y_n = \sup\{a_k : k \geq n\}$ converges.
+                \begin{proof}
+                    First, we need to prove that $(y_n)$ is montonely decreasing, that is $y_{i+1} \leq y_i$ for all $i \in \bbN$.
+                    Suppose $i \in \bbN$.
+                    $y_{i+1} = \sup \{a_k : k \geq i+1\}$ and $y_{i} = \sup \{a_k : k \geq i\}$.
+                    Since $\{a_k : k \geq i+1\} \subseteq \{a_k : k \geq i\}$, $\sup \{a_k : k \geq i+1\} \leq \sup \{a_k : k \geq i\}$.
+                    So, $y_{i+1} \leq y_i$.
+                    Next, we need to prove that $(y_n)$ is bounded, that is it has a lower bound and upper bound.
+                    Since $(a_n)$ is bounded, let $L$ be the lower bound of $(a_n)$.
+                    Then, by the way $y_n$ is defined, all of its elements come from $(a_n)$ which means $L$ is still a lower bound for $(y_n)$.
+                    Since $(y_n)$ is decreasing, it is also bounded from above, namely its first element is an upper bound.
+                    So, $(y_n)$ is bounded.
+                    Thus, $(y_n)$ converges by the Monotone Convergence Theorem.
+                    \end{proof}
+
+            \item [(b)] The limit superior of $(a_n)$, or $\lim \sup a_n$, is defined by $\lim \sup a_n = \lim y_n$, where $y_n$ is the sequence from part (a) of this exercise. Provide a reasonable definition for $\lim \inf a_n$ and briefly explain why it always exists for any bounded sequence.
+                
+                \ \ \ \ $\lim \inf a_n = z_n$ where $z_n = \inf\{a_k : k \geq n\}$.
+                It always exists for any bounded sequence because of the Monotone Convergence Theorem.
+                We can apply it here because we know $(z_n)$ is bounded which can be shown by applying similar logic to the proof above, namely that $(a_n)$ is bounded.
+                We also know that $(z_n)$ is increasing by applying similar logic to the proof above, namely that $\{a_k : k \geq n+1\} \subseteq \{a_k : k \geq n\}$ where $n \in \bbN$ and since we are taking infinums of the smaller set, then it must hold true that $z_{n+1} \geq z_n$.
+                So, since it is both bounded and monotone, we apply the Monotone Convergence Theorem to show it converges.
+            \item [(c)] Prove that $\lim \inf a_n \leq \lim \sup a_n$ for every bounded sequence, and give an example of a sequence for which the inequality is strict.
+                \begin{proof}
+                    Suppose $n \in \mathbb{N}$. 
+                    Let $y_n = \sup\{a_k : k \geq n\}$ and $z_n = \inf\{a_k : k \geq n\}$.
+                    Then, $z_n \leq y_n$ because $z_n$ is the infimums and $y_n$ is the supremums.
+                    So, by the Order Limit Theorem, $\lim z_n \leq \lim y_n$.
+                    Thus $\lim \inf a_n \leq \lim \sup a_n$.
+                \end{proof}
+                
+                Example: Let $(a_n) = (-1,1,-1,1,-1,1,...)$. Then, $\lim \inf a_n = -1$ and $\lim \sup a_n = 1$.
+                Since $-1<1$, $\lim \inf a_n < \lim \sup a_n$ in this case.
+            \item [(d)] Show that $\lim \inf a_n = \lim \sup a_n$ if and only if $\lim a_n$ exists. In this case, all three share the same value.
+                \begin{proof}
+                    \ \\
+                    First, we prove that if $\lim \inf a_n = \lim \sup a_n$, then $\lim a_n$ exists.
+                    Assume $\lim \inf a_n = \lim \sup a_n$. Let $\epsilon > 0$ be arbitrary.
+                    Then, we know that there exists an $N \in \mathbb{N}$ such that for all $n \geq N$, $\abs{ \inf a_n - L } < \epsilon$ and $\abs{ \sup a_n - L } < \epsilon$.
+                    Since $\inf a_n \leq a_n \leq \sup a_n$, it must be true that $\abs{a_n - L } < \epsilon$ for all $n \geq N$.
+                    Thus, $\lim a_n$ exists.
+                    \ \\
+
+                    Next, we prove that if $\lim a_n$ exists, then $\lim \inf a_n = \lim \sup a_n$.
+                    Assume $\lim a_n$ exists.
+                    Let $\epsilon > 0$ be arbitrary.
+                    Then, there exists an $N \in \mathbb{N}$ such that for all $n \geq N$, $\abs{a_n - L} < \epsilon$.
+                    Since every element after $a_n$ must be within the bounds $L-\epsilon$ and $L + \epsilon$, it follows that $\inf a_n$ and $\sup a_n$ must exist within these bounds as well. 
+                    Then, $L-\epsilon \leq \lim\inf a_n \leq L + \epsilon$ and $L-\epsilon \leq \lim\sup a_n \leq L + \epsilon$.
+                    Thus, since $\epsilon$ is arbitrary, we get that $\lim\inf a_n = L = \lim\sup a_n$.
+                \end{proof}
+        \end{itemize}
 \end{itemize}
 \end{document}
