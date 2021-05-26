@@ -272,13 +272,48 @@
             Thus, this method creates a subsequence of $(a_n)$ which converges to $s$ as the $\frac{1}{k}$ term becomes smaller, that is $\abs{s - a_{n_k}} < \frac{1}{k}$.
 
         \end{proof}
-    \item [2.6.2] Supply a proof for Theorem 2.6.2.
+    \item [2.6.2] Supply a proof for Theorem 2.6.2: Every convergent sequence is a Cauchy sequence
+        \begin{proof}
+            Assume the sequence $(x_n)$ converges to $x$.
+            Let $\epsilon > 0$.
+            Then, there exists an $N \in \bbN$ such that for all $m,n \geq N$, $\abs{x_n - x} < \frac{\epsilon}{2}$ and $\abs{x_m - x} < \frac{\epsilon}{2}$.
+            Suppose $m, n \in \bbN$ such that $m \geq N$ and $n \geq N$.
+            Then, by the triangle inequality:
+            \begin{align*}
+                \abs{x_n - x_m} &= \abs{x_n - x + x - x_m}\\
+                &\leq \abs{x_n - x} + \abs{x_m - x}\\
+                &< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+            \end{align*}
+            Thus, $\abs{x_n - x_m} < \epsilon$ which means $(x_n)$ is a cauchy sequence.
+        \end{proof}
     \item [2.6.3]
         \begin{itemize}
             \item [(a)] Explain how the following pseudo-Cauchy property differs from the proper definition of a Cauchy sequence: A sequence $(s_n)$ is pseudo-Cauchy if, for all $\epsilon > 0$, there exists an $N$ such that if $n \geq N$, then $\abs{s_{n+1} - s_n} < \epsilon.$
+
+                The pseudo-Cauchy property requires $N$ to be large enough so that summing two "consecutive" terms after the $N$'th term (inclusive) becomes less than $\epsilon$.
+                The proper Cauchy property requires $N$ to be large enough so that summing "any" two terms after the $N$'th term (inclusive) becomes less than $\epsilon$.
             \item [(b)] If possible, give an example of a divergent sequence $(s_n)$ that is pseudo-Cauchy.
+            
+                The harmonic series $\sum_{n=1}^{\infty} \frac{1}{n}$ is divergent but still a pseudo-Cauchy sequence.
         \end{itemize}
     \item [2.6.4] Assume $(a_n)$ and $(b_n)$ are Cauchy sequences. Use a triangle inequality argument to prove $c_n = \abs{a_n - b_n}$ is Cauchy.
+        \begin{proof}
+            Suppose $\epsilon > 0$.
+            Assume $(a_n)$ and $(b_n)$ are Cauchy sequences.
+            Then, there exists an $N_1 \in \bbN$ and $N_2 \in \bbN$ such that for all $n_1, m_1 \geq N_1$, $\abs{a_{n_1} - a_{m_1}} < \frac{\epsilon}{2}$ and for all $n_2, m_2 \geq N_2$, $\abs{b_{n_2} - b_{m_2}} < \frac{\epsilon}{2}$.
+            Let $N = \max \{N_1, N_2\}$.
+            Then, for all $n, m \geq N$, $\abs{a_n - a_m} < \frac{\epsilon}{2}$ and $\abs{b_n - b_m} < \frac{\epsilon}{2}$.
+            Now we need to show $(c_n)$ is cauchy. Suppose $n, m \geq N$. Then,
+            \begin{align*}
+                \abs{c_n - c_m} &= \abs{\abs{a_n - b_n} - \abs{a_m - b_m}}\\
+                &\leq \abs{(a_n - b_n) - (a_m - b_m)}\\
+                &= \abs{(a_n - a_m) + (b_n - b_m)}\\
+                &\leq \abs{a_n - a_m} + \abs{b_n - b_m}\\
+                &< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+            \end{align*}
+            Since $\abs{c_n - c_m} < \epsilon$, $(c_n)$ is a cauchy sequence.
+        \end{proof}
+    \newpage
     \item [2.7.4] Give an example to show that it is possible for both $\sum{x_n}$ and $\sum{y_n}$ to diverge but for $\sum{x_n y_n}$ to converge.
     \item [2.7.7] Now that we have proved the basic facts about geometric series, supply a proof for Corollary 2.4.7.
     \item [2.7.13] \textbf{(Dirichlet’s Test).} Dirichlet’s Test for convergence states that if the partial sums of $\sum_{n=1}^{\infty} x_n$ are bounded (but not necessarily convergent), and if $(y_n)$ is a sequence satisfying $y_1 \geq y_2 \geq y_3 \geq ... \geq 0$ with lim $y_n = 0$, then the series $\sum_{n=1}^{\infty} x_n y_n$ converges.
