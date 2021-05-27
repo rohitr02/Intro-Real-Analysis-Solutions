@@ -1,7 +1,5 @@
 \documentclass[12pt,letterpaper]{article}
 \usepackage{preamble}
-\usepackage{amsmath, amssymb}
-\usepackage{mathtools}
 % \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 
 \newcommand\course{311 Self Study}
@@ -315,12 +313,49 @@
         \end{proof}
     \newpage
     \item [2.7.4] Give an example to show that it is possible for both $\sum{x_n}$ and $\sum{y_n}$ to diverge but for $\sum{x_n y_n}$ to converge.
-    \item [2.7.7] Now that we have proved the basic facts about geometric series, supply a proof for Corollary 2.4.7.
+    
+    One example would be the harmonic series $\sum_{n=1}^{\infty} \frac{1}{n}$.
+    If $x_n = \frac{1}{n} = y_n$ for all $n \in \bbN$ then both $\sum x_n$ and $\sum y_n$ diverge, but the product $\sum x_ny_n = \sum \frac{1}{n^2}$ which converges by the p-series test.
+    \item [2.7.7] Now that we have proved the basic facts about geometric series, supply a proof for Corollary 2.4.7: The series $\sum_{n=1}^{\infty} \frac{1}{n^p}$ converges if and only if $p > 1$.
+        \begin{proof}
+            \begin{spacing}{1.2}
+                We know from the Cauchy Condensation Test that if $(b_n)$ is a positive decreasing sequence then $\sum_{n=1}^{\infty}b_n$ converges if and only if $\sum_{n=1}^{\infty}2^n b_{2^n}$ converges.
+                Suppose the sequence $(b_n)$ is the sequence of terms $\frac{1}{n^p}$ for all $n\in \bbN$.
+                Then, $\sum_{n=1}^{\infty}b_n = \sum_{n=1}^{\infty} \frac{1}{n^p}$ converges if and only if $\sum_{n=1}^{\infty}2^n b_{2^n} = \sum_{n=1}^{\infty}2^n \frac{1}{(2^n)^p} = 
+                \sum_{n=1}^{\infty}2^n (\frac{1}{2^n})^p = \sum_{n=1}^{\infty}(\frac{1}{2^n})^{p-1} = \sum_{n=1}^{\infty}(\frac{1}{2^{p-1}})^n$ converges. 
+                $\sum_{n=1}^{\infty}(\frac{1}{2^{p-1}})^n$ is a geometric series which means that it converges if and only if $\abs{\frac{1}{2^{p-1}}} < 1$ which simplifies to $\abs{2^{p-1}} > 1$ which means $p > 1$.
+            \end{spacing}
+                Thus, the series $\sum_{n=1}^{\infty} \frac{1}{n^p}$ converges if and only if $p > 1$.
+        \end{proof}
     \item [2.7.13] \textbf{(Dirichlet’s Test).} Dirichlet’s Test for convergence states that if the partial sums of $\sum_{n=1}^{\infty} x_n$ are bounded (but not necessarily convergent), and if $(y_n)$ is a sequence satisfying $y_1 \geq y_2 \geq y_3 \geq ... \geq 0$ with lim $y_n = 0$, then the series $\sum_{n=1}^{\infty} x_n y_n$ converges.
         \begin{itemize}
             \item [(a)] Let $M > 0$ be an upper bound for the partial sums of $\sum_{n=1}^{\infty}x_n$. Use Exercise 2.7.12 to show that $\abs{\sum_{j=m+1}^{n} x_j y_j} \leq 2M \abs{y_{m+1}}$.
+                \begin{proof}
+                    Let $s_n = x_1 + x_2 + ... + x_n$ and $M > 0$ be an upper bound for $s_n$. Then,
+                    \begin{align*}
+                        \abs{\sum_{j={m+1}}^n x_jy_j} &= \abs{s_ny_{n+1} - s_my_{m+1} + \sum_{j=m+1}^n s_j(y_j - y_{j+1})}\\
+                        &\leq \abs{s_ny_{n+1} - s_my_{m+1}} + \abs{\sum_{j=m+1}^n s_j(y_j - y_{j+1})}\\
+                        &\leq s_ny_{n+1} + s_my_{m+1} + \sum_{j=m+1}^n s_j(y_j - y_{j+1})\\
+                        &\leq My_{n+1} + My_{m+1} + \sum_{j=m+1}^n M(y_j - y_{j+1})\\
+                        &\leq My_{n+1} + My_{m+1} + M(y_{m+1} - y_{n+1})\\
+                        &= 2My_{m+1}
+                    \end{align*}
+                    So, $\abs{\sum_{j=m+1}^{n} x_j y_j} \leq 2M \abs{y_{m+1}}$ as desired.
+                \end{proof}
             \item [(b)] Prove Dirichlet’s Test just stated.
+                \begin{proof}
+                    Assume the partial sums of $\sum_{n=1}^{\infty} x_n$ are bounded and $(y_n)$ is a sequence satisfying $y_1 \geq y_2 \geq ... \geq 0$ with lim $y_n = 0$.
+                    Let $M > 0$ be an upper bound for the partial sums of $\sum_{n=1}^{\infty}x_n$.
+                    Then, from part a, $2M \abs{y_{m+1}} \geq \abs{\sum_{j=m+1}^{n} x_j y_j} = \abs{x_{m+1} y_{m+1} + x_{m+2} y_{m+2} + ... + x_{n} y_{n}}$.
+                    Let $\epsilon > 0$.
+                    Since, $\lim y_n = 0$, there exists an $N \in \bbN$ such that for all $m \geq N$, $\abs{y_m} < \frac{\epsilon}{2M}$.
+                    Then, for all $n > m \geq N$, $\abs{x_{m+1} y_{m+1} + x_{m+2} y_{m+2} + ... + x_{n} y_{n}} \leq 2M \abs{y_{m+1}} < 2M \frac{\epsilon}{2M} = \epsilon$ which satisfies the Cauchy Criterion for Series.
+                    Thus, the series $\sum_{n=1}^{\infty} x_n y_n$ converges.
+                \end{proof}
             \item [(c)] Show how the Alternating Series Test (Theorem 2.7.7) can be derived as a special case of Dirichlet’s Test.
+                
+                Let $x_n = (-1)^{n+1}$ and $y_n = a_n$.
+                Then, the partial sums of $\sum_{n=1}^{\infty} x_n$ are bounded and $(y_n)$ is a sequence satisfying $y_1 \geq y_2 \geq ... \geq 0$ with lim $y_n = 0$ which means Dirichlet's Test can be applied so $\sum_{n=1}^{\infty} x_n y_n = \sum_{n=1}^{\infty} (-1)^{n+1} a_n$ converges.
         \end{itemize}
 \end{itemize}
 \end{document}

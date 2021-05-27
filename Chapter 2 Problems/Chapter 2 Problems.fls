@@ -848,6 +848,17 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/csquotes/csquotes.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/csquotes/csquotes.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/csquotes/csquotes.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/csquotes/csquotes.cfg
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
@@ -884,9 +895,6 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/textcomp.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/textcomp.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/xcolor/xcolor.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.sty
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amssymb.sty
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/mathtools/mathtools.sty
 INPUT /Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.aux
 INPUT /Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.aux
 INPUT /Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 2 Problems/Chapter 2 Problems.aux
