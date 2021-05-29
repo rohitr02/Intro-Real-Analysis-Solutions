@@ -1,0 +1,114 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{preamble}
+
+\newcommand\course{311 Self Study}
+\newcommand\hwnumber{3}
+\newcommand\userID{Rohit Rao}
+
+\begin{document}
+    \begin{itemize}[leftmargin=!,labelindent=5pt]
+        \item [3.2.2] Let $B = \{\frac{(-1)^nn}{n+1} : n = 1, 2, 3, ...\}$.
+            \begin{itemize}
+                \item [(a)] Find the limit points of $B$.
+                
+                    $\{-1, 1\}$
+                \item [(b)] Is $B$ a closed set?
+                
+                    No, it contains neither of its limit points.
+                \item [(c)] Is $B$ an open set?
+                
+                    No, its not possible to find an $\epsilon$-neighborhood for every point in $B$ such that the $\epsilon$-neighborhood is contained in $B$.
+                \item [(d)] Does $B$ contain any isolated points?
+                
+                    Every element of $B$ is an isolated point.
+                \item [(e)] Find $\overline{B}$.
+                
+                    $B \cup \{-1, 1\}$
+            \end{itemize}
+        \item [3.2.6] Prove Theorem 3.2.8: A set $F \subseteq \bbR$ is closed if and only if every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+            \begin{proof}
+                \ \\
+                First we prove that if a set $F \subseteq \bbR$ is closed then every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+                Assume $F \subseteq \bbR$ is closed, that is $F$ contains its limit points.
+                So, we need to show that every Cauchy sequence $(a_n)$ contained in $F$ has a limit in $F$.
+                Assume $(a_n)$ is an arbitrary Cauchy sequence contained in $F$.
+                Since $(a_n)$ is Cauchy, it's limit exists.
+                So, let $a = \lim (a_n)$.
+                Now, we need to show that $a$ is either a limit point in $F$ or an isolated point in $F$.
+                If $a_n \neq a$ for all $n \in \bbN$, then $a$ is a limit point and since $F$ is closed, $a \in F$.
+                Otherwise, $a_n = a$ for some $n \in \bbN$, and since $(a_n) \subseteq F$, $a \in F$.
+                So, every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+                \\
+                Next, we prove that if every Cauchy sequence contained in a set $F$ has a limit that is also an element of $F$, then $F \subseteq \bbR$ is closed.
+                Assume every Cauchy sequence contained in a set $F \subseteq \bbR$ has a limit that is also an element of $F$.
+                Need to show that $F$ is closed, that is $F$ contains all its limit points.
+                Let $a$ be an arbitrary limit point of $F$.
+                Then, $a = \lim a_n$ for some sequence $(a_n)$ contained in $F$.
+                Since $(a_n)$ converges, it must be a Cauchy sequence.
+                So, $a \in F$. Thus, $F$ is closed.
+            \end{proof}
+        \newpage
+        \item [3.2.10] (De Morgan's Laws): A proof for De Morgan’s Laws in the case of two sets is outlined in Exercise 1.2.3. The general argument is similar.
+            \begin{itemize}
+                \item [(a)] Given a collection of sets $\{E_\lambda : \lambda \in \Lambda\}$, show that $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c = \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$ and $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c = \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                    \begin{spacing}{1.175}
+                        \begin{proof}
+                            First, we need to show that $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$, that is $\forall x \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$, $x \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Suppose $x \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Then, by definition of set complement, $\forall \lambda \in \Lambda, x \notin E_\lambda$.
+                            So, $\forall \lambda \in \Lambda, x \in E_\lambda^c$.
+                            Then, by definition of set intersection, $x \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            So, $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Next, we need to show that $\bigcap_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$, that is $\forall y \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$, $y \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Suppose $y \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Then, by definition of set intersection, $\forall \lambda \in \Lambda, y \in E_\lambda^c$.
+                            So, $\forall \lambda \in \Lambda, y \notin E_\lambda$.
+                            Then, by definition of set union, $y \notin \bigcup_{\lambda \in \Lambda} E_\lambda$.
+                            So, $y \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Thus, $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$ and $\bigcap_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$ means that $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c = \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                        \end{proof}
+
+                        \begin{proof}
+                            First, we need to show that $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$, that is $\forall x \in (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$, $x \in \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Suppose $x \in (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$.
+                            So, $x \notin \bigcap_{\lambda \in \Lambda} E_\lambda$ which means that there exists at least one $\lambda' \in \Lambda$ such that $x \notin E_{\lambda'}$.
+                            Choose $\lambda' \in \Lambda$ such that $x \notin E_{\lambda'}$.
+                            Then, $x \in E_{\lambda'}^c$.
+                            So, $x \in \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$ which means $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Next we need to prove that $\bigcup_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$, that is $\forall y \in \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$, $y \in (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Suppose $y \in \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Then, there exists at least one $\lambda'' \in \Lambda$ such that $y \notin E_{\lambda''}$.
+                            Choose $\lambda'' \in \Lambda$ such that $y \notin E_{\lambda''}$.
+                            Then, $y \notin \bigcap_{\lambda \in \Lambda} E_{\lambda}$.
+                            So, $y \in (\bigcap_{\lambda \in \Lambda} E_{\lambda})^c$ which means $\bigcup_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Thus, $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$ and $\bigcup_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$ means that $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c = \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                        \end{proof}
+                    \end{spacing}
+                \item [(b)] Now, provide the details for the proof of Theorem 3.2.14
+                
+                (i) The union of a finite collection of closed sets is closed.
+                    \begin{proof}
+                        Suppose $\{E_\lambda : \lambda \in \Lambda\}$ is a collection of closed sets.
+                        Then, $\{E_\lambda : \lambda \in \Lambda\}^c$ is a collection of open sets and we know that the intersection of a finite amount of open sets is open (Theorem 3.2.3).
+                        So, taking the complement again $(\{E_\lambda : \lambda \in \Lambda\}^c)^c = \{E_\lambda : \lambda \in \Lambda\}$ gives us a closed set (since the complement of an open set is a closed set) as desired.
+                    \end{proof}
+                (ii) The intersection of an arbitrary collection of closed sets is closed.
+                    \begin{proof}
+                        Suppose $\{E_\lambda : \lambda \in \Lambda\}$ is an arbitrary collection of closed sets.
+                        Then, $E_{\lambda}^c$ is open and $\forall \lambda \in \Lambda$, the union of $E_{\lambda}^c$ is open (Theorem 3.2.3).
+                        By De Morgan's Law, we know $\bigcup_{\lambda \in \Lambda} E_{\lambda}^c = (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$ so $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c$ is open.
+                        Then, $\bigcap_{\lambda \in \Lambda} E_\lambda$ is closed.
+                        Thus, the intersection of an arbitrary collection of closed sets is closed.
+                    \end{proof}
+            \end{itemize}
+        \item [3.3.4] 
+        \item [3.3.8] 
+        \item [3.3.10] 
+        \item [3.4.4] 
+        \item [3.4.5] 
+        \item [3.4.7] 
+        \item [3.5.1] 
+        \item [3.5.2]
+        \item [3.5.3]
+    \end{itemize}
+\end{document}
