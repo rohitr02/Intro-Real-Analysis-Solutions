@@ -101,9 +101,47 @@
                         Thus, the intersection of an arbitrary collection of closed sets is closed.
                     \end{proof}
             \end{itemize}
-        \item [3.3.4] 
-        \item [3.3.8] 
-        \item [3.3.10] 
+        \item [3.3.4] Show that if $K$ is compact and $F$ is closed, then $K \cap F$ is compact.
+        
+            \begin{proof}
+                Suppose $F$ is closed and $K$ is compact, that is $K$ is bounded and closed.
+                Need to show that $K \cap F$ is compact, that is $K \cap F$ is bounded and closed.
+                Since $K$ is bounded and $K \cap F \subseteq K$, $K \cap F$ is bounded.
+                Also, since $K$ is closed and $F$ is closed, $K \cap F$ is closed (since the intersection of an arbitrary collection of closed sets is closed).
+                So, $K \cap F$ is bounded and closed which means $K \cap F$ is compact.
+            \end{proof}
+        \item [3.3.8] Follow these steps to prove the final implication in Theorem 3.3.8.
+            
+            Assume $K$ satisfies (i) and (ii), and let $\{O_\lambda : \lambda \in \Lambda\}$ be an open cover for $K$. For contradiction, let’s assume that no finite subcover exists. Let $I_0$ be a closed interval containing $K$, and bisect $I_0$ into two closed intervals $A_1$ and $B_1$.
+            \begin{itemize}
+                \item [(a)] Why must either $A_1 \cap K$ or $B_1 \cap K$ (or both) have no finite subcover consisting of sets from $\{O_\lambda : \lambda \in \Lambda\}$.
+                
+                    At least one of $A_1 \cap K$ or $B_1 \cap K$ must have no finite subcover since if they both did have a finite subcover then the union of them would be a finite subcover for $K$ which would contradict the assumption that no finite subcover exists for $K$.
+                \item [(b)] Show that there exists a nested sequence of closed intervals $I_0 \supseteq I_1 \supseteq I_2 \supseteq ... $ with the property that, for each $n$, $I_n \cap K$ cannot be finitely covered and $\lim \abs{I_n} = 0$.
+                
+                    Choose whichever of $A_1 \cap K$ or $B_1 \cap K$ does not have a finite subcover (choose any one if they both do not), then call that choice $I_1$.
+                    Then, bisect $I_1$ to give $A_2$ and $B_2$.
+                    Once again, either $A_2 \cap K$ or $B_2 \cap K$ (or both) have no finite subcover.
+                    Choose whichever of $A_2 \cap K$ or $B_2 \cap K$ does not have a finite subcover (choose either one if they both do not), then we can call that choice $I_2$.
+                    Repeating this over results in the sequence $I_0 \supseteq I_1 \supseteq I_2 \supseteq ... $ where $I_n \cap K$ cannot be finitely covered and as this sequence goes further, it tends towards $\lim \abs{I_n} = 0$.
+                \item [(c)] Show that there exists an $x \in K$ such that $x \in I_n$ for all $n$.
+                
+                    Since $K$ is compact, it is closed and bounded.
+                    So, $K \cap I_n \subseteq K$ is also closed and bounded for all $n \in \bbN$ which means $K \cap I_n$ is compact.
+                    Thus, by Theorem 3.3.5, the intersection of a nested sequence of nonempty compact sets is nonempty, that is $\exists x \in K$ such that $x \in K \cap I_n \subseteq I_n$ for all $n \in \bbN$.
+                    So, $x \in I_n$ for all $n \in \bbN$.
+
+                \item [(d)] Because $x \in K$, there must exist an open set $O_{\lambda_0}$ from the original collection that contains $x$ as an element. Argue that there must be an $n_0$ large enough to guarantee that $I_{n_0} \subseteq O_{\lambda_0}$. Explain why this furnishes us with the desired contradiction.
+                
+                    Since $O_{\lambda_0}$ is an open set, there exists $\epsilon > 0$ such that the $\epsilon$-neighborhood $V_\epsilon(x) \subseteq O_{\lambda_0}$.
+                    So, choose $n_0 \in \bbN$ such that $\abs{I_{n_0}} < \epsilon$.
+                    Then, $I_{n_0} \subseteq O_{\lambda_0}$ which means $I_{n_0}$ has a finite subcover.
+                    However, this is a contradiction to the initial claim that $K$ has no finite subcover
+                    because $K \cap I_{n_0}$ has a finite subcover, namely $O_{\lambda_0}$.
+            \end{itemize}
+        \item [3.3.10] Let’s call a set clompact if it has the property that every closed cover (i.e., a cover consisting of closed sets) admits a finite subcover. Describe all of the clompact subsets of $\bbR$.
+            
+            All finite sets in $\bbR$ are clompact.
         \item [3.4.4] 
         \item [3.4.5] 
         \item [3.4.7] 
