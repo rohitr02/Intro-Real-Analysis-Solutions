@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.14)  29 MAY 2021 15:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.14)  29 MAY 2021 20:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -610,25 +610,25 @@ Overfull \hbox (7.13089pt too wide) in paragraph at lines 72--85
 []\T1/cmr/m/n/12 First, we need to show that $\OT1/cmr/m/n/12 ([][] \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^R [][] \OML/cmm/m/it/12 E[]$\T1/cmr/m/n/12 , that is $\OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 ([][] \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 )[]$\T1/cmr/m/n/12 ,
  []
 
-[2] [3] 
+[2] [3] [4] 
 AED: lastpage setting LastPage
-[4] (/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 3 Problems/Chapter 3 Problems.aux)
+[5] (/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 3 Problems/Chapter 3 Problems.aux)
 Package rerunfilecheck Info: File `"Chapter 3 Problems".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15906 strings out of 478994
- 230196 string characters out of 5858184
+ 15907 strings out of 478994
+ 230202 string characters out of 5858184
  601935 words of memory out of 5000000
  33095 multiletter control sequences out of 15000+600000
  415907 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  96i,11n,103p,470b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 3 Problems/Chapter 3 Problems.pdf" (4 pages, 161312 bytes).
+Output written on "/Users/rohit/Desktop/311 Self study/Intro-Real-Analysis-Solutions/Chapter 3 Problems/Chapter 3 Problems.pdf" (5 pages, 170247 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
+ 90 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

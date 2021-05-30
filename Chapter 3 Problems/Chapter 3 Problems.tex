@@ -142,9 +142,50 @@
         \item [3.3.10] Let’s call a set clompact if it has the property that every closed cover (i.e., a cover consisting of closed sets) admits a finite subcover. Describe all of the clompact subsets of $\bbR$.
             
             All finite sets in $\bbR$ are clompact.
-        \item [3.4.4] 
-        \item [3.4.5] 
-        \item [3.4.7] 
+        \item [3.4.4] Repeat the Cantor construction from Section 3.1 starting with the open interval $[0, 1]$. This time, however, remove the open middle fourth from each component.
+            \begin{itemize}
+                \item [(a)] Is the resulting set compact? Perfect?
+                
+                    Yes, the resulting set is both compact and perfect for similar reasons as the original Cantor Set from before (removing middle third component).
+                \item [(b)] Using the algorithms from Section 3.1, compute the length and dimension of this Cantor-like set.
+                
+                    Length: $1 - (\frac{1}{4} + 2(\frac{3}{32}) + 4(\frac{9}{256}) + ... ) = 1 - (\frac{1}{4} + \frac{3}{16} + \frac{9}{64} + ... ) = 1 - (\frac{\frac{1}{4}}{1 - \frac{3}{4}}) = 0$.
+                    
+                    Dimension: Use $\frac{8}{3}$ as the magnifying amount.
+                    Then, $[0,1]$ becomes $[0,\frac{8}{3}]$ which splits into $[0,1]\cup [\frac{5}{3}, \frac{8}{3}]$.
+                    Since it splits into 2 and will continue to do so, we have $2 = (\frac{8}{3})^x$ which means $x = \frac{\ln 2}{\ln \frac{8}{3}} \approx 0.707$.
+            \end{itemize}
+        \item [3.4.5] Let $A$ and $B$ be subsets of $\bbR$. Show that if there exist disjoint open sets $U$ and $V$ with $A \subseteq U$ and $B \subseteq V$, then $A$ and $B$ are separated.
+            \begin{proof}
+                Let $A$ and $B$ be subsets of $\bbR$.
+                Assume there exist disjoint open sets $U$ and $V$ with $A \subseteq U$ and $B \subseteq V$.
+                Need to show that $A$ and $B$ are separated, that is $\overline{A} \cap B = \emptyset = \overline{B} \cap A$.
+                Since $U$ and $V$ are disjoint, $U \cap V = \emptyset$ which means that $U \subseteq V^c$.
+                Then, since $V$ is open, $V^c$ is closed which means that all of $U$'s limit points must be in $V^c$, that is $\overline{U} \subseteq V^c$.
+                So, $\overline{U} \cap V = \emptyset$.
+                Similarly, $\overline{V} \cap U = \emptyset$.
+                Then, since $A \subseteq U \subseteq \overline{U}$ and all of $A$'s limit points must be limit points of $U$, $\overline{A} \subseteq \overline{U}$.
+                Similarly, $\overline{B} \subseteq \overline{V}$.
+                Thus, since $B \subseteq V$, $\overline{A} \cap B = \emptyset$.
+                Similarly, since $A \subseteq U$, $\overline{B} \cap A = \emptyset$.
+                So, $A$ and $B$ are separated.
+            \end{proof}
+        \item [3.4.7]
+            \begin{itemize}
+                \item [(a)] Find an example of a disconnected set whose closure is connected.
+                
+                    Let $A = (-\infty, 0)$ and let $B = (0, \infty)$.
+                    Then, $\overline{A} = (-\infty, 0]$ and $\overline{B} = [0, \infty)$.
+                    So, $\overline{A} \cap B = \emptyset$ and $A \cap \overline{B} = \emptyset$ which means $A$ and $B$ are nonempty separated sets.
+                    Therefore, $E = (A \cup B) \subseteq \bbR$ is a disconnected set.
+                    Since, $0$ is a limit point of $E$, $\overline{E} = (-\infty, \infty) = \bbR$ which is a connected set.
+                    Thus, $E$ is a disconnected set whose closure is connected.
+                \item [(b)] If $A$ is connected, is $\overline{A}$ necessarily connected? If $A$ is perfect, is $\overline{A}$ necessarily perfect?
+                
+                    Yes, if $A$ is connected then $\overline{A}$ is connected as well.
+
+                    Yes, if $A$ is perfect then $A = \overline{A}$ so $\overline{A}$ is perfect as well.
+            \end{itemize}
         \item [3.5.1] 
         \item [3.5.2]
         \item [3.5.3]
