@@ -3,6 +3,6 @@ Solutions to selected problems in [Abbott's Understanding Analysis](http://cms.d
 
 Self-study for [Math 311: Introduction to Real Analysis 1](https://www.math.rutgers.edu/academics/undergraduate/courses/955-01-640-311-introduction-to-real-analysis-i).
 
-The specific problems completed are listed in the respective "Chapter X Problems" folder along with the LaTeX files.
+The specific problems solved are listed in the respective "Chapter X Problems" folder along with the LaTeX files.
 
 To just see the output pdfs, go to the ["Only Solutions"](https://github.com/rohitr02/Intro-Real-Analysis-Solutions/tree/main/Only%20Solutions) folder.
