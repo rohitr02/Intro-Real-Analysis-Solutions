@@ -186,8 +186,41 @@
 
                     Yes, if $A$ is perfect then $A = \overline{A}$ so $\overline{A}$ is perfect as well.
             \end{itemize}
-        \item [3.5.1] 
-        \item [3.5.2]
-        \item [3.5.3]
+        \item [3.5.1] Argue that a set $A$ is a $G_\delta$ set if and only if its complement is an $F_\sigma$ set.
+            \begin{proof}
+                \ \\
+                Suppose $A$ is a $G_\delta$ set.
+                Then $A$ can be written as $A = \bigcap_{n=1}^{\infty} O_n$ where each $O_n$ for all $n \in \bbN$ is an open set.
+                By DeMorgan's Law, $A^c = \bigcup_{n=1}^{\infty} O_n^c$ where each $O_n^c$ for all $n \in \bbN$ is a closed set.
+                So, $A^c$ is an $F_\sigma$ set as desired.
+
+                Suppose $A$ is a $F_\sigma$ set.
+                Then $A$ can be written as $A = \bigcup_{n=1}^{\infty} C_n$ where each $C_n$ for all $n \in \bbN$ is a closed set.
+                By DeMorgan's Law, $A^c = \bigcap_{n=1}^{\infty} C_n^c$ where each $C_n^c$ for all $n \in \bbN$ is an open set.
+                So, $A^c$ is an $G_\delta$ set as desired.
+            \end{proof}
+        \item [3.5.2] Replace each blank with the word finite or countable, depending on which is more appropriate.
+            \begin{itemize}
+                \item [(a)] The \underline{countable} union of $F_\sigma$ sets is an $F_\sigma$ set.
+                \item [(b)] The \underline{finite} intersection of $F_\sigma$ sets is an $F_\sigma$ set.
+                \item [(c)] The \underline{finite} union of $G_\delta$ sets is an $G_\delta$ set.
+                \item [(d)] The \underline{countable} intersection of $G_\delta$ sets is an $G_\delta$ set.
+            \end{itemize}
+        \item [3.5.3] (This exercise has already appeared as Exercise 3.2.14.)
+            \begin{itemize}
+                \item [(a)] Show that a closed interval $[a, b]$ is a $G_\delta$ set.
+                
+                    $[a, b]$ can be written as $[a, b] = \bigcap_{n=1}^{\infty}(a-\frac{1}{n}, b+\frac{1}{n})$ which is a countable intersection of open intervals.
+                \item [(b)] Show that the half-open interval $(a, b]$ is both a $G_\delta$ and an $F_\sigma$ set.
+                    
+                    $(a, b]$ can be written as $(a, b] = \bigcap_{n=1}^{\infty}(a, b+\frac{1}{n})$ which is a countable intersection of open intervals.
+
+                    $(a, b]$ can be written as $(a, b] = \bigcup_{n=1}^{\infty}[a + \frac{1}{n}, b]$ which is a countable union of closed intervals.
+                \item [(c)] Show that $\bbQ$ is an $F_\sigma$ set, and the set of irrationals $\mathbb{I}$ forms a $G_\delta$ set.
+                
+                    We know that $\bbQ$ is countable so if we take the union of singleton sets each containing an element in $\bbQ$, then we get a countable union of closed sets, that is $Q = \bigcup_{n=1}^\infty \{q_n\}$ where $q_n \in \bbQ$.
+                    Thus, $\bbQ$ is an $F_\sigma$ set.
+                    Then, since $\mathbb{I} = \bbQ^c$ and the complement of an $F_\sigma$ set is a $G_\delta$ set, $\mathbb{I}$ is a $G_\delta$ set.
+            \end{itemize}
     \end{itemize}
 \end{document}
