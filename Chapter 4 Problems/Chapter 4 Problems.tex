@@ -1,0 +1,120 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{preamble}
+
+\newcommand\course{311 Self Study}
+\newcommand\hwnumber{4}
+\newcommand\userID{Rohit Rao}
+
+\begin{document}
+    \begin{itemize}[leftmargin=!,labelindent=5pt]
+        \item [4.2.2] Assume a particular $\delta > 0$ has been constructed as a suitable response to a particular $\epsilon$ challenge. Then, any larger/smaller (pick one) $\delta$ will also suffice.
+        
+            Smaller.
+        \item [4.2.4] Review the definition of Thomae’s function $t(x)$ from Section 4.1.
+        
+            \[ t(x) =
+            \begin{cases}
+                1 & \text{if } x = 0\\
+                \frac{1}{n} & \text{if } x = \frac{m}{n} \in \bbQ - \{0\} \text{ is in lowest terms with } n > 0\\
+                0 & \text{if } x \notin \bbQ
+            \end{cases}
+            \]
+            \begin{itemize}
+                \item [(a)] Construct three different sequences $(x_n)$, $(y_n)$, and $(z_n)$, each of which converges to 1 without using the number 1 as a term in the sequence.
+                
+                    $(x_n) = 1 - \frac{1}{n}$ for all $n \in N$ such that $n > 1$.
+
+                    $(y_n) = 1 + \frac{1}{n}$ for all $n \in N$ such that $n > 1$.
+
+                    $(z_n) = 1 - \frac{1}{n^2}$ for all $n \in N$ such that $n > 1$.
+                \item [(b)] Now, compute $\lim t(x_n)$, $\lim t(y_n)$, and $\lim t(z_n)$.
+                
+                    $\lim t(x_n) = \lim t(y_n) = \lim t(z_n) = 0$
+                \item [(c)] Make an educated conjecture for $\lim_{x \to 1} t(x)$, and use Definition 4.2.1B to verify the claim. (Given $\epsilon > 0$, consider the set of points $\{x\in \bbR : t(x) \geq \epsilon\}$. Argue that all the points in this set are isolated.)
+                
+                    My conjecture is that $\lim_{x \to 1} t(x) = 0$.
+                    \begin{proof}
+                        Suppose $\epsilon > 0$.
+                        Define $(x_n)$ to be the sequence $\frac{p + n - 1}{q + n - 1}$ where $p,q \in \bbZ$ and $\frac{p + n - 1}{q + n - 1} < 1$.
+                        % Need to show that this sequence converges to $1$, that is $\exists N \in \bbN$ such that $\forall n \geq N$, $\abs{x_n - 1} < \epsilon$.
+                        % Choose $N$ such that $\abs{\frac{p-q}{q+n-1}} < \epsilon$.
+
+                    \end{proof}
+                    % \begin{proof}
+                    %     Suppose $\epsilon > 0$ is given.
+                    %     Need to prove there exists a $\delta$-neighborhood $V_\delta(1)$ around 1 such that if $x \in V_\delta(1)$, then $t(x) \in V_\epsilon(0)$.
+                    %     Consider the set of points $\{x\in \bbR : t(x) \geq \epsilon\}$.
+                    %     Since $\epsilon > 0$, $\{x\in \bbR : t(x) \geq \epsilon\}$ only contains $x \in \bbR$ such that $x$ is rational [because if $x$ is irrational then $t(x) = 0 < \epsilon$], specifically $x = \frac{m}{n}$ where $m,n \in \bbZ$ and $0 < n \leq \frac{1}{\epsilon}$ which means that $\{x\in \bbR : t(x) \geq \epsilon\}$ only has a finite amount of points.
+                    %     % \ 
+                    %     % Since $\{x\in \bbR : t(x) \geq \epsilon\}$ is finite, let $M = \min{\{x\in \bbR : t(x) \geq \epsilon\}} \in \bbQ$.
+                    %     % So, $M$ can be represented as $\frac{p}{q}$ for $p,q \in \bbZ$.%, but since $M$ is the minimum, $q$ must be 
+                    %     % Choose $\delta$ such that $0 < \delta < M = \frac{p}{q} \leq \frac{p}{\frac{1}{\epsilon}} = p\epsilon$.
+                    %     % So, $0 < \delta < p\epsilon$.
+                    %     Since $\{x\in \bbR : t(x) \geq \epsilon\}$ is finite, choose $\delta$ such that $0 < 2\delta < \min{\{x\in \bbR : t(x) \geq \epsilon\}}$.
+                    %     To show that this delta works, suppose $x \in V_\delta(1)$, that is $x \in (1-\delta, 1+\delta)$.
+                    %     Then, $x \notin \{x\in \bbR : t(x) \geq \epsilon\}$ because $x = \frac{m}{n}$ where $m,n \in \bbZ$ and any rational number in $(1-\delta, 1+\delta)$ must have $n > \frac{1}{\epsilon}$ by the way $\delta$ was defined.
+                    %     Thus, since $x \notin \{x\in \bbR : t(x) \geq \epsilon\}$, $t(x) \in V_\epsilon(0)$.
+                    %     % As $x = \frac{m}{n}$ approaches 1, $n$ becomes larger.
+                    %     % As $n$ becomes larger, $\frac{1}{n}$ becomes smaller, specifically $\lim_{n\to \infty} \frac{1}{n} = 0$.
+                    %     % However, $n$ is restricted by $\frac{1}{\epsilon}$
+                    %     % NEEEEDDD TOOO FINISH THIS LATER!!!!!
+                    %     % Suppose $a \in \{x\in \bbR : t(x) \geq \epsilon\}$.
+                    %     % Then, $a \in \bbQ$ so $a = \frac{m}{n}$ for $m,n \in \bbZ$ such that $n \leq \frac{1}{\epsilon}$.
+                    % \end{proof}
+            \end{itemize}
+        \item [4.2.5] 
+            \begin{itemize}
+                \item [(a)] Supply the details for how Corollary 4.2.4 part (ii) follows from the sequential criterion for functional limits in Theorem 4.2.3 and the Algebraic Limit Theorem for sequences proved in Chapter 2.
+                    \begin{proof}
+                        Suppose $f$ and $g$ are functions defined on the domain $A \subseteq \bbR$ and $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$.
+                        Need to show that $\lim_{x \to c} [f(x) + g(x)] = L + M$, that is as $x_n$ approaches $c$, $f(x_n) + g(x_n)$ approaches $L + M$.
+                        Since $f(x_n) \to L$ and $g(x_n) \to M$, we can use the algebraic limit theorem to get $f(x_n) + g(x_n) \to L + M$.
+
+                    \end{proof}
+                \item [(b)] Now, write another proof of Corollary 4.2.4 part (ii) directly from Definition 4.2.1 without using the sequential criterion in Theorem 4.2.3.
+                    \begin{proof}
+                        Suppose $f$ and $g$ are functions defined on the domain $A \subseteq \bbR$ and $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$.
+                        Let $\epsilon > 0$.
+                        Need to show that $\lim_{x \to c} [f(x) + g(x)] = L + M$, that is there exists $\delta$ such that whenever $0 < \abs{x-c} < \delta$, it follows that $\abs{(f(x) + g(x)) - (L + M)} < \epsilon$.
+                        Since $\lim_{x \to c} f(x) = L$, we know that there exists a $\delta_1$ such that whenever $0 < \abs{x-c} < \delta_1$, it follows that $\abs{f(x) - L} < \frac{\epsilon}{2}$.
+                        Similarly, since $\lim_{x \to c} g(x) = M$, we know that there exists a $\delta_2$ such that whenever $0 < \abs{x-c} < \delta_2$, it follows that $\abs{g(x) - M} < \frac{\epsilon}{2}$.
+                        So, choose $\delta$ such that $\delta = \min\{\delta_1, \delta_2\}$.
+                        Then, whenever $0 < \abs{x-c} < \delta$:
+                        \begin{align*}
+                            \abs{(f(x) + g(x)) - (L + M)} &= \abs{(f(x) - L) + (g(x) - M)} \\
+                            &\leq \abs{(f(x) - L)} + \abs{(g(x) - M)}\\
+                            &< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+                        \end{align*}
+                        So, $0 < \abs{x-c} < \delta$ implies $\abs{(f(x) + g(x)) - (L + M)} < \epsilon$ as desired.
+                    \end{proof}
+
+                \item [(c)] Repeat (a) and (b) for Corollary 4.2.4 part (iii).
+                
+                    
+            \end{itemize}
+        % \item [4.2.6] Let $g : A \to \bbR$ and assume that $f$ is a bounded function on $A \subseteq \bbR$ (i.e., there exists $M > 0$ satisfying $\abs{f(x)} \leq M$ for all $x \in A$). Show that if $\lim_{x \to c} g(x) = 0$, then $\lim_{x \to c} g(x)f(x) = 0$ as well.
+        % \item [4.2.7] 
+        %     \begin{itemize}
+        %         \item [(a)] The statement $\lim_{x \to 0} \frac{1}{x^2} = \infty$ certainly makes intuitive sense. Construct a rigorous definition in the “challenge–response” style of Definition 4.2.1 for a limit statement of the form $\lim_{x \to c} f(x) = \infty$ and use it to prove the previous statement.
+        %         \item [(b)] Now, construct a definition for the statement $\lim_{x \to \infty} f(x) = L$. Show $\lim_{x \to \infty} \frac{1}{x} = 0$.
+        %         \item [(c)] What would a rigorous definition for $\lim_{x \to \infty} f(x) = \infty$ look like? Give an example of such a limit.
+        %     \end{itemize}
+        % \item [4.2.8] Assume $f(x) \geq g(x)$ for all $x$ in some set $A$ on which $f$ and $g$
+        % are defined. Show that for any limit point $c$ of $A$ we must have $\lim_{x \to c} f(x) \geq \lim_{x \to c} g(x)$.
+        % \item [4.3.2] 
+        % \item [4.3.4] 
+        % \item [4.3.6] 
+        % \item [4.3.8] 
+        % \item [4.3.9] 
+        % \item [4.3.11] 
+        % \item [4.4.3] 
+        % \item [4.4.4] 
+        % \item [4.4.6] 
+        % \item [4.4.9] 
+        % \item [4.4.10] 
+        % \item [4.4.11] 
+        % \item [4.5.2]
+        % \item [4.5.3] 
+        % \item [4.5.6]
+    \end{itemize}
+\end{document}

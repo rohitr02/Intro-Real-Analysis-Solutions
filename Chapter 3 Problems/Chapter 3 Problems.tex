@@ -1,0 +1,226 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{preamble}
+
+\newcommand\course{311 Self Study}
+\newcommand\hwnumber{3}
+\newcommand\userID{Rohit Rao}
+
+\begin{document}
+    \begin{itemize}[leftmargin=!,labelindent=5pt]
+        \item [3.2.2] Let $B = \{\frac{(-1)^nn}{n+1} : n = 1, 2, 3, ...\}$.
+            \begin{itemize}
+                \item [(a)] Find the limit points of $B$.
+                
+                    $\{-1, 1\}$
+                \item [(b)] Is $B$ a closed set?
+                
+                    No, it contains neither of its limit points.
+                \item [(c)] Is $B$ an open set?
+                
+                    No, its not possible to find an $\epsilon$-neighborhood for every point in $B$ such that the $\epsilon$-neighborhood is contained in $B$.
+                \item [(d)] Does $B$ contain any isolated points?
+                
+                    Every element of $B$ is an isolated point.
+                \item [(e)] Find $\overline{B}$.
+                
+                    $B \cup \{-1, 1\}$
+            \end{itemize}
+        \item [3.2.6] Prove Theorem 3.2.8: A set $F \subseteq \bbR$ is closed if and only if every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+            \begin{proof}
+                \ \\
+                First we prove that if a set $F \subseteq \bbR$ is closed then every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+                Assume $F \subseteq \bbR$ is closed, that is $F$ contains its limit points.
+                So, we need to show that every Cauchy sequence $(a_n)$ contained in $F$ has a limit in $F$.
+                Assume $(a_n)$ is an arbitrary Cauchy sequence contained in $F$.
+                Since $(a_n)$ is Cauchy, it's limit exists.
+                So, let $a = \lim (a_n)$.
+                Now, we need to show that $a$ is either a limit point in $F$ or an isolated point in $F$.
+                If $a_n \neq a$ for all $n \in \bbN$, then $a$ is a limit point and since $F$ is closed, $a \in F$.
+                Otherwise, $a_n = a$ for some $n \in \bbN$, and since $(a_n) \subseteq F$, $a \in F$.
+                So, every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+                \\
+                Next, we prove that if every Cauchy sequence contained in a set $F$ has a limit that is also an element of $F$, then $F \subseteq \bbR$ is closed.
+                Assume every Cauchy sequence contained in a set $F \subseteq \bbR$ has a limit that is also an element of $F$.
+                Need to show that $F$ is closed, that is $F$ contains all its limit points.
+                Let $a$ be an arbitrary limit point of $F$.
+                Then, $a = \lim a_n$ for some sequence $(a_n)$ contained in $F$.
+                Since $(a_n)$ converges, it must be a Cauchy sequence.
+                So, $a \in F$. Thus, $F$ is closed.
+            \end{proof}
+        \newpage
+        \item [3.2.10] (De Morgan's Laws): A proof for De Morgan’s Laws in the case of two sets is outlined in Exercise 1.2.3. The general argument is similar.
+            \begin{itemize}
+                \item [(a)] Given a collection of sets $\{E_\lambda : \lambda \in \Lambda\}$, show that $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c = \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$ and $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c = \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                    \begin{spacing}{1.175}
+                        \begin{proof}
+                            First, we need to show that $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$, that is $\forall x \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$, $x \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Suppose $x \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Then, by definition of set complement, $\forall \lambda \in \Lambda, x \notin E_\lambda$.
+                            So, $\forall \lambda \in \Lambda, x \in E_\lambda^c$.
+                            Then, by definition of set intersection, $x \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            So, $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Next, we need to show that $\bigcap_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$, that is $\forall y \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$, $y \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Suppose $y \in \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Then, by definition of set intersection, $\forall \lambda \in \Lambda, y \in E_\lambda^c$.
+                            So, $\forall \lambda \in \Lambda, y \notin E_\lambda$.
+                            Then, by definition of set union, $y \notin \bigcup_{\lambda \in \Lambda} E_\lambda$.
+                            So, $y \in (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Thus, $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$ and $\bigcap_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcup_{\lambda \in \Lambda} E_\lambda)^c$ means that $(\bigcup_{\lambda \in \Lambda} E_\lambda)^c = \bigcap_{\lambda \in \Lambda} E_{\lambda}^c$.
+                        \end{proof}
+
+                        \begin{proof}
+                            First, we need to show that $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$, that is $\forall x \in (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$, $x \in \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Suppose $x \in (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$.
+                            So, $x \notin \bigcap_{\lambda \in \Lambda} E_\lambda$ which means that there exists at least one $\lambda' \in \Lambda$ such that $x \notin E_{\lambda'}$.
+                            Choose $\lambda' \in \Lambda$ such that $x \notin E_{\lambda'}$.
+                            Then, $x \in E_{\lambda'}^c$.
+                            So, $x \in \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$ which means $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Next we need to prove that $\bigcup_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$, that is $\forall y \in \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$, $y \in (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Suppose $y \in \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                            Then, there exists at least one $\lambda'' \in \Lambda$ such that $y \notin E_{\lambda''}$.
+                            Choose $\lambda'' \in \Lambda$ such that $y \notin E_{\lambda''}$.
+                            Then, $y \notin \bigcap_{\lambda \in \Lambda} E_{\lambda}$.
+                            So, $y \in (\bigcap_{\lambda \in \Lambda} E_{\lambda})^c$ which means $\bigcup_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$.
+                            Thus, $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c \subseteq \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$ and $\bigcup_{\lambda \in \Lambda} E_{\lambda}^c \subseteq (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$ means that $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c = \bigcup_{\lambda \in \Lambda} E_{\lambda}^c$.
+                        \end{proof}
+                    \end{spacing}
+                \item [(b)] Now, provide the details for the proof of Theorem 3.2.14
+                
+                (i) The union of a finite collection of closed sets is closed.
+                    \begin{proof}
+                        Suppose $\{E_\lambda : \lambda \in \Lambda\}$ is a collection of closed sets.
+                        Then, $\{E_\lambda : \lambda \in \Lambda\}^c$ is a collection of open sets and we know that the intersection of a finite amount of open sets is open (Theorem 3.2.3).
+                        So, taking the complement again $(\{E_\lambda : \lambda \in \Lambda\}^c)^c = \{E_\lambda : \lambda \in \Lambda\}$ gives us a closed set (since the complement of an open set is a closed set) as desired.
+                    \end{proof}
+                (ii) The intersection of an arbitrary collection of closed sets is closed.
+                    \begin{proof}
+                        Suppose $\{E_\lambda : \lambda \in \Lambda\}$ is an arbitrary collection of closed sets.
+                        Then, $E_{\lambda}^c$ is open and $\forall \lambda \in \Lambda$, the union of $E_{\lambda}^c$ is open (Theorem 3.2.3).
+                        By De Morgan's Law, we know $\bigcup_{\lambda \in \Lambda} E_{\lambda}^c = (\bigcap_{\lambda \in \Lambda} E_\lambda)^c$ so $(\bigcap_{\lambda \in \Lambda} E_\lambda)^c$ is open.
+                        Then, $\bigcap_{\lambda \in \Lambda} E_\lambda$ is closed.
+                        Thus, the intersection of an arbitrary collection of closed sets is closed.
+                    \end{proof}
+            \end{itemize}
+        \item [3.3.4] Show that if $K$ is compact and $F$ is closed, then $K \cap F$ is compact.
+        
+            \begin{proof}
+                Suppose $F$ is closed and $K$ is compact, that is $K$ is bounded and closed.
+                Need to show that $K \cap F$ is compact, that is $K \cap F$ is bounded and closed.
+                Since $K$ is bounded and $K \cap F \subseteq K$, $K \cap F$ is bounded.
+                Also, since $K$ is closed and $F$ is closed, $K \cap F$ is closed (since the intersection of an arbitrary collection of closed sets is closed).
+                So, $K \cap F$ is bounded and closed which means $K \cap F$ is compact.
+            \end{proof}
+        \item [3.3.8] Follow these steps to prove the final implication in Theorem 3.3.8.
+            
+            Assume $K$ satisfies (i) and (ii), and let $\{O_\lambda : \lambda \in \Lambda\}$ be an open cover for $K$. For contradiction, let’s assume that no finite subcover exists. Let $I_0$ be a closed interval containing $K$, and bisect $I_0$ into two closed intervals $A_1$ and $B_1$.
+            \begin{itemize}
+                \item [(a)] Why must either $A_1 \cap K$ or $B_1 \cap K$ (or both) have no finite subcover consisting of sets from $\{O_\lambda : \lambda \in \Lambda\}$.
+                
+                    At least one of $A_1 \cap K$ or $B_1 \cap K$ must have no finite subcover since if they both did have a finite subcover then the union of them would be a finite subcover for $K$ which would contradict the assumption that no finite subcover exists for $K$.
+                \item [(b)] Show that there exists a nested sequence of closed intervals $I_0 \supseteq I_1 \supseteq I_2 \supseteq ... $ with the property that, for each $n$, $I_n \cap K$ cannot be finitely covered and $\lim \abs{I_n} = 0$.
+                
+                    Choose whichever of $A_1 \cap K$ or $B_1 \cap K$ does not have a finite subcover (choose any one if they both do not), then call that choice $I_1$.
+                    Then, bisect $I_1$ to give $A_2$ and $B_2$.
+                    Once again, either $A_2 \cap K$ or $B_2 \cap K$ (or both) have no finite subcover.
+                    Choose whichever of $A_2 \cap K$ or $B_2 \cap K$ does not have a finite subcover (choose either one if they both do not), then we can call that choice $I_2$.
+                    Repeating this over results in the sequence $I_0 \supseteq I_1 \supseteq I_2 \supseteq ... $ where $I_n \cap K$ cannot be finitely covered and as this sequence goes further, it tends towards $\lim \abs{I_n} = 0$.
+                \item [(c)] Show that there exists an $x \in K$ such that $x \in I_n$ for all $n$.
+                
+                    Since $K$ is compact, it is closed and bounded.
+                    So, $K \cap I_n \subseteq K$ is also closed and bounded for all $n \in \bbN$ which means $K \cap I_n$ is compact.
+                    Thus, by Theorem 3.3.5, the intersection of a nested sequence of nonempty compact sets is nonempty, that is $\exists x \in K$ such that $x \in K \cap I_n \subseteq I_n$ for all $n \in \bbN$.
+                    So, $x \in I_n$ for all $n \in \bbN$.
+
+                \item [(d)] Because $x \in K$, there must exist an open set $O_{\lambda_0}$ from the original collection that contains $x$ as an element. Argue that there must be an $n_0$ large enough to guarantee that $I_{n_0} \subseteq O_{\lambda_0}$. Explain why this furnishes us with the desired contradiction.
+                
+                    Since $O_{\lambda_0}$ is an open set, there exists $\epsilon > 0$ such that the $\epsilon$-neighborhood $V_\epsilon(x) \subseteq O_{\lambda_0}$.
+                    So, choose $n_0 \in \bbN$ such that $\abs{I_{n_0}} < \epsilon$.
+                    Then, $I_{n_0} \subseteq O_{\lambda_0}$ which means $I_{n_0}$ has a finite subcover.
+                    However, this is a contradiction to the initial claim that $K$ has no finite subcover
+                    because $K \cap I_{n_0}$ has a finite subcover, namely $O_{\lambda_0}$.
+            \end{itemize}
+        \item [3.3.10] Let’s call a set clompact if it has the property that every closed cover (i.e., a cover consisting of closed sets) admits a finite subcover. Describe all of the clompact subsets of $\bbR$.
+            
+            All finite sets in $\bbR$ are clompact.
+        \item [3.4.4] Repeat the Cantor construction from Section 3.1 starting with the open interval $[0, 1]$. This time, however, remove the open middle fourth from each component.
+            \begin{itemize}
+                \item [(a)] Is the resulting set compact? Perfect?
+                
+                    Yes, the resulting set is both compact and perfect for similar reasons as the original Cantor Set from before (removing middle third component).
+                \item [(b)] Using the algorithms from Section 3.1, compute the length and dimension of this Cantor-like set.
+                
+                    Length: $1 - (\frac{1}{4} + 2(\frac{3}{32}) + 4(\frac{9}{256}) + ... ) = 1 - (\frac{1}{4} + \frac{3}{16} + \frac{9}{64} + ... ) = 1 - (\frac{\frac{1}{4}}{1 - \frac{3}{4}}) = 0$.
+                    
+                    Dimension: Use $\frac{8}{3}$ as the magnifying amount.
+                    Then, $[0,1]$ becomes $[0,\frac{8}{3}]$ which splits into $[0,1]\cup [\frac{5}{3}, \frac{8}{3}]$.
+                    Since it splits into 2 and will continue to do so, we have $2 = (\frac{8}{3})^x$ which means $x = \frac{\ln 2}{\ln \frac{8}{3}} \approx 0.707$.
+            \end{itemize}
+        \item [3.4.5] Let $A$ and $B$ be subsets of $\bbR$. Show that if there exist disjoint open sets $U$ and $V$ with $A \subseteq U$ and $B \subseteq V$, then $A$ and $B$ are separated.
+            \begin{proof}
+                Let $A$ and $B$ be subsets of $\bbR$.
+                Assume there exist disjoint open sets $U$ and $V$ with $A \subseteq U$ and $B \subseteq V$.
+                Need to show that $A$ and $B$ are separated, that is $\overline{A} \cap B = \emptyset = \overline{B} \cap A$.
+                Since $U$ and $V$ are disjoint, $U \cap V = \emptyset$ which means that $U \subseteq V^c$.
+                Then, since $V$ is open, $V^c$ is closed which means that all of $U$'s limit points must be in $V^c$, that is $\overline{U} \subseteq V^c$.
+                So, $\overline{U} \cap V = \emptyset$.
+                Similarly, $\overline{V} \cap U = \emptyset$.
+                Then, since $A \subseteq U \subseteq \overline{U}$ and all of $A$'s limit points must be limit points of $U$, $\overline{A} \subseteq \overline{U}$.
+                Similarly, $\overline{B} \subseteq \overline{V}$.
+                Thus, since $B \subseteq V$, $\overline{A} \cap B = \emptyset$.
+                Similarly, since $A \subseteq U$, $\overline{B} \cap A = \emptyset$.
+                So, $A$ and $B$ are separated.
+            \end{proof}
+        \item [3.4.7]
+            \begin{itemize}
+                \item [(a)] Find an example of a disconnected set whose closure is connected.
+                
+                    Let $A = (-\infty, 0)$ and let $B = (0, \infty)$.
+                    Then, $\overline{A} = (-\infty, 0]$ and $\overline{B} = [0, \infty)$.
+                    So, $\overline{A} \cap B = \emptyset$ and $A \cap \overline{B} = \emptyset$ which means $A$ and $B$ are nonempty separated sets.
+                    Therefore, $E = (A \cup B) \subseteq \bbR$ is a disconnected set.
+                    Since, $0$ is a limit point of $E$, $\overline{E} = (-\infty, \infty) = \bbR$ which is a connected set.
+                    Thus, $E$ is a disconnected set whose closure is connected.
+                \item [(b)] If $A$ is connected, is $\overline{A}$ necessarily connected? If $A$ is perfect, is $\overline{A}$ necessarily perfect?
+                
+                    Yes, if $A$ is connected then $\overline{A}$ is connected as well.
+
+                    Yes, if $A$ is perfect then $A = \overline{A}$ so $\overline{A}$ is perfect as well.
+            \end{itemize}
+        \item [3.5.1] Argue that a set $A$ is a $G_\delta$ set if and only if its complement is an $F_\sigma$ set.
+            \begin{proof}
+                \ \\
+                Suppose $A$ is a $G_\delta$ set.
+                Then $A$ can be written as $A = \bigcap_{n=1}^{\infty} O_n$ where each $O_n$ for all $n \in \bbN$ is an open set.
+                By DeMorgan's Law, $A^c = \bigcup_{n=1}^{\infty} O_n^c$ where each $O_n^c$ for all $n \in \bbN$ is a closed set.
+                So, $A^c$ is an $F_\sigma$ set as desired.
+
+                Suppose $A$ is a $F_\sigma$ set.
+                Then $A$ can be written as $A = \bigcup_{n=1}^{\infty} C_n$ where each $C_n$ for all $n \in \bbN$ is a closed set.
+                By DeMorgan's Law, $A^c = \bigcap_{n=1}^{\infty} C_n^c$ where each $C_n^c$ for all $n \in \bbN$ is an open set.
+                So, $A^c$ is an $G_\delta$ set as desired.
+            \end{proof}
+        \item [3.5.2] Replace each blank with the word finite or countable, depending on which is more appropriate.
+            \begin{itemize}
+                \item [(a)] The \underline{countable} union of $F_\sigma$ sets is an $F_\sigma$ set.
+                \item [(b)] The \underline{finite} intersection of $F_\sigma$ sets is an $F_\sigma$ set.
+                \item [(c)] The \underline{finite} union of $G_\delta$ sets is an $G_\delta$ set.
+                \item [(d)] The \underline{countable} intersection of $G_\delta$ sets is an $G_\delta$ set.
+            \end{itemize}
+        \item [3.5.3] (This exercise has already appeared as Exercise 3.2.14.)
+            \begin{itemize}
+                \item [(a)] Show that a closed interval $[a, b]$ is a $G_\delta$ set.
+                
+                    $[a, b]$ can be written as $[a, b] = \bigcap_{n=1}^{\infty}(a-\frac{1}{n}, b+\frac{1}{n})$ which is a countable intersection of open intervals.
+                \item [(b)] Show that the half-open interval $(a, b]$ is both a $G_\delta$ and an $F_\sigma$ set.
+                    
+                    $(a, b]$ can be written as $(a, b] = \bigcap_{n=1}^{\infty}(a, b+\frac{1}{n})$ which is a countable intersection of open intervals.
+
+                    $(a, b]$ can be written as $(a, b] = \bigcup_{n=1}^{\infty}[a + \frac{1}{n}, b]$ which is a countable union of closed intervals.
+                \item [(c)] Show that $\bbQ$ is an $F_\sigma$ set, and the set of irrationals $\mathbb{I}$ forms a $G_\delta$ set.
+                
+                    We know that $\bbQ$ is countable so if we take the union of singleton sets each containing an element in $\bbQ$, then we get a countable union of closed sets, that is $Q = \bigcup_{n=1}^\infty \{q_n\}$ where $q_n \in \bbQ$.
+                    Thus, $\bbQ$ is an $F_\sigma$ set.
+                    Then, since $\mathbb{I} = \bbQ^c$ and the complement of an $F_\sigma$ set is a $G_\delta$ set, $\mathbb{I}$ is a $G_\delta$ set.
+            \end{itemize}
+    \end{itemize}
+\end{document}

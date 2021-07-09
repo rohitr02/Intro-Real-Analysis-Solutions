@@ -1,0 +1,403 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{preamble}
+
+\newcommand\course{311 Self Study}
+\newcommand\hwnumber{1}
+\newcommand\userID{Rohit Rao}
+
+\begin{document}
+\begin{itemize}[leftmargin=!,labelindent=5pt]
+    \item[1.2.1]
+        \begin{itemize}
+            \item [(a)] Prove that $\sqrt{3}$ is irrational. Does a similar argument work to show $\sqrt{6}$ is irrational?
+                \begin{proof}
+                    Assume for the sake of contradiction that $\sqrt{3}$ is rational, that is there exist coprime integers $p$ and $q$ such that $3 = (\frac{p}{q})^2$. 
+                    Then, $3q^2 = p^2$. 
+                    Since $p^2$ is divisible by $3$, $p$ can be represented as $p = 3r$ for some integer $r$.
+                    So, $3q^2 = (3r)^2$ which simplifies to $q^2 = 3r^2$.
+                    Since, $q^2$ is divisible by $3$, we have shown that both $p$ and $q$ are divisible by $3$.
+                    However, this is a contradiction to the original claim that $p$ and $q$ are coprime integers.
+                    Thus, $\sqrt{3}$ is irrational.
+                \end{proof}
+                
+                Yes, a similar argument can be made to show that $\sqrt{6}$ is irrational.
+            \item [(b)] Where does the proof of Theorem 1.1.1 break down if we try to use it to prove $\sqrt{4}$ is irrational?
+            
+            It breaks down when we have that $4q^2 = p^2$ where $p$ and $q$ are coprime integers. It breaks down because $p = 2q$ and so $p$ is not always divisble by $4$ which means that we cannot represent $p$ as $p=4r$ for some $r\in \bbZ$. Thus, the proof fails.
+        \end{itemize}
+    \item[1.2.2] Decide which of the following represent true statements about the nature of sets. For any that are false, provide a specific example where the statement in question does not hold.
+        \begin{itemize}
+            \item [(a)] If $A_1 \supseteq A_2 \supseteq A_3 \supseteq A_4$ ... are all sets containing an infinite number of elements, then the intersection $\bigcap_{n=1}^{\infty}A_n$ is infinite as well.
+            
+            False. Let $A_n = \bbN_{\geq n}$ where $n \in \bbN$. Then, $\bigcap_{n=1}^{\infty}A_n = \emptyset$ which is a size of 0.
+            \item [(b)] If $A_1 \supseteq A_2 \supseteq A_3 \supseteq A_4$ ... are all finite, nonempty sets of real numbers, then the intersection $\bigcap_{n=1}^{\infty}A_n$ is finite and nonempty.
+            
+            True.  Since $\forall n \in \bbN$, $A_n \subseteq A_1$ and $A_n$ is finite and nonempty, there exists an $x$ such that $x \in A_n$ which means $x \in A_1$, and so $x$ is in $\bigcap_{n=1}^{\infty}A_n$. Thus, $\bigcap_{n=1}^{\infty}A_n$ is nonempty. Also, $\forall n \in \bbN$, $A_n$ is finite which means $\bigcap_{n=1}^{\infty}A_n$ is finite since the intersection of finite sets must be finite. Thus, $\bigcap_{n=1}^{\infty}A_n$ is finite and nonempty.
+            \item [(c)] $A \cap (B \cup C) = (A \cap B) \cup C$
+            
+            False, let $A = \{0\}, B = \{1\}, C = \{2\}.$ Then, $A \cap (B \cup C) = \{0\} \cap (\{1\} \cup \{2\}) = \{0\} \cap \{1, 2\} = \emptyset$. But, $(A \cap B) \cup C = (\{0\} \cap \{1\}) \cup \{2\} = \emptyset \cup \{2\} = \{2\}$. $\emptyset \neq \{2\}$.
+            \item [(d)] $A \cap (B \cap C) = (A \cap B) \cap C$
+            
+            True, because set intersection is associative.
+            \begin{proof}
+                By the definition of set intersection, $A \cap (B \cap C)$ is equivalent to \\$(x \in A) \land (x \in B \land x\in C)$. 
+                Since conjunction is associative, this becomes $(x\in A \land x\in B) \land x\in C$ which is equivalent to $(A \cap B) \cap C$.
+            \end{proof}
+            \newpage
+            \item [(e)] $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+            
+            True, because set intersection is distributive over set union.
+            \begin{proof}
+                    By the definition of set union and set intersection, $A \cap (B \cup C)$ is equivalent to $(x \in A) \land (x\in B \lor x\in C)$.
+                    By the distributive rule for conjuction over disjunction, this becomes $(x \in A \land x \in B) \lor (x \in A \land x \in C)$ which is equivalent to $(A \cap B) \cup (A \cap C)$.
+            \end{proof}
+        \end{itemize}
+    \item[1.2.10] Let $y_1 = 1$, and for each $n \in \bbN$ define $y_{n+1}=\frac{3y_n + 4}{4}.$
+        \begin{itemize}
+            \item [(a)] Use induction to prove that the sequence satisfies $y_n < 4$ for all $n \in \mathbb{N}$.
+                \begin{proof}
+                    \ \\
+                    Base Case $(n=1)$: $y_{n+1} = y_{2} = \frac{3(1)+4}{4} = \frac{7}{4} < 4$.
+
+                    Induction Step:
+                        \begin{itemize}
+                            \item Suppose $k \in \bbN$ such that $k \geq 2$.
+                            \item Assume that for all natural numbers $i < k$, $y_{i+1} < 4$.
+                            \item Need to prove that $y_k < 4$, that is $\frac{3y_{k-1}+4}{4} = \frac{3}{4} y_{k-1} + 1 < 4$.
+                            By the induction hypothesis, $y_{k-1} < 4$. So, $\frac{3}{4}y_{k-1} < 3$ which means $\frac{3}{4}y_{k-1} + 1 < 4$.
+                            So, $y_k < 4$.
+                        \end{itemize}
+                    Hence, by the principle of complete induction, $\forall n \in \bbN, y_n < 4$.
+                \end{proof}
+            \item [(b)] Use another induction argument to show the sequence $(y_1, y_2, y_3, ...)$ is increasing.
+                
+                \begin{proof}
+                    We'll write $p(n)$ to denote the statement \enquote{$y_n \leq y_{n+1}$}. Need to prove that $\forall n \in \bbN, p(n)$.
+
+                    Base Case $(n=1)$: Then, $y_n = y_1 = 1$ and $y_{n+1} = y_2 = \frac{7}{4}$. Clearly, $1 \leq \frac{7}{4}$.
+
+                    Induction Step:
+                        \begin{itemize}
+                            \item Suppose $k \in \bbN$ such that $k \geq 2$.
+                            \item Assume that for all natural numbers $i < k$, $p(i)$ is true.
+                            \item Need to prove that $p(k)$ holds true, that is $y_k \leq y_{k+1}$.
+                            By the definition of $y$, $y_k = \frac{3y_{k-1} + 4}{4}$ and $y_{k+1} = \frac{3y_{k} + 4}{4}$.
+                            Need to show that $\frac{3y_{k-1} + 4}{4} \leq \frac{3y_{k} + 4}{4}$, or in more simplified terms $y_{k-1} \leq y_{k}$.
+                            By the induction hypothesis, $p(k-1)$ is true, that is $y_{k-1} \leq y_{k}$. 
+                            So, $\frac{3y_{k-1} + 4}{4} \leq \frac{3y_{k} + 4}{4}$ which means $y_k \leq y_{k+1}$. Thus, $p(k)$ holds true.
+                        \end{itemize}
+                    
+                    Hence, by the principle of complete induction, $\forall n \in \bbN, p(n)$ is true.
+                \end{proof}
+        \end{itemize}
+    \item[1.3.2]
+        \begin{itemize}
+            \item [(a)] Write a formal definition in the style of Definition 1.3.2 for the infimum or greatest lower bound of a set.
+            
+            A real number $s$ is an infimum for a set $A \subseteq \mathbb{R}$ if it meets these two criteria:
+            
+                (i) $s$ is a lower bound for $A$
+                
+                (ii) if $b$ is any lower bound for $A$, then $s \geq b$
+            \item [(b)] Now, state and prove a version of Lemma 1.3.7 for greatest lower bounds.
+            
+            Assume $s \in \bbR$ is a lower bound for the set $A \subseteq \bbR$. Then, $s = \inf A$ iff for every choice of $\epsilon > 0$, there exists an element $a \in A$ satisfying $s + \epsilon > a$.
+            
+            \begin{proof} \ \\
+                ($\Rightarrow$)
+                Assume $s = \inf A$. Need to show that $\forall \epsilon>0, \exists a \in A$ such that $s + \epsilon > a$. 
+                Assume $\epsilon > 0$. 
+                Since $s$ is an infimum for $A$ and $s + \epsilon > s$, $s + \epsilon$ cannot be a lower bound for $A$ which means that $\exists a \in A$ such that $a < s + \epsilon$ (because otherwise $s+\epsilon$ would be a lower bound).
+                Thus, the claim is satisfied.
+                    
+                ($\Leftarrow$) 
+                Assume $s$ is a lower bound for $A$ such that $\forall \epsilon > 0$, $s + \epsilon$ is not a lower bound for $A$.
+                So, for all lower bounds $l$, $l \leq s$. 
+                This satisfies both parts of the definition of $s = \inf A$, that is $s$ is a lower bound and for all lower bounds $l$, $l \leq s$.
+            \end{proof}
+        \end{itemize}
+    \item[1.3.8] If sup $A$ < sup $B$, then show that there exists an element $b \in B$ that is an upper bound for $A$.
+    \begin{proof}
+        Assume $\sup A$ < $\sup B$. 
+        Need to show that $\exists b \in B$ such that $b$ is an upper bound for $A$.
+        Let $\epsilon = \sup B - \sup A > 0$.
+        Then, we know that $\exists b \in B$ such that $b > \sup B - \epsilon = \sup A$.
+        Thus, since $b > \sup A$, $b$ is an upper bound for $A$.
+    \end{proof}
+    \item[1.3.9] Without worrying about formal proofs for the moment, decide if the following statements about suprema and infima are true or false. For any that are false, supply an example where the claim in question does not appear to hold.
+        \begin{itemize}
+            \item [(a)] A finite, nonempty set always contains its supremum.
+            
+                True, the last element of the set is the supremum.
+            \item [(b)] If $a < L$ for every element $a$ in the set $A$, then $\sup A < L$.
+            
+                False, let $A = (0, 1)$ which means $\sup A = 1$. Let $L = 1$. Then, $\forall a \in A, a < L$, but $\sup A \not < L$.
+            \item [(c)] If $A$ and $B$ are sets with the property that $a < b$ for every $a \in A$ and every $b \in B$, then it follows that $\sup A < \inf B$.
+            
+                False, let $A = (0, 1)$ and $B = (1, 2)$. Then, $\forall a \in A$ and $\forall b \in B$, $a < b$, but $\sup A = 1 = \inf B$.
+            \item [(d)] If $\sup A = s$ and $\sup B = t$, then $\sup (A+B) = s+t$. The set $A+B$ is defined as $A + B = \{a + b : a \in A$ and $b \in B\}$.
+            
+                True
+            \item [(e)] If $\sup A \leq \sup B$ then there exists a $b\in B$ that is an upper bound for $A$.
+            
+            False, let $A = [0, 1]$ and $B = (0, 1)$. Then, $\sup A = \sup B = 1$.
+            But, there is no $b \in B$ such that $b$ is an upper bound for $A$.
+        \end{itemize}
+        \newpage
+        \item[1.4.2] Recall that $\mathbb{I}$ stands for the set of irrational numbers.
+            \begin{itemize}
+                \item [(a)] Show that if $a,b\in \mathbb{Q}$, then $ab$ and $a+b$ are elements of $Q$ as well.
+                    \begin{proof}
+                        Assume $a,b\in \mathbb{Q}$.
+                        Then, $a$ can be represented as $\frac{p}{q}$ for some $p,q \in \mathbb{Z}$ and $b$ can be represented as $\frac{r}{s}$ for some $r,s \in \mathbb{Z}$.
+                        Then, $a+b = \frac{p}{q} + \frac{r}{s} = \frac{ps + qr}{qs}$.
+                        Since $\mathbb{Z}$ is closed under addition and multiplication, $ps + qr \in \mathbb{Z}$ and $qs \in \mathbb{Z}$, which means that $\frac{ps + qr}{qs} \in \mathbb{Q}$.
+                        Similarly, $ab = \frac{p}{q} * \frac{r}{s} = \frac{pr}{qs} \in \mathbb{Q}$.
+                        Thus, $a+b\in \mathbb{Q}$ and $ab\in \mathbb{Q}$.
+                    \end{proof}
+                \item [(b)] Show that if $a\in \mathbb{Q}$ and $t \in \mathbb{I}$, then $a+t\in \mathbb{I}$ and $at \in \mathbb{I}$ as long as $a \neq 0$.
+                    \begin{proof}
+                        Suppose $a\in \mathbb{Q}$ and $t \in \mathbb{I}$.
+                        Assume for the sake of contradiction that $a + t \in \mathbb{Q}$.
+                        Then, $t = (-a) + (a + t)$.
+                        Since $\mathbb{Q}$ is closed under addition, this means $t \in \mathbb{Q}$.
+                        However, this contradicts the initial claim $t \in \mathbb{I}$.
+                        Thus, $a+t\in \mathbb{I}$.
+                    \end{proof}
+                    \begin{proof}
+                        Suppose $a\in \mathbb{Q}$ such that $a \neq 0$ and $t \in \mathbb{I}$.
+                        Assume for the sake of contradiction that for $at \in \mathbb{Q}$.
+                        Then, $t = (\frac{1}{a}) * (at)$.
+                        Since $\mathbb{Q}$ is closed under multiplication, this means that $t \in \mathbb{Q}$.
+                        However, this contradicts the initial claim $t \in \mathbb{I}$.
+                        Thus, $at\in \mathbb{I}$.
+                    \end{proof}
+                \item [(c)] Part (a) can be summarized by saying that $\mathbb{Q}$ is closed under addition and multiplication. Is $\mathbb{I}$ closed under addition and multiplication? Given two irrational numbers $s$ and $t$, what can we say about $s + t$ and $st$?
+                
+                    $\mathbb{I}$ is not closed under addition nor is it closed under multiplication. 
+                    Given $s,t \in \mathbb{I}$, $s+t$ and $st$ can be in $\mathbb{I}$ or not in $\mathbb{I}$ depending on the specific values of $s$ and $t$.
+                    For example, let $s=\sqrt{2}$ and $t = -\sqrt{2}$.
+                    Then, $s+t = 0 \notin \mathbb{I}$ and $st = -2 \notin \mathbb{I}$.
+                    But now let $s = \sqrt{2}$ and $t = \sqrt{3}$.
+                    Then, $s + t = (\sqrt{2} + \sqrt{3}) \in \mathbb{I}$ and $st = \sqrt{6} \in \mathbb{I}$.
+            \end{itemize}
+        \item[1.4.6]
+            \begin{itemize}
+                \item [(a)] Finish the proof of Theorem 1.4.5 by showing that the assumption $\alpha ^2 > 2$ leads to a contradiction of the fact that $\alpha = \sup T$.
+                    \begin{proof}
+                        Assume for the sake of contradiction that $\alpha ^2 > 2$. Then, we get
+                        \begin{align*}
+                            (\alpha - \frac{1}{n})^2 &= \alpha^2 - \frac{2\alpha}{n} + \frac{1}{n^2} \\
+                            &> \alpha^2 - \frac{2\alpha}{n}.
+                        \end{align*}
+                        Choose $n_0 \in \bbN$ such that $\alpha^2 - \frac{2\alpha}{n_0} > 2$ (this is possible by the Archimedian Property and since $\alpha^2 > 2$).
+                        So, $(\alpha - \frac{1}{n_0})^2 > \alpha^2 - \frac{2\alpha}{n_0} > 2$. 
+                        This means $\alpha - \frac{1}{n_0}$ must be an upper bound for $T$. 
+                        However, $\alpha - \frac{1}{n_0} < \alpha$ which contradicts the initial claim that $\alpha = \sup T$. 
+                        So, $\alpha^2 \not > 2$. 
+                        Since, part 1 of the proof showed that $\alpha^2 \not < 2$, the only conclusion left is that $\alpha^2 = 2$ which means $\alpha = \sqrt{2} \in \bbR$.
+                    \end{proof}
+                \newpage
+                \item [(b)] Modify this argument to prove the existence of $\sqrt{b}$ for any real number $b \geq 0$.
+                    \begin{proof}
+                        Suppose $b \in \bbR_{\geq 0}$.
+                        Let $T = \{t \in \mathbb{R} : t^2 < b\}$.
+                        Need to prove that $(\sup T)^2 = b$, that is $(\sup T)^2 \not < b$ and $(\sup T)^2 \not > b$. \\
+
+                        Assume for the sake of contradiction that $\alpha = \sup T$ and $\alpha^2 < b$.
+                        In search of an element of $T$ that is greater than $\alpha$, we get
+                        \begin{align*}
+                            (\alpha + \frac{1}{n})^2 &= \alpha^2 + \frac{2\alpha}{n} + \frac{1}{n^2} \\
+                            &< \alpha^2 + \frac{2\alpha}{n} + \frac{1}{n} \\
+                            &= \alpha^2 + \frac{2\alpha+1}{n}.
+                        \end{align*}
+                        Choose $n_0 \in \bbN$ such that $\alpha^2 + \frac{2\alpha + 1}{n_0} < b$.
+                        So, $(\alpha + \frac{1}{n_0})^2 < \alpha^2 + \frac{2\alpha + 1}{n_0} < b$.
+                        This means $\alpha + \frac{1}{n_0} \in T$ and is an upper bound for $T$.
+                        However, $\alpha+\frac{1}{n_0} > \alpha$ which contradicts the initial claim that $\alpha = \sup T$ since a supremum of a set should be larger than all elements within that set.
+                        So, $\alpha^2 \not < b$. \\
+
+                        Assume for the sake of contradiction that $\alpha = \sup T$ and $\alpha ^2 > b$. Then, we get
+                        \begin{align*}
+                            (\alpha - \frac{1}{n})^2 &= \alpha^2 - \frac{2\alpha}{n} + \frac{1}{n^2} \\
+                            &> \alpha^2 - \frac{2\alpha}{n}.
+                        \end{align*}
+                        Choose $n_0 \in \bbN$ such that $\alpha^2 - \frac{2\alpha}{n_0} > b$ (this is possible by the Archimedian Property and since $\alpha^2 > 2$).
+                        So, $(\alpha - \frac{1}{n_0})^2 > \alpha^2 - \frac{2\alpha}{n_0} > b$. 
+                        This means $\alpha - \frac{1}{n_0}$ must be an upper bound for $T$. 
+                        However, $\alpha - \frac{1}{n_0} < \alpha$ which contradicts the initial claim that $\alpha = \sup T$ since a supremum of a set should be the smallest element amongst all the upper bounds for that set. 
+                        So, $\alpha^2 \not > b$. \\
+
+                        Since $(\sup T)^2 \not < b$ and $(\sup T)^2 \not > b$, $(\sup T)^2 = b$ and so $\sup T = \sqrt{b} \in \bbR$.
+                    \end{proof}
+            \end{itemize}
+        \newpage
+        \item[1.4.8] Use the following outline to supply proofs for the statements in Theorem 1.4.13.
+            \begin{itemize}
+                \item [(a)] First, prove statement (i) for two countable sets, $A_1$ and $A_2$. Example 1.4.8 (ii) may be a useful reference. Some technicalities can be avoided by first replacing $A_2$ with the set $B_2 = A_2-A_1 =\{x\in A_2 : x \not \in A_1\}$. The point of this is that the union $A_1 \cup B_2$ is equal to $A_1 \cup A_2$ and the sets $A_1$ and $B_2$ are disjoint. (What happens if $B_2$ is finite?)
+                
+                    \begin{itemize}
+                        \item [(i)] If $A_1$ and $A_2$ are countable sets, then the union $A_1 \cup A_2$ is countable.
+                            \begin{proof}
+                                Assume $A_1$ and $A_2$ are countable sets. 
+                                Let $B_2 = A_2-A_1 =\{x\in A_2 : x \not \in A_1\}$ which means that $A_1 \cup A_2 = A_1 \cup B_2$ and the sets $A_1$ and $B_2$ are disjoint. 
+                                We need to show that $A_1 \cup B_2$ is countable.
+                                Since, $A_1$ is countable, there exists a bijective function $f : \bbN \to A_1$.
+                                For $B_2$, there are 3 cases to consider: $B_2 = \emptyset$, $B_2$ is a nonempty and finite set, and $B_2$ is an infinite set.\\
+                                
+                                Case 1: Assume $B_2 = \emptyset$.
+                                Then, $A_1 \cup B_2 = A_1$ and since $A_1$ is countable, it would mean that $A_1 \cup B_2$ is countable.\\
+                                
+                                Case 2: Assume $B_2$ is a nonempty, finite set defined as $B_2 = \{b_1, b_2, ... , b_i\}$ for some $i \in \bbN$. 
+                                Need to prove that there exists a bijective function $g : \bbN \to (A_1 \cup B_2)$.
+                                Let $g : \bbN \to (A_1 \cup B_2)$ be defined in the following manner: $\forall n \in \bbN$, $n \leq i \implies g(n) = b_n$ and $n > i \implies g(n) = f(n-i)$.
+                                Since $f$ is a bijection and $A_1$ and $B_2$ are disjoint, $g$ must also be a bijection.\\
+                                
+                                Case 3: Assume $B_2$ is an infinite set. 
+                                Since, $B_2 \subseteq A_2$ and $A_2$ is a countable set, $B_2$ must be a countably infinite set (since its not finite or nonempty) which means that there exists a bijective function $g: \mathbb{N} \to B_2$.
+                                We need to prove that there exists a bijective function $h : \mathbb{N} \to (A_1 \cup B_2)$.
+                                Let $h : \mathbb{N} \to (A_1 \cup B_2)$ be defined in the following manner: $\forall n \in \mathbb{N}$, $n$ is odd $\implies h(n) = f(\frac{n+1}{2})$ and $n$ is even $\implies h(n) = g(\frac{n}{2})$.
+                                Then, since both $f$ and $g$ are bijective functions and $A_1$ and $B_2$ are disjoint, $h$ must also be a bijective function.
+                            \end{proof}
+                    \end{itemize}
+                Now, explain how the more general statement in (i) follows.
+                
+                \ \ \ \ To prove the more general statement about the union of $m$ countable sets, we would need to apply induction.
+                The proof above would serve as the base case.
+                Then, we would need to assume that the union of $m-1$ countable sets is countable and show that the union of $m$ countable sets is also countable.
+                \item [(b)] Explain why induction cannot be used to prove part (ii) of Theorem 1.4.13 from part (i).
+                
+                Induction cannot be used to prove part (ii) of Theorem 1.4.13 from part (i) because it can only be used on $n \in \mathbb{N}$ and $\infty \notin \mathbb{N}$.
+                \item [(c)] Show how arranging N into the two-dimensional array
+                    \begin{align*}
+                        &1 && 3 && 6 && 10 && 15 && ... \\
+                        &2 && 5 && 9 && 14 && ... \\
+                        &4 && 8 && 13 && ... \\
+                        &7 && 12 && ... \\
+                        &11 && ... \\
+                        &...
+                    \end{align*}
+                    leads to a proof of Theorem 1.4.13 (ii).
+                    
+                    \begin{proof}
+                        Assume $A_n$ is a countable set for each $n \in \bbN$.
+                        Need to prove $\bigcup\limits_{n=1}^{\infty} A_n$ is countable.
+                        In order to ensure that the sets in the union are disjoint, 
+                        let $B_1 = A_1$, $B_2 = A_2 - A_1$, $B_3 = A_3 - (A_1 \cup A_2)$, $B_4 = A_4 - (A_1 \cup A_2 \cup A_3)$, ..., $B_n = A_n - \bigcup\limits_{i=1}^{n-1} A_i$ where $n\in \bbN$.
+                        Then, organize the elements of $\bigcup\limits_{i=1}^{\infty} B_i$ into a two-dimensional array similar to above where $b_{rc}$ is the element at the $r$'th row and $c$'th column.
+                        So, \begin{align*}
+                            B_1 = \ & b_{11} && b_{12} && b_{13} && b_{14} && b_{15} && ... \\
+                            B_2 = \ & b_{21} && b_{22} && b_{23} && b_{24} && ... \\
+                            B_3 = \ & b_{31} && b_{32} && b_{33} && ... \\
+                            B_4 = \ & b_{41} && b_{42} && ... \\
+                            B_5 = \ & b_{51} && ... \\
+                            &...
+                        \end{align*}
+                        Now, it is clear to see that every element in both arrays will be uniquely mapped, that is there exists a bijective function $f:\mathbb{N} \to \bigcup\limits_{i=1}^{\infty} B_i$.
+                        Specifically, for any $x \in \bbN, f(x) = b_{pq}$ where $p$ and $q$ are the row and column (respectively) of $x\in \bbN$ in the diagram for $\bbN$ above.
+                        Thus, $\mathbb{N} \sim \bigcup\limits_{i=1}^{\infty} B_i$ so $\bigcup\limits_{i=1}^{\infty} B_i$ is countable which means $\bigcup\limits_{n=1}^{\infty} A_n$ is countable.
+                    \end{proof}
+            \end{itemize}
+        \newpage
+        \item[1.5.4] Let $S$ be the set consisting of all sequences of 0’s and 1’s. Observe that $S$ is not a particular sequence, but rather a large set whose elements are sequences; namely, $S = \{(a_1,a_2,a_3,...) : a_n = 0$ or $1\}.$ As an example, the sequence $(1,0,1,0,1,0,1,0,...)$ is an element of $S$, as is the sequence $(1,1,1,1,1,1,...)$. Give a rigorous argument showing that $S$ is uncountable.
+        \begin{proof}
+            Assume for the sake of contradiction that there exists a bijective function $f:\mathbb{N} \to S$.
+            Then, the mapping between $\mathbb{N}$ and $S$ can be represented by the following two-dimensional array:
+            \begin{align*}
+                f(1) = \ & a_{11} && a_{12} && a_{13} && a_{14} && a_{15} && ... \\
+                f(2) = \ & a_{21} && a_{22} && a_{23} && a_{24} && ... \\
+                f(3) = \ & a_{31} && a_{32} && a_{33} && ... \\
+                f(4) = \ & a_{41} && a_{42} && ... \\
+                f(5) = \ & a_{51} && ... \\
+                &...
+            \end{align*}
+            For all $i,j \in \mathbb{N}$, every element $a_{ij}$ of the above array is either $0$ or $1$.
+            Let $x = (x_1, x_2, x_3, ...)$ be a sequence in $S$ defined in the following manner: $\forall n \in \mathbb{N},$ the n'th element of x is $x_n = $ 
+            $\begin{cases} 
+                0,$ if $a_{nn} = 1 \\
+                1,$ otherwise $
+            \end{cases}$
+            Now, we can see that for any sequence $f(n)$ where $n\in\bbN$, $x \neq f(n)$ because there will always be at least one digit that is unequal, namely $a_{nn} \not = x_n$.
+            However, this is a contradiction to the initial claim that $f$ is bijective because $f$ is not onto $S$ since $x\in S$ but not in range of $f$.
+            Thus, $S$ is uncountable.
+        \end{proof}
+        \item[1.5.5]
+            \begin{itemize}
+                \item [(a)] Let $A = \{a,b,c\}.$ List the eight elements of $P(A).$ (Do not forget that $\emptyset$ is considered to be a subset of every set.)
+                
+                $P(A) = \{ \emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{b, c\}, \{a, c\}, \{a, b, c\}\}$
+                \item [(b)] If $A$ is finite with $n$ elements, show that $P(A)$ has $2^n$ elements. (Constructing a particular subset of $A$ can be interpreted as making a series of decisions about whether or not to include each element of $A$.)
+                    \begin{proof}
+                        Let $A$ be a finite set with $n$ elements.
+                        $P(A)$ is defined to be the set containing every subset of $A$.
+                        When creating a subset of $A$, every element of $A$ is either in the subset or not in the subset -- there are strictly 2 choices.
+                        Since there are $n$ elements in $A$, there are a total of $2^n$ choices, and each one makes a unique subset of $A$.
+                        Thus, $P(A)$ has $2^n$ elements.
+                    \end{proof}
+            \end{itemize}
+        \newpage
+        \item[1.5.6]
+            \begin{itemize}
+                \item [(a)] Using the particular set $A = \{a, b, c\}$, exhibit two different 1–1 mappings from $A$ into $P(A)$.
+                    \begin{itemize}
+                        \item [(i)] Let $f_1: A \to P(A)$ be a function defined in the following manner: $f_1(a) = \{a\}$, $f_1(b) = \{b\}$, $f_1(c) = \{c\}$
+                        \item [(ii)] Let $f_2: A \to P(A)$ be a function defined in the following manner: $f_2(a) = \{a,b\}$, $f_2(b) = \{a,c\}$, $f_2(c) = \{b,c\}$
+                    \end{itemize}
+                \item [(b)] Letting $B = \{1,2,3,4\}$, produce an example of a 1–1 map $g : B \to P(B)$.
+                
+                $g(1) = \{1\}$, $g(2) = \{2\}$, $g(3) = \{3\}$, $g(4) = \{4\}$.
+                \item [(c)] Explain why, in parts (a) and (b), it is impossible to construct mappings that are onto.
+                
+                There are more elements in the powerset which means that constructing a mapping to every element in the powerset would involve elements in the original set mapping to more than 1 element in the powerset -- this would violate the definition of a function, namely that every element in the domain must map to exactly one element in the range.
+            \end{itemize}
+        \item[1.5.7] Return to the particular functions contructed in Exercise 1.5.6 and construct the subset $B$ that results using the preceding rule. In each case, note that $B$ is not in the range of the function used.
+            \begin{itemize}
+                \item [(a)]
+                \begin{itemize}
+                    \item [(i)] The set $B = \emptyset$
+                    \item [(ii)] The set $B = \{b\}$
+                \end{itemize}
+                \item [(b)] The set $B = \emptyset$
+            \end{itemize}
+        \item[1.5.8]
+            \begin{itemize}
+                \item [(a)] First, show that the case $a' \in B$ leads to a contradiction.
+                
+                Assume for the sake of contradiction that $a' \in B$.
+                By the definition of $B$, $a' \notin f(a')$.
+                Since $f(a') = B$, it means that $a' \notin B$.
+                This contradicts the claim $a' \in B$.
+                \item [(b)] Now, finish the argument by showing that the case $a' \notin B$ is equally unacceptable.
+                
+                Assume for the sake of contradiction that $a' \notin B$.
+                By the definition of $B$, $a' \in f(a')$.
+                Since $f(a') = B$, it means that $a' \in B$.
+                This contradicts the claim $a' \notin B$.
+            \end{itemize}
+        \item[1.5.9] As a final exercise, answer each of the following by establishing a 1–1 correspondence with a set of known cardinality.
+            \begin{itemize}
+                \item [(a)] Is the set of all functions from $\{0, 1\}$ to $\mathbb{N}$ countable or uncountable?
+                
+                It is countable.
+                We can show this using theorem 1.4.12 which states that if $A \subseteq B$ and $B$ is countable, then $A$ is either countable, finite, or empty.
+                Let $f: \{0,1\} \to \bbN$ be an arbitrary 1-1 function and $(x,y)$ be an ordered pair where $x = f(0) \in \bbN$ and $y = f(1) \in \bbN$.
+                Then, $(x,y) \in \bbN \times \bbN$.
+                Since $\bbN\times \bbN \subseteq \bbN$ and $\bbN$ is countable, $\bbN\times \bbN$ must be countable, finite, or empty.
+                Clearly, $\bbN \times \bbN$ is not empty or finite, so it must be countable.
+                \item [(b)] Is the set of all functions from $\bbN$ to $\{0, 1\}$ countable or uncountable?
+                
+                It is uncountable.
+                This would result in the previous example of a set of bitstrings -- a set of sequences of 0's and 1's.
+                From Exercise 1.5.4, we proved that it was uncountable.
+                \item [(c)] Given a set $B$, a subset $A$ of $P(B)$ is called an antichain if no element of $A$ is a subset of any other element of $A$. Does $P(\mathbb{N})$ contain an uncountable antichain?
+                
+                Yes, it contains an uncountable antichain.
+                In order to find it we first define the set of even natural numbers $E = \{2n : n \in \mathbb{N}\}$ and the set of odd natural numbers $O = \{2n-1 : n \in \mathbb{N}\}$.
+                Then, we can form subsets of $\mathbb{N}$ by picking elements in order from $E$ and $O$.
+                For example, $\{1,4,5,8,9,12,13,...\}$ or $\{2,3,6,7,10,11,14,15,...\}$ are examples of such subsets of $\bbN$.
+                The collection of all such sets is the antichain $A$.
+                This is because for every set in $A$, every index is given two choices -- to pick from $E$ or to pick from $O$.
+                So, in a similar manner to the proof in 1.5.4 with the bitstring, $A$ can be proved to be uncountable -- instead of $0$'s and $1$'s, it is evens and odds at every index of every set in $A$.
+            \end{itemize}
+\end{itemize}
+\end{document}
