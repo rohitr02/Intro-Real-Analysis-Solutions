@@ -35,49 +35,33 @@
                     My conjecture is that $\lim_{x \to 1} t(x) = 0$.
                     \begin{proof}
                         Suppose $\epsilon > 0$.
-                        Define $(x_n)$ to be the sequence $\frac{p + n - 1}{q + n - 1}$ where $p,q \in \bbZ$ and $\frac{p + n - 1}{q + n - 1} < 1$.
-                        % Need to show that this sequence converges to $1$, that is $\exists N \in \bbN$ such that $\forall n \geq N$, $\abs{x_n - 1} < \epsilon$.
-                        % Choose $N$ such that $\abs{\frac{p-q}{q+n-1}} < \epsilon$.
-
+                        Consider the set $T = \{x\in \bbR : t(x) \geq \epsilon\}$.
+                        From the way $T$ is defined, we know that $x \in T$ means that either $x=0$ or $x=\frac{m}{n}$ in simplest form where $m,n \in \bbQ - \{0\}$ with $n>0$.
+                        Since $x$ approaches 1 in our limit, $x \in T$ is of the latter form. 
+                        So, $x = \frac{m}{n}$ which means $t(x) = \frac{1}{n} \geq \epsilon$ which simplifies to $n \leq \frac{1}{\epsilon}$.
+                        Given some arbitrary finite interval $(0,a]$ where $a \in \bbR$, the set $T \cap (0,a]$ is also finite since there are only a finite amount of rational numbers $\frac{m}{n}$ with $n \leq \frac{1}{\epsilon}$.
+                        Since this set is finite choose $\delta = \min{\{y : y \in T \cap (0,a]\}}$.
+                        We can see that this choice of $\delta$ is correct because choosing $x \in V_\delta(1)$ means $x \notin T$ which means $t(x) \in V_\epsilon(0)$.
                     \end{proof}
-                    % \begin{proof}
-                    %     Suppose $\epsilon > 0$ is given.
-                    %     Need to prove there exists a $\delta$-neighborhood $V_\delta(1)$ around 1 such that if $x \in V_\delta(1)$, then $t(x) \in V_\epsilon(0)$.
-                    %     Consider the set of points $\{x\in \bbR : t(x) \geq \epsilon\}$.
-                    %     Since $\epsilon > 0$, $\{x\in \bbR : t(x) \geq \epsilon\}$ only contains $x \in \bbR$ such that $x$ is rational [because if $x$ is irrational then $t(x) = 0 < \epsilon$], specifically $x = \frac{m}{n}$ where $m,n \in \bbZ$ and $0 < n \leq \frac{1}{\epsilon}$ which means that $\{x\in \bbR : t(x) \geq \epsilon\}$ only has a finite amount of points.
-                    %     % \ 
-                    %     % Since $\{x\in \bbR : t(x) \geq \epsilon\}$ is finite, let $M = \min{\{x\in \bbR : t(x) \geq \epsilon\}} \in \bbQ$.
-                    %     % So, $M$ can be represented as $\frac{p}{q}$ for $p,q \in \bbZ$.%, but since $M$ is the minimum, $q$ must be 
-                    %     % Choose $\delta$ such that $0 < \delta < M = \frac{p}{q} \leq \frac{p}{\frac{1}{\epsilon}} = p\epsilon$.
-                    %     % So, $0 < \delta < p\epsilon$.
-                    %     Since $\{x\in \bbR : t(x) \geq \epsilon\}$ is finite, choose $\delta$ such that $0 < 2\delta < \min{\{x\in \bbR : t(x) \geq \epsilon\}}$.
-                    %     To show that this delta works, suppose $x \in V_\delta(1)$, that is $x \in (1-\delta, 1+\delta)$.
-                    %     Then, $x \notin \{x\in \bbR : t(x) \geq \epsilon\}$ because $x = \frac{m}{n}$ where $m,n \in \bbZ$ and any rational number in $(1-\delta, 1+\delta)$ must have $n > \frac{1}{\epsilon}$ by the way $\delta$ was defined.
-                    %     Thus, since $x \notin \{x\in \bbR : t(x) \geq \epsilon\}$, $t(x) \in V_\epsilon(0)$.
-                    %     % As $x = \frac{m}{n}$ approaches 1, $n$ becomes larger.
-                    %     % As $n$ becomes larger, $\frac{1}{n}$ becomes smaller, specifically $\lim_{n\to \infty} \frac{1}{n} = 0$.
-                    %     % However, $n$ is restricted by $\frac{1}{\epsilon}$
-                    %     % NEEEEDDD TOOO FINISH THIS LATER!!!!!
-                    %     % Suppose $a \in \{x\in \bbR : t(x) \geq \epsilon\}$.
-                    %     % Then, $a \in \bbQ$ so $a = \frac{m}{n}$ for $m,n \in \bbZ$ such that $n \leq \frac{1}{\epsilon}$.
-                    % \end{proof}
             \end{itemize}
         \item [4.2.5] 
             \begin{itemize}
                 \item [(a)] Supply the details for how Corollary 4.2.4 part (ii) follows from the sequential criterion for functional limits in Theorem 4.2.3 and the Algebraic Limit Theorem for sequences proved in Chapter 2.
                     \begin{proof}
-                        Suppose $f$ and $g$ are functions defined on the domain $A \subseteq \bbR$ and $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$.
-                        Need to show that $\lim_{x \to c} [f(x) + g(x)] = L + M$, that is as $x_n$ approaches $c$, $f(x_n) + g(x_n)$ approaches $L + M$.
-                        Since $f(x_n) \to L$ and $g(x_n) \to M$, we can use the algebraic limit theorem to get $f(x_n) + g(x_n) \to L + M$.
-
+                        Suppose $f$ and $g$ are functions defined on the domain $A \subseteq \bbR$.
+                        Assume $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$ for some limit point $c$ of $A$.
+                        Then, we know from the Sequential Criterion for Functional Limits (Theorem 4.2.3) that for all sequences $(x_n) \subseteq A$ satisfying $x_n \neq c$ and $(x_n) \to c$, it follows that $f(x_n) \to L$ and $g(x_n) \to M$.
+                        Then, using the algebraic limit theroem for sequences, we know that $f(x_n) + g(x_n) \to L+M$.
+                        Thus, $\lim_{x \to c} [f(x) + g(x)] = L + M$ as desired.
                     \end{proof}
                 \item [(b)] Now, write another proof of Corollary 4.2.4 part (ii) directly from Definition 4.2.1 without using the sequential criterion in Theorem 4.2.3.
                     \begin{proof}
-                        Suppose $f$ and $g$ are functions defined on the domain $A \subseteq \bbR$ and $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$.
+                        Suppose $f$ and $g$ are functions defined on the domain $A \subseteq \bbR$.
+                        Assume $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$ for some limit point $c$ of $A$.
                         Let $\epsilon > 0$.
-                        Need to show that $\lim_{x \to c} [f(x) + g(x)] = L + M$, that is there exists $\delta$ such that whenever $0 < \abs{x-c} < \delta$, it follows that $\abs{(f(x) + g(x)) - (L + M)} < \epsilon$.
-                        Since $\lim_{x \to c} f(x) = L$, we know that there exists a $\delta_1$ such that whenever $0 < \abs{x-c} < \delta_1$, it follows that $\abs{f(x) - L} < \frac{\epsilon}{2}$.
-                        Similarly, since $\lim_{x \to c} g(x) = M$, we know that there exists a $\delta_2$ such that whenever $0 < \abs{x-c} < \delta_2$, it follows that $\abs{g(x) - M} < \frac{\epsilon}{2}$.
+                        Need to show that $\lim_{x \to c} [f(x) + g(x)] = L + M$, that is there exists $\delta > 0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta$, it follows that $\abs{(f(x) + g(x)) - L - M} < \epsilon$.
+                        Since $\lim_{x \to c} f(x) = L$, we know that there exists a $\delta_1>0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta_1$, it follows that $\abs{f(x) - L} < \frac{\epsilon}{2}$.
+                        Similarly, since $\lim_{x \to c} g(x) = M$, we know that there exists a $\delta_2>0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta_2$, it follows that $\abs{g(x) - M} < \frac{\epsilon}{2}$.
                         So, choose $\delta$ such that $\delta = \min\{\delta_1, \delta_2\}$.
                         Then, whenever $0 < \abs{x-c} < \delta$:
                         \begin{align*}
@@ -85,22 +69,106 @@
                             &\leq \abs{(f(x) - L)} + \abs{(g(x) - M)}\\
                             &< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
                         \end{align*}
-                        So, $0 < \abs{x-c} < \delta$ implies $\abs{(f(x) + g(x)) - (L + M)} < \epsilon$ as desired.
+                        So, when $x \in A$ and $0 < \abs{x-c} < \delta$, $\abs{(f(x) + g(x)) - (L + M)} < \epsilon$ as desired.
                     \end{proof}
 
                 \item [(c)] Repeat (a) and (b) for Corollary 4.2.4 part (iii).
-                
-                    
+                        \begin{proof}
+                            Suppose $f$ and $g$ are functions defined on the domain $A \subseteq \bbR$.
+                            Assume $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$ for some limit point $c$ of $A$.
+                            Then, we know from the Sequential Criterion for Functional Limits (Theorem 4.2.3) that for all sequences $(x_n) \subseteq A$ satisfying $x_n \neq c$ and $(x_n) \to c$, it follows that $f(x_n) \to L$ and $g(x_n) \to M$.
+                            Then, using the algebraic limit theroem for sequences, we know that $f(x_n) * g(x_n) \to LM$.
+                            Thus, $\lim_{x \to c} [f(x)g(x)] = LM$ as desired.
+                        \end{proof}
+
+                        \begin{proof}
+                            Suppose $f$ and $g$ are functions defined on the domain $A \subseteq \bbR$.
+                            Assume $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$ for some limit point $c$ of $A$.
+                            Let $\epsilon > 0$.
+                            Need to show that $\lim_{x \to c} [f(x)g(x)] = LM$, that is there exists $\delta > 0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta$, it follows that $\abs{(f(x)g(x)) - LM} < \epsilon$.
+                            Simplifying further, we need that there exists $\delta > 0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta$,
+                                \begin{align*}
+                                    \abs{(f(x)g(x)) - LM} &= \abs{f(x)g(x) - Mf(x) + Mf(x) - LM} \\
+                                    &\leq \abs{f(x)}\abs{(g(x)-M)} + \abs{M}\abs{(f(x) - L)} < \epsilon.
+                                \end{align*}
+                            Since $\lim_{x \to c} f(x) = L$, we know that there exists a $\delta_1>0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta_1$, it follows that $\abs{f(x) - L} < \frac{\epsilon}{2M}$ where $M \neq 0$.
+                            Since $\lim_{x \to c} g(x) = M$, we know that there exists a $\delta_2>0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta_2$, it follows that $\abs{g(x) - M} < \frac{\epsilon}{2(\abs{L}+1)}$.
+                            Simplifying further, we need that there exists $\delta > 0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta$,
+                                \begin{align*}
+                                    \abs{(f(x)g(x)) - LM} &\leq \abs{f(x)}\abs{(g(x)-M)} + \abs{M}\abs{(f(x) - L)} \\
+                                    &< \abs{f(x)}\frac{\epsilon}{2(\abs{L}+1)} + M\frac{\epsilon}{2M}
+                                \end{align*}
+                            So, we need to show $\abs{f(x)} \leq \abs{L} + 1$.
+                            Well, $\abs{f(x)} = \abs{f(x) - L + L} \leq \abs{f(x) - L} + \abs{L}$.
+                            Since $\abs{f(x) - L}$ can get arbitrarily small, we know that there exists a $\delta_3 >0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta_3$, it follows that $\abs{f(x) - L} < 1$.
+                            So, $\abs{f(x) - L} + \abs{L} \leq 1 + \abs{L}$ which means $\abs{f(x)} \leq \abs{L} + 1$.
+                            Now choose $\delta = \min{\{\delta_1, \delta_2, \delta_3\}}$.
+                            Then, we have that
+                                \begin{align*}
+                                    \abs{(f(x)g(x)) - LM} &< \abs{f(x)}\frac{\epsilon}{2(\abs{L}+1)} + M\frac{\epsilon}{2M}\\
+                                    &< (\abs{L}+1)\frac{\epsilon}{2(\abs{L}+1)} + M\frac{\epsilon}{2M}\\
+                                    &= \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+                                \end{align*}
+                            whenever $x \in A$ and $0 < \abs{x - c} < \delta$ and $M \neq 0$.
+                            So, $\lim_{x \to c} [f(x)g(x)] = LM$.
+                        \end{proof}
             \end{itemize}
-        % \item [4.2.6] Let $g : A \to \bbR$ and assume that $f$ is a bounded function on $A \subseteq \bbR$ (i.e., there exists $M > 0$ satisfying $\abs{f(x)} \leq M$ for all $x \in A$). Show that if $\lim_{x \to c} g(x) = 0$, then $\lim_{x \to c} g(x)f(x) = 0$ as well.
-        % \item [4.2.7] 
-        %     \begin{itemize}
-        %         \item [(a)] The statement $\lim_{x \to 0} \frac{1}{x^2} = \infty$ certainly makes intuitive sense. Construct a rigorous definition in the “challenge–response” style of Definition 4.2.1 for a limit statement of the form $\lim_{x \to c} f(x) = \infty$ and use it to prove the previous statement.
-        %         \item [(b)] Now, construct a definition for the statement $\lim_{x \to \infty} f(x) = L$. Show $\lim_{x \to \infty} \frac{1}{x} = 0$.
-        %         \item [(c)] What would a rigorous definition for $\lim_{x \to \infty} f(x) = \infty$ look like? Give an example of such a limit.
-        %     \end{itemize}
-        % \item [4.2.8] Assume $f(x) \geq g(x)$ for all $x$ in some set $A$ on which $f$ and $g$
-        % are defined. Show that for any limit point $c$ of $A$ we must have $\lim_{x \to c} f(x) \geq \lim_{x \to c} g(x)$.
+        \item [4.2.6] Let $g : A \to \bbR$ and assume that $f$ is a bounded function on $A \subseteq \bbR$ (i.e., there exists $M > 0$ satisfying $\abs{f(x)} \leq M$ for all $x \in A$). Show that if $\lim_{x \to c} g(x) = 0$, then $\lim_{x \to c} g(x)f(x) = 0$ as well.
+            \begin{proof}
+                Suppose $\epsilon > 0$.
+                Need to show $\lim_{x \to c} g(x)f(x) = 0$, that is $\exists \delta > 0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta$, $\abs{f(x)g(x)} < \epsilon$.
+                $\lim_{x \to c} g(x) = 0$ means that there exists $\delta_1>0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta_1$, $\abs{g(x)} < \frac{\epsilon}{M}$.
+                Choose $\delta = \delta_1$.
+                Then, since $\abs{f(x)} \leq M$ for all $x \in A$, we have that whenever $x \in A$ and $0 < \abs{x-c} < \delta$, $\abs{f(x)g(x)} < M *\frac{\epsilon}{M} = \epsilon$.
+                Thus, $\lim_{x \to c} g(x)f(x) = 0$ as desired.
+            \end{proof}
+        \item [4.2.7] 
+            \begin{itemize}
+                \item [(a)] The statement $\lim_{x \to 0} \frac{1}{x^2} = \infty$ certainly makes intuitive sense. Construct a rigorous definition in the “challenge–response” style of Definition 4.2.1 for a limit statement of the form $\lim_{x \to c} f(x) = \infty$ and use it to prove the previous statement.
+
+                    Definition: Let $f : A \to \bbR$. We say that $\lim_{x \to c} f(x) = \infty$ provided that, for all $N > 0$, there exists a $\delta > 0$ such that whenever $x \in A$ and $0 < \abs{x-c} < \delta$, it follows that $f(x) > N$. 
+                    
+                    \begin{proof}
+                        Suppose $N > 0$.
+                        Need that there exists a $\delta > 0$ such that whenever $x \in A$ and $0 < \abs{x-c} = \abs{x} < \delta$, it follows that $f(x) > N$.
+                        Choose $\delta = \frac{1}{\sqrt(N)}$.
+                        Then, whenever $x \in A$ and $0 < \abs{x} < \delta = \frac{1}{\sqrt(N)}$, it follows that $x^2 <  \frac{1}{N}$.
+                        Thus, $\frac{1}{x^2} = f(x) > N$ as desired.
+                    \end{proof}
+                \item [(b)] Now, construct a definition for the statement $\lim_{x \to \infty} f(x) = L$. Show $\lim_{x \to \infty} \frac{1}{x} = 0$.
+                    
+                    Definition: Let $f : A \to \bbR$. We say that $\lim_{x \to \infty} f(x) = L$ provided that, for all $\epsilon > 0$, there exists a $D > 0$ such that whenever $x \in A$ and $x > D$, it follows that $\abs{f(x) - L} < \epsilon$. 
+
+                    \begin{proof}
+                        Suppose $\epsilon > 0$.
+                        Need that there exists a $D > 0$ such that whenever $x \in A$ and $x > D$, it follows that $\abs{\frac{1}{x} - 0} < \epsilon$. 
+                        Choose $D = \frac{1}{\epsilon}$.
+                        Then, whenever $x \in A$ and $x > D = \frac{1}{\epsilon}$, it follows that $\abs{\frac{1}{x}} < \abs{\frac{1}{\frac{1}{\epsilon}}} = \abs{\epsilon} = \epsilon$.
+                        Thus, $\abs{\frac{1}{x}} < \epsilon$ as desired.
+                    \end{proof}
+                \item [(c)] What would a rigorous definition for $\lim_{x \to \infty} f(x) = \infty$ look like? Give an example of such a limit.
+                
+                    Definition: Let $f : A \to \bbR$. We say that $\lim_{x \to \infty} f(x) = \infty$ provided that, for all $N > 0$, there exists a $D > 0$ such that whenever $x \in A$ and $x > D$, it follows that $f(x) > N$.
+
+                    An example of such a limit would be $f(x) = x$ because $\lim_{x\to\infty} x = \infty$.
+
+                    \begin{proof}
+                        Suppose $N > 0$.
+                        Need that there exists a $D > 0$ such that whenever $x \in A$ and $x > D$, it follows that $f(x) = x > N$.
+                        Choose $D = N$.
+                        Then, whenever $x \in A$ and $x > D$, it follows that $x > N$ as desired.
+                    \end{proof}
+            \end{itemize}
+        \item [4.2.8] Assume $f(x) \geq g(x)$ for all $x$ in some set $A$ on which $f$ and $g$ are defined. Show that for any limit point $c$ of $A$ we must have $\lim_{x \to c} f(x) \geq \lim_{x \to c} g(x)$.
+            \begin{proof}
+                Assume $f(x) \geq g(x)$ for all $x$ in some set $A$ on which $f$ and $g$ are defined.
+                Need to show that for any limit point $c$ of $A$, $\lim_{x \to c} f(x) \geq \lim_{x \to c} g(x)$.
+                Suppose $c$ is any limit point of $A$.
+                Let $ L = \lim_{x \to c} f(x)$ and $M = \lim_{x \to c} g(x)$.
+                Then, we know from the Sequential Criterion for Functional Limits (Theorem 4.2.3) that for all sequences $(x_n) \subseteq A$ satisfying $x_n \neq c$ and $(x_n) \to c$, it follows that $f(x_n) \to L$ and $g(x_n) \to M$.
+                We know that $f(x_n) \geq g(x_n)$ and so by the Order Limit Theorem we have that $\lim f(x_n) = L \geq \lim g(x_n) = M$.
+                So, $\lim_{x \to c} f(x) \geq \lim_{x \to c} g(x)$ as desired.
+            \end{proof}
         % \item [4.3.2] 
         % \item [4.3.4] 
         % \item [4.3.6] 
