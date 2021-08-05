@@ -169,12 +169,217 @@
                 We know that $f(x_n) \geq g(x_n)$ and so by the Order Limit Theorem we have that $\lim f(x_n) = L \geq \lim g(x_n) = M$.
                 So, $\lim_{x \to c} f(x) \geq \lim_{x \to c} g(x)$ as desired.
             \end{proof}
-        % \item [4.3.2] 
-        % \item [4.3.4] 
-        % \item [4.3.6] 
-        % \item [4.3.8] 
-        % \item [4.3.9] 
-        % \item [4.3.11] 
+
+        \item [4.3.2] 
+            \begin{itemize}
+                \item [(a)] Supply a proof for Theorem 4.3.9 using the $\epsilon / \delta$ characterization of continuity.
+                    
+                    Theorem 4.3.9: Given $f:A\to\bbR$ and $g:B\to\bbR$, assume that the range $f(A) = \{f(x): x \in A\}$ is contained in the domain $B$ so that the composition $g \circ f(x) = g(f(x))$ is well-defined on $A$.
+
+                    If $f$ is continuous at $c \in A$, and if $g$ is continuous at $f(c) \in B$, then $g \circ f$ is continuous at $c$.
+                    \begin{proof}
+                        Suppose $\epsilon > 0$ is arbitrary.
+                        Since $g$ is continuous at $f(c) \in B$, there exists a $\delta_1>0$ such that $\abs{g(f(x))-g(f(c))} < \epsilon$ whenever $\abs{f(x) - f(c)} < \delta_1$ (and $x \in A$ and $f(x) \in B$).
+                        Since $f$ is continuous at $c \in A$, there exists a $\delta > 0$ such that $\abs{f(x) - f(c)} < \delta_1$ whenever $\abs{x-c} < \delta$ (and $x \in A$).
+                        Combining both of the above parts, we see that for all $\epsilon > 0$, there exists a $\delta > 0$ such that $\abs{x-c} < \delta$ implies $\abs{f(x) - f(c)} < \delta_1$ which implies $\abs{g(f(x))-g(f(c))} < \epsilon$.
+                        Thus, by definition of continuity, $g \circ f$ is continuous at $c$.
+                    \end{proof}
+                \item [(b)] Give another proof of this theorem using the sequential characterization of continuity (from Theorem 4.3.2 (iv)).
+                    \begin{proof}
+                        Assume that $(x_n) \to c$ (with $x_n \in A$).
+                        Since $f$ is continuous at $c$, $f(x_n) \to f(c)$ by Theorem 4.3.2 (iv) (Characterizations of Continuity).
+                        Since $g$ is continuous at $f(c)$, $g(f(x_n)) \to g(f(c))$ by Theorem 4.3.2 (iv).
+                        Thus, by Theorem 4.3.2 (iv), $g \circ f$ is continuous at $c$.
+                    \end{proof}
+            \end{itemize}
+        \item [4.3.4] 
+            \begin{itemize}
+                \item [(a)] Show using Definition 4.3.1 that any function $f$ with domain $\bbZ$ will necessarily be continuous at every point in its domain.
+                    \begin{proof}
+                        Need to show that for all $\epsilon > 0$, there exists $\delta > 0$ such that whenever $\abs{x-c} < \delta$ (and $x \in A$ and $c\in A$) it follows that $\abs{f(x) - f(c)} < \epsilon$.
+                        Suppose $\epsilon > 0$ and $c \in A$ is arbitrary.
+                        Choose $\delta = 1$.
+                        Then, we see that whenever $\abs{x-c} < \delta$ (and $x \in A$ and $c\in A$), it follows that $\abs{f(x) - f(c)} < \epsilon$.
+                        So, any function $f$ with domain $\bbZ$ will necessarily be continuous at every point in $\bbZ$.
+                    \end{proof}
+                \item [(b)] Show in general that if $c$ is an isolated point of $A \subseteq \bbR$, then $f : A \to \bbR$ is continuous at $c$.
+                    \begin{proof}
+                        Assume $c$ is an isolated point of $A \subseteq \bbR$.
+                        Need to show that $f : A \to \bbR$ is continuous at $c$, that is for all $V_\epsilon(f(c))$, there exists a $V_\delta(c)$ with the property that $x \in V_\delta(c)$ (and $x \in A$) implies $f(x) \in V_\epsilon(f(c))$.
+                        Suppose $\epsilon > 0$ is arbitrary.
+                        Since $c$ is an isolated point, we know from the inverse of Definition 3.2.4 that there exists a $\delta$ neighborhood $V_\delta(c)$ that intersects $A$ only at the point $c$, so $V_\delta(c) \cap A = c$.
+                        Then, for all $x \in V_\delta(c)$, $x = c$ which means that $f(x) = f(c)$.
+                        So, $f(x) \in V_\epsilon(f(c))$.
+                        Thus, $f(x)$ is continuous at $c$ by Theorem 4.3.2 (iii).
+                    \end{proof}
+            \end{itemize}
+        \item [4.3.6] 
+            \begin{itemize}
+                \item [(a)] Referring to the proper theorems, give a formal argument that Dirichlet’s function from Section 4.1 is nowhere-continuous on $\bbR$.
+                    \begin{proof}
+                        Let Dirichlet’s function be defined as follows:
+                        \(
+                            g(x) = 
+                            \begin{cases}
+                                1 \text{ if } x \in \bbQ \\
+                                0 \text{ if } x \notin \bbQ.
+                            \end{cases}
+                        \)
+                        Need to show that $g$ is nowhere-continuous -- that is it is not continuous at any point in $\bbR$.
+
+                        First, choose $q\in\bbQ$ arbitrarily.
+                        We know that $q \in \bbR$ and $\bbI$ is dense in $\bbR$ which means that there must exist a sequence $(x_n) \subseteq \bbI$ such that $(x_n) \to q$.
+                        Then, for all $n \in \bbN$, $g(x_n) = 0$ which means $\lim g(x_n) = 0$, but $g(q) = 1$.
+                        Since $\lim g(x_n) \neq g(q)$, we see that $g$ is not continuous at $q$ by Corollary 4.3.3 (Criterion for Discontinuity).
+
+                        Next, choose $i \in \bbI$ arbitrarily.
+                        We know that $i \in \bbR$ and $\bbQ$ is dense in $\bbR$ which means that there must exist a sequence $(y_n) \subseteq \bbQ$ such that $(y_n) \to i$.
+                        Then, for all $n \in \bbN$, $g(y_n) = 1$ which means $\lim g(y_n) = 1$, but $g(i) = 0$.
+                        Since $\lim g(y_n) \neq g(i)$, we see that $g$ is not continuous at $i$ by Corollary 4.3.3 (Criterion for Discontinuity).
+                        
+                        Since $\bbR$ consists of points from $\bbQ$ and $\bbI$, we see that $\bbR$ is nowhere-continuous.
+                    \end{proof}
+                \item [(b)] Review the definition of Thomae’s function in Section 4.1 and demonstrate that it fails to be continuous at every rational point.
+                    \begin{proof}
+                        Let Thomae’s function be defined as follows:
+                        \[ t(x) =
+                        \begin{cases}
+                            1 & \text{if } x = 0\\
+                            \frac{1}{n} & \text{if } x = \frac{m}{n} \in \bbQ - \{0\} \text{ is in lowest terms with } n > 0\\
+                            0 & \text{if } x \notin \bbQ.
+                        \end{cases}
+                        \]
+                        Arbitrarily choose $m,n \in \bbZ$ such that $n\neq 0$.
+                        Need to show that $t$ is not continuous at $\frac{m}{n}$. 
+                        Since $\frac{m}{n} \in \bbR$ and $\bbI$ is dense in $\bbR$, there must exist a sequence $(x_n) \subseteq \bbI$ such that $(x_n) \to \frac{m}{n}$.
+                        Then, for all $n \in \bbN$, $t(x_n) = 0$ which means $\lim t(x_n) = 0$, but $t(\frac{m}{n}) = \frac{1}{n}$.
+                        Since $\lim t(x_n) \neq t(\frac{m}{n})$, we see that $t$ is not continuous at $\frac{m}{n}$ by Corollary 4.3.3 (Criterion for Discontinuity).
+                        Since $m,n$ were arbitrarily chosen and every $x \in \bbQ$ can be represented as $\frac{a}{b}$ for some $a,b \in \bbZ$ where $b \neq 0$, we see that $t$ is not continuous at any point in $\bbQ$.
+                    \end{proof}
+                \item [(c)] Use the characterization of continuity in Theorem 4.3.2 (iii) to show that Thomae’s function is continuous at every irrational point in $\bbR$. (Given $\epsilon > 0$, consider the set of points $\{x \in \bbR : t(x) \geq \epsilon\}$. Argue that all the points in this set are isolated.)
+                    \begin{proof}
+                        Choose $i \in \bbI$ arbitrarily.
+                        Need to show that for all $V_\epsilon(t(i))$, there exists a $V_\delta(i)$ such that $v \in V_\delta(i)$ implies $t(v) \in V_\epsilon(t(i))$.
+                        Choose $\epsilon > 0$ arbitrarily.
+                        Let $T = \{x \in \bbR : t(x) \geq \epsilon\}$.
+                        Then, for all $x\in T$, $x \in \bbQ$ so $\exists m,n \in \bbZ$ such that $x = \frac{m}{n}$ and $0 < n \leq \frac{1}{\epsilon}$.
+                        Then, if we look at some fixed interval around $i$ like $[i-1, i+1]$, we can see that $T \cap [i-1, i+1]$ is finite since there are only a finite amount of rational numbers within this interval with a denominator less than $\frac{1}{\epsilon}$.
+                        Since $T \cap [i-1, i+1]$ is finite, we can choose $\delta > 0$ such that for all $v \in V_\delta(i)$, $v \notin T$ which means that $t(v) \in V_\epsilon(t(i))$.
+                        Thus, $t$ is continuous at every irrational point by Theorem 4.3.2 (iii).
+                    \end{proof}
+            \end{itemize}
+        \newpage
+        \item [4.3.8]
+            \begin{itemize}
+                \item [(a)] Show that if a function is continuous on all of $\bbR$ and equal to 0 at every rational point, then it must be identically 0 on all of $\bbR$.
+                    \begin{proof}
+                        Assume a function $f$ is continuous on all of $\bbR$ and equal to 0 at every rational point.
+                        Since $f$ is 0 at every rational point, we only need to show that $f$ is 0 on every irrational point in $\bbR$.
+                        Choose $i\in\bbI$ arbitrarily.
+                        Since $\bbQ$ is dense in $\bbR$, we know that there exists a sequence $(x_n) \subseteq \bbQ$ such that $(x_n)\to i$.
+                        Then, since $f$ is continuous on $\bbR$, we have that $0 = \lim f(x_n) = f(i)$.
+                        So, $f$ is 0 on every irrational point in $\bbR$.
+                        Thus, $f$ is 0 on all of $\bbR$.
+                    \end{proof}
+                \item [(b)] If $f$ and $g$ are defined on all of $\bbR$ and $f(r) = g(r)$ at every rational point, must $f$ and $g$ be the same function?
+                    \begin{proof}
+                        No, take the following counterexample:
+
+                        \(
+                            f(x) = 
+                            \begin{cases}
+                                0 \text{ if } x \in \bbQ \\
+                                1 \text{ if } x \notin \bbQ
+                            \end{cases}
+                            \\
+                            g(x) = 
+                            \begin{cases}
+                                0 \text{ if } x \in \bbQ \\
+                                2 \text{ if } x \notin \bbQ
+                            \end{cases}
+                        \)
+
+                        So, $f$ and $g$ are defined on all of $\bbR$ and $f(r) = g(r)$ at every rational point $r$.
+                        However, $f$ and $g$ are not the same function.
+                    \end{proof}
+            \end{itemize}
+        \item [4.3.9] (Contraction Mapping Theorem). Let $f$ be a function defined on all of $\bbR$, and assume there is a constant $c$ such that $0 < c < 1$ and $\abs{f(x) - f(y)} \leq c\abs{x-y}$ for all $x, y \in \bbR$.
+            \begin{itemize}
+                \item [(a)] Show that $f$ is continuous on $\bbR$.
+                    \begin{proof}
+                        Choose $\epsilon > 0$ and $y \in \bbR$ arbitrarily.
+                        Need to show that $\exists \delta > 0$ such that $\abs{x - y} < \delta$ and $x \in \bbR$ implies that $\abs{f(x) - f(y)} < \epsilon$.
+                        Choose $\delta = \frac{\epsilon}{c}$.
+                        Then, $\abs{x - y} < \delta = \frac{\epsilon}{c}$ means that $c\abs{x-y} < \epsilon$.
+                        So, $\abs{f(x) - f(y)} \leq c\abs{x-y} < \epsilon$.
+                        Thus, $f$ is continuous on $\bbR$ by Theorem 4.3.1.
+                    \end{proof}
+                \item [(b)] Pick some point $y_1 \in \bbR$ and construct the sequence $(y_1, f(y_1), f(f(y_1)), ...)$. In general, if $y_{n+1} = f(y_n)$, show that the resulting sequence $(y_n)$ is a Cauchy sequence. Hence we may let $y = \lim y_n$.
+                    \begin{proof}
+                        Choose $y_1 \in \bbR$ arbitrarily.
+                        Let $(y_n)$ be the sequence $(y_1, f(y_1), f(f(y_1)), ...)$.
+                        Given an arbitrary $x \in \bbN$, we know from part a that $\abs{y_{x+1} - y_{x+2}} = \abs{f(y_{x}) - f(y_{x+1})} \leq c\abs{y_x - y_{x+1}} \leq c^2\abs{y_{x-1} - y_{x}} \leq ... \leq c^x\abs{y_{1} - y_{2}}$ where $0<c<1$.
+                        Given arbitrary $i,j \in \bbN$ such that $i < j$, we know from the previous fact that $\abs{y_i - y_j} \leq \abs{y_i - y_{i+1}} + \abs{y_{i+1} - y_{i+2}} + ... + \abs{y_{j-1} - y_j} \leq c^{i-1}\abs{y_{1} - y_{2}} + c^i\abs{y_{1} - y_{2}} + ... + c^{j-2}\abs{y_{1} - y_{2}} = c^{i-1}\abs{y_{1} - y_{2}}(1 + c + ... + c^{j-i-1}) < c^{i-1}\abs{y_{1} - y_{2}}(\frac{1}{1-c})$.
+                        Need to show that $(y_n)$ is a cauchy sequence -- that is for every $\epsilon > 0$ there exists an $N \in \bbN$ such that whenever $m,n \geq N$ with $m < n$ it follows that $\abs{y_m - y_n} = c^{m-1}\abs{y_{1} - y_{2}}(\frac{1}{1-c}) < \epsilon$.
+                        Let $\epsilon > 0$ be arbitrary.
+                        Choose $N \in \bbN$ such that $c^{N-1} < \frac{\epsilon(1-c)}{\abs{y_1 - y_2}}$.
+                        Then, as shown above, whenever $m,n \geq N$ with $m < n$ it follows that $\abs{y_m - y_n} < \epsilon$ which satisfies that $(y_n)$ is a Cauchy Sequence.
+                    \end{proof}
+                \item [(c)] Prove that $y$ is a fixed point of $f$ (i.e., $f(y) = y$) and that it is unique in this regard.
+                    \begin{proof}
+                        Let $y = \lim y_n$.
+                        Then, since $f$ is continuous, $f(y) = \lim f(y_n)$.
+                        Since $f(y_n) = y_{n+1}$, $f(y) = \lim y_{n+1}$.
+                        Similarly, $y_n = f(y)$.
+                        So, by transitivity, $y = \lim y_n = \lim y_{n+1}$.
+                        Thus, since $f(y) = \lim y_{n+1}$, we have that $y = f(y)$.
+                    \end{proof}
+                \item [(d)] Finally, prove that if $x$ is any arbitrary point in $\bbR$ then the sequence $(x, f(x), f(f(x)), ...)$ converges to $y$ defined in (b).
+                    \begin{proof}
+                        Assume $x$ is any arbitrary point in $\bbR$.
+                        We know from part b that the sequence $(x, f(x), f(f(x)), ...)$ must converge to some limit $l$.
+                        We also know from part c that $l$ must be a fixed point of $f$.
+                        So, we have that both $l$ and $y$ are fixed points.
+                        Then, they must satisfy $\abs{f(l) - f(y)} = \abs{l - y}$ and $\abs{f(l) - f(y)} \leq c\abs{l - y}$ for $0<c<1$.
+                        The only way that both statements are satisfied is if $l = y$.
+                        Thus, the sequence $(x, f(x), f(f(x)), ...)$ converges to $y$ defined in (b).
+                    \end{proof}
+            \end{itemize}
+        \item [4.3.11] For each of the following choices of $A$, construct a function $f : \bbR \to \bbR$ that has discontinuities at every point $x$ in $A$ and is continuous on $A^c$.
+            \begin{itemize}
+                \item [(a)] $A = \bbZ$.
+
+                    The greatest integer function $f(x) = \lceil x \rceil$.
+                \item [(b)] $A = \{x : 0 < x < 1\}$.
+
+                \(
+                    f(x) = 
+                    \begin{cases}
+                        0.5 - \abs{0.5-x} \text{ if } x \in \bbQ \text{ and } 0 < x < 1\\
+                        0 \text{ if } x \notin \bbQ \text{ and } 0 < x < 1\\
+                        0 \text{ otherwise }
+                    \end{cases}
+                \)
+                \item [(c)] $A = \{x : 0 \leq x \leq 1\}$
+
+                \(
+                    f(x) = 
+                    \begin{cases}
+                        1 \text{ if } x \in \bbQ \text{ and } 0 \leq x \leq 1\\
+                        0 \text{ if } x \notin \bbQ \text{ and } 0 \leq x \leq 1\\
+                        0 \text{ otherwise }
+                    \end{cases}
+                \)
+                \item [(d)] $A = \{\frac{1}{n} : n \in \bbN\}$.
+                
+                \(
+                    f(x) = 
+                    \begin{cases}
+                        \frac{1}{n} \text{ if } x = \frac{1}{n} \text{ for some } n \in \bbN\\
+                        0 \text{ otherwise }
+                    \end{cases}
+                \)
+            \end{itemize}
         % \item [4.4.3] 
         % \item [4.4.4] 
         % \item [4.4.6] 
