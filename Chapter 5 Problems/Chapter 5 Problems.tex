@@ -1,0 +1,49 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{preamble}
+
+\newcommand\course{311 Self Study}
+\newcommand\hwnumber{5}
+\newcommand\userID{Rohit Rao}
+
+\begin{document}
+    \begin{itemize}[leftmargin=!,labelindent=5pt]
+        \item [5.2.2] 
+            \begin{itemize}
+                \item [(a)] Use Definition 5.2.1 to produce the proper formula for the derivative of $f(x) = \frac{1}{x}$.
+                \item [(b)] Combine the result in part (a) with the chain rule (Theorem 5.2.5) to supply a proof for part (iv) of Theorem 5.2.4.
+                \item [(c)] Supply a direct proof of Theorem 5.2.4 (iv) by algebraically manipulating the difference quotient for ($\frac{f}{g}$) in a style similar to the proof of Theorem 5.2.4 (iii).
+            \end{itemize}
+        \item [5.2.5] Let
+            \[
+                g_a(x) = 
+            \begin{cases}
+                x^a sin(\frac{1}{x}) \text{ if } x \neq 0 \\
+                0 \text{ if } x = 0.
+            \end{cases}
+            \]
+            Find a particular (potentially noninteger) value for $a$ so that
+            \begin{itemize}
+                \item [(a)] $g_a$ is differentiable on $\bbR$ but such that $g_a^{'}$ is unbounded on $[0,1]$.
+                \item [(b)] $g_a$ is differentiable on $\bbR$ with $g_a^{'}$ continuous but not differentiable at zero.
+                \item [(c)] $g_a$ is differentiable on $\bbR$ with $g_a^{'}$ is differentiable on $\bbR$, but such that $g_a^n$ is not continuous at zero.
+            \end{itemize}
+        \item [5.2.8] Decide whether each conjecture is true or false. Provide an argument for those that are true and a counterexample for each one that is false.
+            \begin{itemize}
+                \item [(a)] If a derivative function is not constant, then the derivative must take on
+                some irrational values.
+                \item [(b)] If $f'$ exists on an open interval, and there is some point $c$ where $f'(c) > 0$, then there exists a $\delta$-neighborhood $V_\delta(c)$ around $c$ in which $f'(x) > 0$ for all $x \in V_\delta(c)$.
+                \item [(c)] If $f$ is differentiable on an interval containing zero and if $\lim_{x\to 0} f'(x) = L$, then it must be that $L = f'(0)$.
+                \item [(d)] Repeat conjecture (c) but drop the assumption that $f'(0)$ necessarily exists. If $f'(x)$ exists for all $x \neq 0$ and if $\lim_{x \to 0} f'(x) = L$, then $f'(0)$ exists and equals $L$.
+            \end{itemize}
+        \item [5.3.1] Recall from Exercise 4.4.9 that a function $f : A \to \bbR$ is Lipschitz on $A$ if there exists an $M > 0$ such that $\abs{\frac{f(x) - f(y)}{x-y}} \leq M$ for all $x,y \in A$. Show that if $f$ is differentiable on a closed interval $[a, b]$ and if $f'$ is continuous on $[a,b]$, then $f$ is Lipschitz on $[a,b]$.
+        \item [5.3.5] A fixed point of a function $f$ is a value $x$ where $f(x) = x$. Show that if $f$ is differentiable on an interval with $f'(x) \neq 1$, then $f$ can have at most one fixed point.
+        \item [5.3.8] Assume $g:(a,b) \to \bbR$ is differentiable at some point $c \in (a,b)$. If $g'(c) \neq 0$, show that there exists a $\delta$-neighborhood $V_\delta(c) \subseteq (a,b)$ for which $g(x) \neq g(c)$ for all $x \in V_\delta(c)$. Compare this result with Exercise 5.3.7.
+        \item [5.4.2] Fix $x \in \bbR$. Argue that the series $\sum_{n=0}^{\infty} \frac{1}{2^n}h(2^n x)$ converges absolutely and thus $g(x)$ is properly defined.
+        \item [5.4.4] Show that $\frac{g(x_m) - g(0)}{x_m - 0} = m+1$, and use this to prove that $g'(0)$ does not exist.
+        \item [5.4.5] 
+            \begin{itemize}
+                \item [(a)] Modify the previous argument to show that $g'(1)$ does not exist. Show that $g'(\frac{1}{2})$ does not exist.
+                \item [(b)] Show that $g'(x)$ does not exist for any rational number of the form $x = \frac{p}{2^k}$ where $p \in \bbZ$ and $k \in \bbN \cup \{0\}$.
+            \end{itemize}
+    \end{itemize}
+\end{document}
