@@ -490,10 +490,35 @@
         \item [4.5.2] Decide on the validity of the following conjectures.
             \begin{itemize}
                 \item [(a)] Continuous functions take bounded open intervals to bounded open intervals.
+                
+                    False. A counterexample would be the continuous function $f(x) = \frac{1}{x}$ which takes the bounded open interval $(0,1)$ to the unbounded open interval $(1, \infty)$.
                 \item [(b)] Continuous functions take bounded open intervals to open sets.
+
+                    False. A counterexample would be the continuous function $f(x) = 1-x^2$ which takes the bounded open interval $(-1,1)$ to the set $(0, 1]$ which is not an open set.
                 \item [(c)] Continuous functions take bounded closed intervals to bounded closed intervals.
+                
+                    True. A bounded and closed interval on $\bbR$ will behave identically to a compact set $K \subseteq \bbR$ and we know that a continuous function on a compact set maps to another compact set by Theorem 4.4.2 (Preservation of Compact Sets).
             \end{itemize}
         \item [4.5.3] Is there a continuous function on all of $\bbR$ with range $f(\bbR)$ equal to $\bbQ$?
+        
+            No, there isn't because it would fail to contain the irrational points since $\bbQ$ is not connected. A specific example would be to assume that 1 and 2 were in the range of $f$, then by IVT, $f$ would also have to contain $\sqrt(2)$, but $\sqrt(2) \notin \bbQ$.
         \item [4.5.6] Finish the proof of the Intermediate Value Theorem using the Nested Interval Property started previously.
+        
+            \textbf{Textbook}: 
+                Consider the special case where $L = 0$ and $f(a) < 0 < f(b)$ where $a,b \in \bbR$.
+                Let $I_0 = [a,b]$, and consider the midpoint $z = \frac{a+b}{2}$.
+                If $f(z) \geq 0$, then set $a_1 = a$ and $b_1 = z$. 
+                If $f(z) < 0$, then set $a_1 = z$ and $b_1 = b$.
+                In either case the interval $I_1 = [a_1, b_1]$ has the property that $f$ is negative at the left endpoint and non-negative at the right.
+            
+            \ \\
+            \textbf{Continuation of the proof:} 
+            \begin{proof}
+                We can set $z$ to be the midpoint of the new interval and inductively continue the construction so we see that $\forall n \in \bbN$ the interval $I_n = [a_n, b_n]$ where the left endpoint is negative [so $f(a_n) < 0$] and the right endpoint is non-negative [so $f(b_n) \geq 0$].
+                Then, by the Nested Interval Property, we know that there exists an $x \in \bigcap_{n=1}^{\infty}I_n$ which is the point that both $(a_n)$ and $(b_n)$ are converging towards.
+                Since $f$ is continuous, we know that $\lim f(a_n) = f(x) = \lim f(b_n)$.
+                Then we know from the Order Limit Theroem that since for all $n \in \bbN$ $f(a_n) < 0$ and $f(b_n) \geq 0$, it must be true that $f(x) \leq 0$ and $f(x) \geq 0$. 
+                This means that $f(x) = 0$ as desired.
+            \end{proof}
     \end{itemize}
 \end{document}
