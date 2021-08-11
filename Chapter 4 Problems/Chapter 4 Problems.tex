@@ -380,14 +380,120 @@
                     \end{cases}
                 \)
             \end{itemize}
-        % \item [4.4.3] 
-        % \item [4.4.4] 
-        % \item [4.4.6] 
-        % \item [4.4.9] 
-        % \item [4.4.10] 
-        % \item [4.4.11] 
-        % \item [4.5.2]
-        % \item [4.5.3] 
-        % \item [4.5.6]
+        \newpage
+        \item [4.4.3] Furnish the details (including an argument for Exercise 3.3.1 if it is not already done) for the proof of the Extreme Value Theorem (Theorem 4.4.3).
+            \begin{proof}
+                Assume $f: K\to\bbR$ is continuous on a compact set $K \subseteq \bbR$.
+                Need to show that $f$ attains a maximum and a minimum value -- that is $\exists x_0, x_1 \in K$ such that $f(x_0) \leq f(x) \leq f(x_1)$ for all $x \in K$.
+                Since $K$ is compact and $f:K \to \bbR$, we know that $f(K)$ is compact by Theorem 4.4.2 (Preservation of Compact Sets).
+                Then, by Exercise 3.3.1 provided below, we know that since $f(K)$ is compact, it contains its supremum and infimum.
+                Let $y_0 = \inf(f(K))$ and $y_1 = \sup(f(K))$.
+                Then, since $y_0, y_1 \in f(K)$, there exists $x_0, x_1 \in K$ such that $f(x_0) = y_0$ and $f(x_1) = y_1$.
+                By the definition of supremum and infiumum, we know that for all $x \in K, f(x_0) \leq f(x) \leq f(x_1)$.
+            \end{proof}
+
+                Exercise 3.3.1: If $K \subseteq \bbR$ is a compact set, then $\sup K$ and $\inf K$ both exist and are both elements of $K$.
+                \begin{proof}
+                    Assume $K \subseteq \bbR$ is a compact set.
+                    By Theorem 3.3.4 (Heine-Borel Theorem), $K$ is closed and bounded.
+                    So, we know from the Axiom of Completeness that $\sup K$ and $\inf K$ exist.
+                    Let $s = \sup K$ and $i = \inf K$.
+                    Choose any arbitray $\epsilon > 0$.
+                    Then, we see that there exists $k \in K$ such that $k \in V_\epsilon(s)$, and since $k \in V_\epsilon(s)$ intersects $K$ in some point other than $s$, we know that $s$ must be a limit point of $K$ by Definition 3.2.4.
+                    Similarly, we see that there exists $l \in K$ such that $l \in V_\epsilon(i)$, and since $l \in V_\epsilon(i)$ intersects $K$ in some point other than $i$, we know that $i$ must be a limit point of $K$ by Definition 3.2.4.
+                    Since $s$ and $i$ are limit points of $K$ and $K$ is a closed set -- meaning $K = \overline{K}$ -- we know from Definition 3.2.11 that $s,i \in K$.
+                \end{proof}
+        \item [4.4.4] Show that if $f$ is continuous on $[a,b]$ with $f(x) > 0$ for all $a \leq x \leq b$, then $\frac{1}{f}$ is bounded on $[a,b]$.
+                \begin{proof}
+                    Suppose $a,b,x \in \bbR$ are arbitrarily chosen with $a \leq x \leq b$.
+                    Assume $f$ is continuous on $[a,b]$ with $f(x) > 0$.
+                    Need to prove that $\frac{1}{f}$ is bounded on $[a,b]$.
+                    Since $[a,b]$ is closed and bounded, it is compact.
+                    Because $f$ is continuous on the compact set $[a,b]$, we know from Theorem 4.4.3 (Extreme Value Theorem) that it has a minimum $m \in [a,b]$ such that $f(m) \leq f(k)$ for all $k \in [a,b]$.
+                    Then, since $f(x) > 0$, this means $\frac{1}{f}$ is bounded below by $0$ and bounded above by $\frac{1}{f(m)}$.
+                    Thus, $\frac{1}{f}$ is bounded on $[a,b]$.
+                \end{proof}
+        \newpage
+        \item [4.4.6] Give an example of each of the following, or state that such a request is impossible. For any that are impossible, supply a short explanation (perhaps referencing the appropriate theorem(s)) for why this is the case.
+            \begin{itemize}
+                \item [(a)] a continuous function $f : (0,1) \to \bbR$ and a Cauchy sequence $(x_n)$ such that $f(x_n)$ is not a Cauchy sequence;
+                
+                    Let $f(x) = \frac{1}{x}$ and $x_n = \frac{1}{n}$. Then, we see that $(x_n) \to 0$ so it is cauchy. But, $f(x_n) = n$ and that does not converge meaning it is not a cauchy sequence.
+                \item [(b)] a continuous function $f : [0,1] \to \bbR$ and a Cauchy sequence $(x_n)$ such that $f(x_n)$ is not a Cauchy sequence;
+                
+                    Impossible, because $f$ is continuous and $[0,1]$ is compact which means that any Cauchy sequence $(x_n) \in [0,1]$ converges to a limit point $\lim (x_n) \in [0,1]$. 
+                    Then, we know by continuity that $f(x_n)$ must converge to $f(\lim (x_n))$ and so it is a Cauchy sequence.
+                \item [(c)] a continuous function $f : [0,\infty) \to \bbR$ and a Cauchy sequence $(x_n)$ such that $f(x_n)$ is not a Cauchy sequence;
+                
+                    Impossible, because $f$ is continuous and $[0, \infty)$ is closed which means that it contains all its limit points and so any cauchy sequence $(x_n) \in [0,\infty)$ converges to a limit point $\lim (x_n) \in [0, \infty)$.
+                    Then, we know by continuity that $f(x_n)$ must converge to $f(\lim (x_n))$ and so it is a Cauchy sequence.
+                \item [(d)] a continuous bounded function $f$ on $(0,1)$ that attains a maximum value on this open interval but not a minimum value.
+
+                    $f(x) = 0.5 - \abs{0.5-x}$. The maximum value is $0.5$. There is no minimum as desired.
+            \end{itemize}
+        \item [4.4.9] A function $f : A \to \bbR$ is called Lipschitz if there exists a bound $M > 0$ such that $\abs{\frac{f(x) - f(y)}{x-y}} \leq M$ for all $x,y \in A$. Geometrically speaking, a function $f$ is Lipschitz if there is a uniform bound on the magnitude of the slopes of lines drawn through any two points on the graph of $f$.
+            \begin{itemize}
+                \item [(a)] Show that if $f : A \to \bbR$ is Lipschitz, then it is uniformly continuous on $A$.
+                    \begin{proof}
+                        Assume that $f : A \to \bbR$ is Lipschitz.
+                        Need to show that $f$ is uniformly continuous on $A$ -- that is $\forall \epsilon > 0$, $\exists \delta > 0$ such that $\abs{x-y} < \delta$ implies $\abs{f(x) - f(y)} < \epsilon$ where $x, y \in A$.
+                        Suppose $\epsilon > 0$ and $x,y \in A$ are arbitrary.
+                        Since $f$ is Lipschitz, there exists a bound $M > 0$ such that $\abs{\frac{f(x) - f(y)}{x-y}} \leq M$.
+                        Then, choose $\delta = \frac{\epsilon}{M}$.
+                        So, $\abs{\frac{f(x) - f(y)}{x-y}} \leq M$ becomes $\abs{f(x) - f(y)} \leq M \abs{x - y} < M \frac{\epsilon}{M} = \epsilon$.
+                        Thus, $f$ is uniformly continuous on $A$.
+                    \end{proof}
+                \item [(b)] Is the converse statement true? Are all uniformly continuous functions necessarily Lipschitz?
+                    
+                    No. 
+                    As a counterexample take $f(x) = \sqrt(x)$ on $[0, 1]$.
+                    We see that $[0,1]$ is compact and $f$ is continuous on $[0,1]$ which makes it uniformly continuous on $[0,1]$.
+                    However, it is not Lipschitz because we see that as $x \to 0$, the magnitude of the slope of $f(x)$ approaches $\infty$ -- this means that the magnitude of the slope of $f(x)$ is unbounded -- and so it fails to satisfy the geometric explanation of Lipschitz provided in the problem description.
+            \end{itemize}
+        \item [4.4.10] Do uniformly continuous functions preserve boundedness? If $f$ is uniformly continuous on a bounded set $A$, is $f(A)$ necessarily bounded?
+        
+            Yes
+            \begin{proof}
+                Assume $f$ is uniformly continuous on a bounded set $A$.
+                Need to show that $f(A)$ is bounded.
+                Let $\epsilon > 0$ be arbitrary.
+                Since $f$ is uniformly continuous, there exists a $\delta > 0$ such that $\abs{x-y} < \delta$ implies $\abs{f(x) - f(y)} < \epsilon$ for $x,y \in A$.
+                Since $A$ is bounded, there are a finite set of points $\{x_1, ..., x_n\}$ such that $\bigcup_{1 \leq i \leq n}(x_i - \delta, x_i + \delta)$ is a finite open cover of $A$.
+                The image of the finite set of points $\{x_1, ..., x_n\}$ given by $\{f(x_1), ..., f(x_n)\}$ is also finite. 
+                Since the image set is finite, it must have a supremum $s$ and infimum $l$.
+                Then, $f$ is bounded above by $s + \epsilon$ and below by $l - \epsilon$.
+                Thus, $f(A)$ is bounded.
+            \end{proof}
+        \item [4.4.11] (Topological Characterization of Continuity). Let $g$ be defined on all of $\bbR$. If $A$ is a subset of $\bbR$, define the set $g^{-1}(A)$ by $g^{-1}(A) = \{x \in \bbR : g(x) \in A\}$. Show that $g$ is continuous if and only if $g^{-1}(O)$ is open whenever $O \subseteq \bbR$ is an open set.
+            \begin{proof}
+                First we show that if $g$ is continuous then $g^{-1}(O)$ is open whenever $O \subseteq \bbR$ is an open set.
+                Assume $g$ is continuous.
+                Suppose $O \subseteq \bbR$ is an open set.
+                Need to show that $g^{-1}(O)$ is open, that is for all points $a \in g^{-1}(O)$ there exists a $\delta$-neighborhood $V_\delta(a) \subseteq g^{-1}(O)$.
+                Choose an arbitrary $a \in g^{-1}(O)$.
+                Then, we know from the definition of $g^{-1}$ that $g(a) \in O$.
+                Since $O$ is open, we know that for all points $x \in O$ there exists a $\epsilon$-neighborhood $V_\epsilon(x) \subseteq O$.
+                Choose an $\epsilon > 0$ such that $V_\epsilon(g(a)) \subseteq O$.
+                Since $g$ is continuous, this implies that there exists a $\delta$-neighborhood $V_\delta(a)$ such that for all $x \in V_\delta(a)$, $g(x) \in V_\epsilon(g(a))$.
+                This means $V_\delta(a) \subseteq O$ as desired.
+                So, $g^{-1}(O)$ is open.
+
+                Next, we need to show that if $g^{-1}(O)$ is open whenever $O \subseteq \bbR$ is an open set, then $g$ is continuous -- that is given an arbitrary point $c \in \bbR$, for all $V_\epsilon(g(c))$ there exists a $V_\delta(c)$ such that $x \in V_\delta(c)$ implies $g(x) \in V_\epsilon(g(c))$.
+                Choose an arbitrary point $c \in \bbR$ and $\epsilon > 0$. 
+                Let $O$ be the open set given by $V_\epsilon(g(c))$.
+                This means that $g^{-1}(O)$ is open -- that is, there exists a $\delta > 0$ such that $V_\delta(c) \subseteq g^{-1}(O)$.
+                Choose such a $\delta$.
+                Then, for all $x \in V_\delta(c)$, $g(x) \in O$ which means $g(x) \in V_\epsilon(g(c))$ as desired.
+                Thus, $g$ is continuous by Theorem 4.3.2 (iii) (Characterizations of Continuity).
+
+            \end{proof}
+        \item [4.5.2] Decide on the validity of the following conjectures.
+            \begin{itemize}
+                \item [(a)] Continuous functions take bounded open intervals to bounded open intervals.
+                \item [(b)] Continuous functions take bounded open intervals to open sets.
+                \item [(c)] Continuous functions take bounded closed intervals to bounded closed intervals.
+            \end{itemize}
+        \item [4.5.3] Is there a continuous function on all of $\bbR$ with range $f(\bbR)$ equal to $\bbQ$?
+        \item [4.5.6] Finish the proof of the Intermediate Value Theorem using the Nested Interval Property started previously.
     \end{itemize}
 \end{document}
