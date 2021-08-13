@@ -10,8 +10,37 @@
         \item [5.2.2] 
             \begin{itemize}
                 \item [(a)] Use Definition 5.2.1 to produce the proper formula for the derivative of $f(x) = \frac{1}{x}$.
+                    
+                    $f'(c) = \lim_{x\to c} \frac{f(x) - f(c)}{x-c} = \lim_{x \to c} \frac{\frac{1}{x} - \frac{1}{c}}{x-c} = \lim_{x\to c} \frac{\frac{c-x}{xc}}{x-c} = \lim_{x \to c} \frac{-1}{xc} = -\frac{1}{c^2}$.
                 \item [(b)] Combine the result in part (a) with the chain rule (Theorem 5.2.5) to supply a proof for part (iv) of Theorem 5.2.4.
+                    \begin{proof}
+                        Let $h(x) = \frac{1}{x}$.
+                        Then, we can use the chain rule to simplify
+                        \begin{align*}
+                            (\frac{1}{g(x)})' &= (h \circ g)'(x) \\
+                            &= h'(g(x))g'(x) \\
+                            &= -\frac{1}{(g(x))^2}(g'(x)) = -\frac{g'(x)}{(g(x))^2}.
+                        \end{align*}
+                        This helps us to simplify 
+                        \begin{align*}
+                            (\frac{f}{g})'(x) &= (f(x)(h \circ g)(x))' \\
+                            &= f'(x)h(g(x)) + f(x)(h \circ g)'(x) \\
+                            &= \frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{(g(x))^2}\\
+                            &= \frac{f'(x)g(x) - f(x)g'(x)}{(g(x))^2}.
+                        \end{align*}
+                    \end{proof}
                 \item [(c)] Supply a direct proof of Theorem 5.2.4 (iv) by algebraically manipulating the difference quotient for ($\frac{f}{g}$) in a style similar to the proof of Theorem 5.2.4 (iii).
+                    \begin{proof}
+                        \begin{align*}
+                            (\frac{f}{g})'(c) = \frac{(\frac{f}{g})(x) - (\frac{f}{g})(c)}{x-c} &= \frac{1}{x-c} (\frac{f(x)}{g(x)} - \frac{f(c)}{g(c)})\\
+                            &= \frac{1}{x-c} (\frac{f(x)g(c) - g(x)f(c)}{g(x)g(c)})\\
+                            &= \frac{1}{g(x)g(c)} (\frac{f(x)g(c) - f(c)g(c) + f(c)g(c) - g(x)f(c)}{x-c})\\
+                            &= \frac{1}{g(x)g(c)} (g(c)\frac{f(x) - f(c)}{x-c} - f(c)\frac{g(x) - g(c)}{x-c})
+                        \end{align*}
+                        Because $f$ and $g$ are differentiable at $c$, it is continuous there and thus $\lim_{x \to c} f(x) = f(c)$ and $\lim_{x \to c} g(x) = g(c)$.
+                        Using this with the Algebraic Limit Theorem for functional limits, we can simplify the answer to $\frac{1}{(g(c))^2} (g(c)f'(c)-f(c)g'(c))$.
+                        \\Thus, $(\frac{f}{g})'(c) = \frac{g(c)f'(c)-f(c)g'(c)}{(g(c))^2}$ as desired.
+                    \end{proof}
             \end{itemize}
         \item [5.2.5] Let
             \[
@@ -24,16 +53,66 @@
             Find a particular (potentially noninteger) value for $a$ so that
             \begin{itemize}
                 \item [(a)] $g_a$ is differentiable on $\bbR$ but such that $g_a^{'}$ is unbounded on $[0,1]$.
+
+                    $a = \frac{3}{2}$ satisfies both requirements.
                 \item [(b)] $g_a$ is differentiable on $\bbR$ with $g_a^{'}$ continuous but not differentiable at zero.
-                \item [(c)] $g_a$ is differentiable on $\bbR$ with $g_a^{'}$ is differentiable on $\bbR$, but such that $g_a^n$ is not continuous at zero.
+                
+                    $a = 3$ satisfies all the requirements.
+                \item [(c)] $g_a$ is differentiable on $\bbR$ with $g_a^{'}$ is differentiable on $\bbR$, but such that $g_a^{''}$ is not continuous at zero.
+                
+                    $a = 4$ satisfies all the requirements.
             \end{itemize}
         \item [5.2.8] Decide whether each conjecture is true or false. Provide an argument for those that are true and a counterexample for each one that is false.
             \begin{itemize}
                 \item [(a)] If a derivative function is not constant, then the derivative must take on
                 some irrational values.
+
+                    False, take the following counterexample: $f(x) = \abs{x}$. Then, $f'(x) = -1$ when $x < 0$ and $f'(x) = 1$ when $x > 0$ and $f'(x)$ is not defined when $x=0$.
+                    So, we see that $f'$ is not constant since it has two values, -1 and 1, but it is does not take on any irrational values.
                 \item [(b)] If $f'$ exists on an open interval, and there is some point $c$ where $f'(c) > 0$, then there exists a $\delta$-neighborhood $V_\delta(c)$ around $c$ in which $f'(x) > 0$ for all $x \in V_\delta(c)$.
+                
+                    False, take the following counterexample:
+                    $f(x) = 
+                    \begin{cases}
+                        x^2 sin(\frac{1}{x}) + x \text{ if } x \neq 0\\
+                        0 \text{ if } x = 0
+                    \end{cases}$.
+                    Then, $f'(0) = \lim_{x\to 0} \frac{x^2 sin(\frac{1}{x}) + x - 0}{x - 0} = 1 > 0$.
+                    But, the derivative at $x \neq 0$ is $f'(x) = 2x sin(\frac{1}{x}) - cos(\frac{1}{x}) + 1$ which has non-positive values at $x = \frac{1}{2n\pi}$ for $n\in \bbN$.
+                    We can see this by plugging in $\frac{1}{2n\pi}$ to get $f'(\frac{1}{2n\pi}) = \frac{1}{n\pi} sin(2n\pi) - cos(2n\pi) + 1 = 0 - 1 + 1 = 0$ and $0 > 0$ is false.
+                    We can always choose $n$ large enough so that for any $V_\delta(0)$ with $\delta > 0$, $\frac{1}{2n\pi} \in V_\delta(0)$ and thus fails to satisfy the claim.
+                \newpage
                 \item [(c)] If $f$ is differentiable on an interval containing zero and if $\lim_{x\to 0} f'(x) = L$, then it must be that $L = f'(0)$.
+                
+                        True, because if $L \neq f'(0)$ then this is a violation of Darboux's Theorem.
+                        \begin{proof}
+                            Assume for the sake of contradiction that $L \neq f'(0)$.
+                            We will assume that $f'(0) < L$ (A similar proof holds true for the other case as shown below this proof).
+                            Let $0 < \epsilon < \frac{L - f'(0)}{2}$.
+                            Since $\lim_{x\to 0} f'(x) = L$, we know that there exists $\delta > 0$ such that for all $x$ with $0 < \abs{x} < \delta$ implies $\abs{f'(x) - L} < \epsilon$, or in more detail: $L - \epsilon < f'(x) < L + \epsilon$.
+                            Choose such a $\delta$ and choose $a$ such that $f'(0) < a < L - \epsilon$.
+                            Then, for all $x$ with $0 < \abs{x} < \delta$ it is true that $f'(0) < a < f'(x)$.
+                            By Darboux's Theorem, we have $c \in (0,x)$ such that $f'(c) = a$.
+                            However, this is a contradiction since $0 < c < \delta$ but $f'(c) = a < L - \epsilon$ which means it fails to satisfy $\lim_{x\to 0} f'(x) = L$.
+                            Thus, $L = f'(0)$ must be true.
+                        \end{proof}
+                        \begin{proof}
+                            Assume for the sake of contradiction that $L \neq f'(0)$.
+                            We will assume that $f'(0) > L$ (A similar proof holds true for the other case as shown below this proof).
+                            Let $0 < \epsilon < \frac{f'(0) - L}{2}$.
+                            Since $\lim_{x\to 0} f'(x) = L$, we know that there exists $\delta > 0$ such that for all $x$ with $0 < \abs{x} < \delta$ implies $\abs{f'(x) - L} < \epsilon$, or in more detail: $L - \epsilon < f'(x) < L + \epsilon$.
+                            Choose such a $\delta$ and choose $a$ such that $L + \epsilon < a < f'(0)$.
+                            Then, for all $x$ with $0 < \abs{x} < \delta$ it is true that $f'(0) > a > f'(x)$.
+                            By Darboux's Theorem, we have $c \in (0,x)$ such that $f'(c) = a$.
+                            However, this is a contradiction since $0 < c < \delta$ but $f'(c) = a > L + \epsilon$ which means it fails to satisfy $\lim_{x\to 0} f'(x) = L$.
+                            Thus, $L = f'(0)$ must be true.
+                        \end{proof}
                 \item [(d)] Repeat conjecture (c) but drop the assumption that $f'(0)$ necessarily exists. If $f'(x)$ exists for all $x \neq 0$ and if $\lim_{x \to 0} f'(x) = L$, then $f'(0)$ exists and equals $L$.
+                        
+                        False, take the counterexample: $f(x) = \frac{x^2 + x}{x}$.
+                        We see that $f'(x)$ exists for all $x \neq 0$.
+                        Also, we see that for $x \neq 0, f(x) = \frac{x^2 + x}{x} = x+1$ so $\lim_{x \to 0} f'(x) = 1$.
+                        However, $f'(0)$ is undefined since $f$ is not differentiable at $x=0$ and so it cannot be equal to $1$.
             \end{itemize}
         \item [5.3.1] Recall from Exercise 4.4.9 that a function $f : A \to \bbR$ is Lipschitz on $A$ if there exists an $M > 0$ such that $\abs{\frac{f(x) - f(y)}{x-y}} \leq M$ for all $x,y \in A$. Show that if $f$ is differentiable on a closed interval $[a, b]$ and if $f'$ is continuous on $[a,b]$, then $f$ is Lipschitz on $[a,b]$.
         \item [5.3.5] A fixed point of a function $f$ is a value $x$ where $f(x) = x$. Show that if $f$ is differentiable on an interval with $f'(x) \neq 1$, then $f$ can have at most one fixed point.
