@@ -115,14 +115,89 @@
                         However, $f'(0)$ is undefined since $f$ is not differentiable at $x=0$ and so it cannot be equal to $1$.
             \end{itemize}
         \item [5.3.1] Recall from Exercise 4.4.9 that a function $f : A \to \bbR$ is Lipschitz on $A$ if there exists an $M > 0$ such that $\abs{\frac{f(x) - f(y)}{x-y}} \leq M$ for all $x,y \in A$. Show that if $f$ is differentiable on a closed interval $[a, b]$ and if $f'$ is continuous on $[a,b]$, then $f$ is Lipschitz on $[a,b]$.
+            \begin{proof}
+                Assume $f$ is differentiable on a closed interval $[a, b]$ and $f'$ is continuous on $[a,b]$.
+                Need to show that $f$ is Lipschitz on $[a,b]$, that is there exists an $M > 0$ such that $\abs{\frac{f(x) - f(y)}{x-y}} \leq M$ for all $x,y \in A$.
+                Suppose $x,y$ are arbitrary such that $a <= x < y <= b$.
+                Given the assumptions, we know that by MVT there exists a $c \in (a,b)$ such that $f'(c) = \frac{f(x) - f(y)}{x-y}$.
+                Since $[a,b]$ is a compact set and $f'$ is continuous on $[a,b]$, we know that there exists an upper bound $M > 0$ such that for all $n \in [a,b], \abs{f'(n)} \leq M$.
+                Thus, since $c \in [a,b]$, we have that $\abs{f'(c)} = \abs{\frac{f(x) - f(y)}{x-y}} \leq M$ as desired.
+            \end{proof}
         \item [5.3.5] A fixed point of a function $f$ is a value $x$ where $f(x) = x$. Show that if $f$ is differentiable on an interval with $f'(x) \neq 1$, then $f$ can have at most one fixed point.
+            \begin{proof}
+                Assume for the sake of contradiction that $f$ has two fixed points $x$ and $y$.
+                Then, by the provided definition of fixed points we have $f(x) = x$ and $f(y) = y$.
+                This means that by MVT we can find a $c$ in the provided interval such that $f'(c) = \frac{f(x) - f(y)}{x-y} = \frac{x-y}{x-y} = 1$.
+                However, this is a contradiction to the provided assumption that $f'(x) \neq 1$.
+                Thus, $f$ can have at most one fixed point.
+            \end{proof}
         \item [5.3.8] Assume $g:(a,b) \to \bbR$ is differentiable at some point $c \in (a,b)$. If $g'(c) \neq 0$, show that there exists a $\delta$-neighborhood $V_\delta(c) \subseteq (a,b)$ for which $g(x) \neq g(c)$ for all $x \in V_\delta(c)$. Compare this result with Exercise 5.3.7.
+            \begin{proof}
+                Suppose $g:(a,b) \to \bbR$ is differentiable at some point $c \in (a,b)$.
+                Assume $g'(c) > 0$ (the other case will be handled later).
+                Since $g$ is differentiable at $c$, we have $g'(c) = \lim_{x \to c} \frac{g(x) - g(c)}{x - c} > 0$.
+                Let $0 < \epsilon < g'(c)$.
+                Then we know there exists a $\delta > 0$ such that $0 < \abs{x-c} < \delta$ implies $\abs{\frac{g(x) - g(c)}{x-c} - g'(c)} < \epsilon$.
+                We can rewrite this to $\frac{g(x) - g(c)}{x-c} > g'(c) - \epsilon > 0$.
+                This means that if $x > c$ then $g(x) > g(c)$ or if $x < c$, $g(x) < g(c)$ which means that the fraction will always be positive.
+                Thus we see that this is a $\delta$-neighborhood around $c$ for which $g(x) \neq g(c)$ for all $x \in V_\delta(c)$ whenever $x\neq c$.
+                Similarly, if we take the other case ($g'(c) < 0$), then we see that we can let $f(x) = -g(x)$ and derive that there exists a neighborhood around $c$ for which $f(x) \neq f(c)$ for all $x$ in the neighborhood whenever $x \neq c$.
+                Then, since $f(x) = -g(x)$, we can multiply the result by $-1$ to show that $g(x) \neq g(c)$ on this neighborhood for all $x$ whenever $x \neq c$.
+                Thus, we have proved that for $g'(c) \neq 0$ there exists a $\delta$-neighborhood $V_\delta(c)$ for which $g(x) \neq g(c)$ for all $x \in V_\delta(c)$.
+            \end{proof}
         \item [5.4.2] Fix $x \in \bbR$. Argue that the series $\sum_{n=0}^{\infty} \frac{1}{2^n}h(2^n x)$ converges absolutely and thus $g(x)$ is properly defined.
-        \item [5.4.4] Show that $\frac{g(x_m) - g(0)}{x_m - 0} = m+1$, and use this to prove that $g'(0)$ does not exist.
+        
+            We know that $h(x)$ is bounded by 1 and so $h(x) \leq 1$ for all $x$.
+            Then, $\sum_{n=0}^{\infty} \frac{1}{2^n}h(2^n x) \leq \sum_{n=0}^{\infty} \frac{1}{2^n} = \sum_{n=0}^{\infty} (\frac{1}{2})^n$ which we know is a geometric series and converges since $\frac{1}{2} < 1$.
+            By the Comparison Test, we know that $\sum_{n=0}^{\infty} \frac{1}{2^n}h(2^n x)$ converges and since all of the terms are positive we know from the Absolute Convergence Test that $\sum_{n=0}^{\infty} \frac{1}{2^n}h(2^n x)$ absolutely converges.
+        \newpage
+        \item [5.4.4] Show that $\frac{g(x_m) - g(0)}{x_m - 0} = m+1$ where $x_m = \frac{1}{2^m}$ for $m = 0,1,2,...$, and use this to prove that $g'(0)$ does not exist.
+            
+            Given an $m$, we see that $g(x_m) = \sum_{n=0}^{\infty}\frac{1}{2^n}h(2^{n-m})$.
+            Then, when $n > m$, $g(x_m) = 0$ since we are at a multiple of 2 and $h$ has a period of 2 meaning $h(2z) = 0$ for $z\in\bbZ$.
+            So, $g(x_m)$ simplifies to $g(x_m) = \sum_{n=0}^{m}\frac{h(2^{n-m})}{2^n} = \sum_{n=0}^{m}\frac{2^{n-m}}{2^n} = \sum_{n=0}^{m}\frac{1}{2^m}$.
+            Then, $\frac{g(x_m) - g(0)}{x_m - 0} = \frac{\sum_{n=0}^{m}\frac{1}{2^m}}{\frac{1}{2^m}} =  m+1$.
+            
+            To show that $g'(0)$ doesn't exist, notice that $g'(0) = \lim_{m\to\infty}\frac{g(x_m) - g(0)}{x_m - 0} = \lim_{m\to\infty} m+1$ which is clearly unbounded and so the limit does not exist.
+            Thus, $g'(0)$ doesn't exist.
         \item [5.4.5] 
             \begin{itemize}
                 \item [(a)] Modify the previous argument to show that $g'(1)$ does not exist. Show that $g'(\frac{1}{2})$ does not exist.
+
+                    Given an $m$ we see that $g(1 + x_m) = \sum_{n=0}^{\infty} \frac{1}{2^n}h(2^n (1+x_m)) = \sum_{n=0}^{\infty} \frac{h(2^n + 2^{n-m})}{2^n}$.
+                    Like 5.4.4, when $n > m$, $g(1 + x_m) = 0$ since we are at a multiple of 2 and $h$ has a period of 2 meaning $h(2z) = 0$ for $z\in\bbZ$.
+                    So, $g(1 + x_m) = \sum_{n=0}^{m} \frac{h(2^n + 2^{n-m})}{2^n}$.
+                    Next, when $1 \leq n \leq m$, since $h$ has a period of 2, we get $\frac{h(2^n + 2^{n-m})}{2^n} = \frac{h(2^{n-m})}{2^n} = \frac{1}{2^m}$.
+                    So, $g(1 + x_m) = \sum_{n=0}^{1}\frac{h(2^n + 2^{n-m})}{2^n} + \sum_{n=1}^{m} \frac{1}{2^m}$.
+                    Then, when $n=0$, $\frac{h(2^n + 2^{n-m})}{2^n} = h(1 + \frac{1}{2^{m}}) = h(1) - \frac{1}{2^{m}} = g(1) - \frac{1}{2^{m}}$.
+                    So, $g(1 + x_m) = g(1) - \frac{1}{2^{m}} + \sum_{n=1}^{m} \frac{1}{2^m}$.
+                    Then, $\frac{g(1+x_m) - g(1)}{x_m} = \frac{g(1) - \frac{1}{2^{m}} + (\sum_{n=1}^{m} \frac{1}{2^m}) - g(1)}{\frac{1}{2^m}} = -1 + \frac{\sum_{n=1}^{m} \frac{1}{2^m}}{\frac{1}{2^m}} = m-1$.
+                    Thus, like 5.4.4, as $m\to \infty$, $m-1$ is unbounded meaning that $g'(1)$ doesn't exist.
+                    \ \\
+                    
+                    Given an $m$ we see that $g(\frac{1}{2} + x_m) = \sum_{n=0}^{\infty} \frac{1}{2^n}h(2^n (\frac{1}{2}+x_m)) = \sum_{n=0}^{\infty} \frac{h(2^{n-1} + 2^{n-m})}{2^n}$.
+                    Like before, when $n > m$, $g(\frac{1}{2} + x_m) = 0$ since we are at a multiple of 2 and $h$ has a period of 2 meaning $h(2z) = 0$ for $z\in\bbZ$.
+                    So, $g(\frac{1}{2} + x_m) = \sum_{n=0}^{m} \frac{h(2^{n-1} + 2^{n-m})}{2^n}$.
+                    Next, when $2 \leq n \leq m$, since $h$ has a period of 2, we get $\frac{h(2^{n-1} + 2^{n-m})}{2^n} = \frac{h(2^{n-m})}{2^n} = \frac{1}{2^m}$.
+                    So, $g(\frac{1}{2} + x_m) = \sum_{n=0}^{1} \frac{h(2^{n-1} + 2^{n-m})}{2^n} + \sum_{n=1}^{2} \frac{h(2^{n-1} + 2^{n-m})}{2^n} + \sum_{n=2}^{m} \frac{1}{2^m}$.
+                    Then, when $n = 0$, $\frac{h(2^{n-1} + 2^{n-m})}{2^n} = h(\frac{1}{2} + \frac{1}{2^m}) = h(\frac{1}{2}) - \frac{1}{2^m} = g(\frac{1}{2}) - \frac{1}{2^m}$.
+                    Similarly, when $n=1$, $\frac{h(2^{n-1} + 2^{n-m})}{2^n} = \frac{h(1 + 2^{1-m})}{2} = \frac{h(1) - h(2*2^{-m})}{2} = \frac{1}{2} - \frac{1}{2^m}$.
+                    So, $g(\frac{1}{2} + x_m) = g(\frac{1}{2}) - \frac{1}{2^m} + \frac{1}{2} - \frac{1}{2^m} + \sum_{n=2}^{m} \frac{1}{2^m}$.
+                    Then, $\frac{g(\frac{1}{2} + x_m) - g(\frac{1}{2})}{x_m} = \frac{g(\frac{1}{2}) - \frac{2}{2^m} + \frac{1}{2} + (\sum_{n=2}^{m} \frac{1}{2^m}) - g(\frac{1}{2})}{\frac{1}{2^m}} = -2 + 2^{m-1} + m$.
+                    Thus, like before, as $m\to \infty$, $-2 + 2^{m-1} + m$ is unbounded meaning $g'(\frac{1}{2})$ doesn't exist.
                 \item [(b)] Show that $g'(x)$ does not exist for any rational number of the form $x = \frac{p}{2^k}$ where $p \in \bbZ$ and $k \in \bbN \cup \{0\}$.
+                
+                    Assume $m > k$ since we eventually want to see the behavior as $m$ goes to infinity. 
+                    Then, $g(x + x_m) = \sum_{n=0}^{\infty}\frac{h(2^n (\frac{p}{2^k} + \frac{1}{2^m}))}{2^n} = \sum_{n=0}^{\infty}\frac{h(p2^{n-k} + 2^{n-m})}{2^n}$.
+                    Like 5.4.4 and 5.4.5a, when $n > m$, $g(x + x_m) = 0$ since we are at a multiple of 2 and $h$ has a period of 2 meaning $h(2z) = 0$ for $z\in\bbZ$.
+                    So, $g(x + x_m) = \sum_{n=0}^{m}\frac{h(p2^{n-k} + 2^{n-m})}{2^n}$.
+                    Next, when $k < n \leq m$, since $h$ has a period of 2, we get $\frac{h(p2^{n-k} + 2^{n-m})}{2^n} = \frac{h(2^{n-m})}{2^n} = \frac{1}{2^m}$.
+                    So, $g(x + x_m) = \sum_{n=0}^{k}\frac{h(p2^{n-k} + 2^{n-m})}{2^n} + \sum_{n=k+1}^{m}\frac{1}{2^m}$.
+                    Then, when $0 \leq n \leq k$, $\frac{h(p2^{n-k} + 2^{n-m})}{2^n} = \frac{h(p2^{n-k}) \pm 2^{n-m}}{2^n} = \frac{h(2^{n}x)}{2^n} \pm \frac{1}{2^m}$.
+                    So, $g(x + x_m) = (\sum_{n=0}^{k}\frac{h(2^{n}x)}{2^n} \pm \frac{1}{2^m}) + (\sum_{n=k+1}^{m}\frac{1}{2^m})$.
+                    Then, $\frac{g(x + x_m) - g(x)}{x_m} = \frac{(\sum_{n=0}^{k}\frac{h(2^{n}x)}{2^n} \pm \frac{1}{2^m}) + (\sum_{n=k+1}^{m}\frac{1}{2^m}) - g(x)}{\frac{1}{2^m}} = (\sum_{n=0}^k \pm 1) + (m-k-1)$.
+                    If it is supposed to be $\sum_{n=0}^k -1$ then we get $m - 2k -1$, else if it supposed to be $\sum_{n=0}^k 1$ then we get $m-1$.
+                    Regardless, we see that as $m \to \infty$, both $m - 2k -1$ and $m-1$ are unbounded meaning that $g'(x)$ does not exist eitherways.
             \end{itemize}
     \end{itemize}
 \end{document}
