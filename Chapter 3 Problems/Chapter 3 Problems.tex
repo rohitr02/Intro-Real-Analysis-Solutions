@@ -107,7 +107,7 @@
                 Suppose $F$ is closed and $K$ is compact, that is $K$ is bounded and closed.
                 Need to show that $K \cap F$ is compact, that is $K \cap F$ is bounded and closed.
                 Since $K$ is bounded and $K \cap F \subseteq K$, $K \cap F$ is bounded.
-                Also, since $K$ is closed and $F$ is closed, $K \cap F$ is closed (since the intersection of an arbitrary collection of closed sets is closed).
+                Also, since $K$ is closed and $F$ is closed, $K \cap F$ is closed (Theorem 3.2.14).
                 So, $K \cap F$ is bounded and closed which means $K \cap F$ is compact.
             \end{proof}
         \item [3.3.8] Follow these steps to prove the final implication in Theorem 3.3.8.
@@ -119,10 +119,10 @@
                     At least one of $A_1 \cap K$ or $B_1 \cap K$ must have no finite subcover since if they both did have a finite subcover then the union of them would be a finite subcover for $K$ which would contradict the assumption that no finite subcover exists for $K$.
                 \item [(b)] Show that there exists a nested sequence of closed intervals $I_0 \supseteq I_1 \supseteq I_2 \supseteq ... $ with the property that, for each $n$, $I_n \cap K$ cannot be finitely covered and $\lim \abs{I_n} = 0$.
                 
-                    Choose whichever of $A_1 \cap K$ or $B_1 \cap K$ does not have a finite subcover (choose any one if they both do not), then call that choice $I_1$.
-                    Then, bisect $I_1$ to give $A_2$ and $B_2$.
+                    Choose whichever of $A_1 \cap K$ or $B_1 \cap K$ does not have a finite subcover (choose any one if they both do not), then call that choice $I_0$.
+                    Then, bisect $I_0$ to give $A_2$ and $B_2$.
                     Once again, either $A_2 \cap K$ or $B_2 \cap K$ (or both) have no finite subcover.
-                    Choose whichever of $A_2 \cap K$ or $B_2 \cap K$ does not have a finite subcover (choose either one if they both do not), then we can call that choice $I_2$.
+                    Choose whichever of $A_2 \cap K$ or $B_2 \cap K$ does not have a finite subcover (choose either one if they both do not), then we can call that choice $I_1$.
                     Repeating this over results in the sequence $I_0 \supseteq I_1 \supseteq I_2 \supseteq ... $ where $I_n \cap K$ cannot be finitely covered and as this sequence goes further, it tends towards $\lim \abs{I_n} = 0$.
                 \item [(c)] Show that there exists an $x \in K$ such that $x \in I_n$ for all $n$.
                 
@@ -164,21 +164,21 @@
                 Then, since $V$ is open, $V^c$ is closed which means that all of $U$'s limit points must be in $V^c$, that is $\overline{U} \subseteq V^c$.
                 So, $\overline{U} \cap V = \emptyset$.
                 Similarly, $\overline{V} \cap U = \emptyset$.
-                Then, since $A \subseteq U \subseteq \overline{U}$ and all of $A$'s limit points must be limit points of $U$, $\overline{A} \subseteq \overline{U}$.
+                Then, since $A \subseteq U \subseteq \overline{U}$ and all of $A$'s limit points must be limit points of $U$, that is $\overline{A} \subseteq \overline{U}$.
                 Similarly, $\overline{B} \subseteq \overline{V}$.
-                Thus, since $B \subseteq V$, $\overline{A} \cap B = \emptyset$.
-                Similarly, since $A \subseteq U$, $\overline{B} \cap A = \emptyset$.
+                Thus, since $\overline{U} \cap V = \emptyset$ and $B \subseteq V$, $\overline{A} \cap B = \emptyset$.
+                Similarly, since $\overline{V} \cap U = \emptyset$ and $A \subseteq U$, $\overline{B} \cap A = \emptyset$.
                 So, $A$ and $B$ are separated.
             \end{proof}
         \item [3.4.7]
             \begin{itemize}
                 \item [(a)] Find an example of a disconnected set whose closure is connected.
                 
-                    Let $A = (-\infty, 0)$ and let $B = (0, \infty)$.
-                    Then, $\overline{A} = (-\infty, 0]$ and $\overline{B} = [0, \infty)$.
+                    Let $A = (-1, 0)$ and let $B = (0, 1)$.
+                    Then, $\overline{A} = [-1, 0]$ and $\overline{B} = [0, 1]$.
                     So, $\overline{A} \cap B = \emptyset$ and $A \cap \overline{B} = \emptyset$ which means $A$ and $B$ are nonempty separated sets.
                     Therefore, $E = (A \cup B) \subseteq \bbR$ is a disconnected set.
-                    Since, $0$ is a limit point of $E$, $\overline{E} = (-\infty, \infty) = \bbR$ which is a connected set.
+                    But, $\overline{E} = [-1, 1]$ is a connected set.
                     Thus, $E$ is a disconnected set whose closure is connected.
                 \item [(b)] If $A$ is connected, is $\overline{A}$ necessarily connected? If $A$ is perfect, is $\overline{A}$ necessarily perfect?
                 
@@ -186,6 +186,7 @@
 
                     Yes, if $A$ is perfect then $A = \overline{A}$ so $\overline{A}$ is perfect as well.
             \end{itemize}
+        \newpage
         \item [3.5.1] Argue that a set $A$ is a $G_\delta$ set if and only if its complement is an $F_\sigma$ set.
             \begin{proof}
                 \ \\

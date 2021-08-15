@@ -87,7 +87,7 @@
                         True, because if $L \neq f'(0)$ then this is a violation of Darboux's Theorem.
                         \begin{proof}
                             Assume for the sake of contradiction that $L \neq f'(0)$.
-                            We will assume that $f'(0) < L$ (A similar proof holds true for the other case as shown below this proof).
+                            We will assume that $f'(0) < L$ (the other case is shown below).
                             Let $0 < \epsilon < \frac{L - f'(0)}{2}$.
                             Since $\lim_{x\to 0} f'(x) = L$, we know that there exists $\delta > 0$ such that for all $x$ with $0 < \abs{x} < \delta$ implies $\abs{f'(x) - L} < \epsilon$, or in more detail: $L - \epsilon < f'(x) < L + \epsilon$.
                             Choose such a $\delta$ and choose $a$ such that $f'(0) < a < L - \epsilon$.
@@ -98,7 +98,7 @@
                         \end{proof}
                         \begin{proof}
                             Assume for the sake of contradiction that $L \neq f'(0)$.
-                            We will assume that $f'(0) > L$ (A similar proof holds true for the other case as shown below this proof).
+                            We will assume that $f'(0) > L$ (the other case is shown above).
                             Let $0 < \epsilon < \frac{f'(0) - L}{2}$.
                             Since $\lim_{x\to 0} f'(x) = L$, we know that there exists $\delta > 0$ such that for all $x$ with $0 < \abs{x} < \delta$ implies $\abs{f'(x) - L} < \epsilon$, or in more detail: $L - \epsilon < f'(x) < L + \epsilon$.
                             Choose such a $\delta$ and choose $a$ such that $L + \epsilon < a < f'(0)$.
@@ -141,9 +141,9 @@
                 We can rewrite this to $\frac{g(x) - g(c)}{x-c} > g'(c) - \epsilon > 0$.
                 This means that if $x > c$ then $g(x) > g(c)$ or if $x < c$, $g(x) < g(c)$ which means that the fraction will always be positive.
                 Thus we see that this is a $\delta$-neighborhood around $c$ for which $g(x) \neq g(c)$ for all $x \in V_\delta(c)$ whenever $x\neq c$.
-                Similarly, if we take the other case ($g'(c) < 0$), then we see that we can let $f(x) = -g(x)$ and derive that there exists a neighborhood around $c$ for which $f(x) \neq f(c)$ for all $x$ in the neighborhood whenever $x \neq c$.
+                Similarly, if we take the other case [$g'(c) < 0$], then we see that we can let $f(x) = -g(x)$ and derive that there exists a neighborhood around $c$ for which $f(x) \neq f(c)$ for all $x$ in the neighborhood whenever $x \neq c$.
                 Then, since $f(x) = -g(x)$, we can multiply the result by $-1$ to show that $g(x) \neq g(c)$ on this neighborhood for all $x$ whenever $x \neq c$.
-                Thus, we have proved that for $g'(c) \neq 0$ there exists a $\delta$-neighborhood $V_\delta(c)$ for which $g(x) \neq g(c)$ for all $x \in V_\delta(c)$.
+                Thus, we have proved that when $g'(c) \neq 0$ there exists a $\delta$-neighborhood $V_\delta(c)$ for which $g(x) \neq g(c)$ for all $x \in V_\delta(c)$.
             \end{proof}
         \item [5.4.2] Fix $x \in \bbR$. Argue that the series $\sum_{n=0}^{\infty} \frac{1}{2^n}h(2^n x)$ converges absolutely and thus $g(x)$ is properly defined.
         

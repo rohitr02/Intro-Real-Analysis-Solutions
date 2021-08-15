@@ -265,10 +265,9 @@
 
             Next, choose $k>1$ and pick $a_{n_k}$ to add to the subsequence such that $a_{n_k} \in (s - \frac{1}{k}, s]$.
 
-            Repeating the 2nd step while always choosing $k$ such that it is strictly greater than the previous choice will yield in the desired subsequence.
-            This is because it is guaranteed there are always infinitely many terms left to pick from the sequence and add to the subsequence by the way $S$ is defined.
-            Thus, this method creates a subsequence of $(a_n)$ which converges to $s$ as the $\frac{1}{k}$ term becomes smaller, that is $\abs{s - a_{n_k}} < \frac{1}{k}$.
-
+            Repeating the 2nd step while always choosing $k$ such that it is strictly greater than the previous choice will result in a subsequence of $(a_n)$ which converges to $s$ as the $\frac{1}{k}$ term becomes smaller.
+            To verify, choose $\epsilon_0 > 0$ arbitrarily and choose $N > \frac{1}{\epsilon_0}$. Then, for all $t \geq N$, $\frac{1}{t} < \epsilon_0$ implies $\abs{s - a_{n_t}} < \frac{1}{t} < \epsilon_0$.
+            Thus, we see that this subsequence converges to $s$ as desired.
         \end{proof}
     \item [2.6.2] Supply a proof for Theorem 2.6.2: Every convergent sequence is a Cauchy sequence
         \begin{proof}
@@ -315,7 +314,7 @@
     \item [2.7.4] Give an example to show that it is possible for both $\sum{x_n}$ and $\sum{y_n}$ to diverge but for $\sum{x_n y_n}$ to converge.
     
     One example would be the harmonic series $\sum_{n=1}^{\infty} \frac{1}{n}$.
-    If $x_n = \frac{1}{n} = y_n$ for all $n \in \bbN$ then both $\sum x_n$ and $\sum y_n$ diverge, but the product $\sum x_ny_n = \sum \frac{1}{n^2}$ which converges by the p-series test.
+    If $x_n = \frac{1}{n} = y_n$ for all $n \in \bbN$ then both $\sum x_n$ and $\sum y_n$ diverge, but the product $\sum x_ny_n = \sum \frac{1}{n^2}$ converges by the p-series test.
     \item [2.7.7] Now that we have proved the basic facts about geometric series, supply a proof for Corollary 2.4.7: The series $\sum_{n=1}^{\infty} \frac{1}{n^p}$ converges if and only if $p > 1$.
         \begin{proof}
             \begin{spacing}{1.2}
@@ -331,14 +330,13 @@
         \begin{itemize}
             \item [(a)] Let $M > 0$ be an upper bound for the partial sums of $\sum_{n=1}^{\infty}x_n$. Use Exercise 2.7.12 to show that $\abs{\sum_{j=m+1}^{n} x_j y_j} \leq 2M \abs{y_{m+1}}$.
                 \begin{proof}
-                    Let $s_n = x_1 + x_2 + ... + x_n$ and $M > 0$ be an upper bound for $s_n$. Then,
+                    Let $s_n = x_1 + x_2 + ... + x_n$ and $M > 0$ be an upper bound for $s_n$. Then, we can overestimate using $M$ in the following way:
                     \begin{align*}
                         \abs{\sum_{j={m+1}}^n x_jy_j} &= \abs{s_ny_{n+1} - s_my_{m+1} + \sum_{j=m+1}^n s_j(y_j - y_{j+1})}\\
                         &\leq \abs{s_ny_{n+1} - s_my_{m+1}} + \abs{\sum_{j=m+1}^n s_j(y_j - y_{j+1})}\\
                         &\leq s_ny_{n+1} + s_my_{m+1} + \sum_{j=m+1}^n s_j(y_j - y_{j+1})\\
                         &\leq My_{n+1} + My_{m+1} + \sum_{j=m+1}^n M(y_j - y_{j+1})\\
-                        &\leq My_{n+1} + My_{m+1} + M(y_{m+1} - y_{n+1})\\
-                        &= 2My_{m+1}
+                        &\leq My_{n+1} + My_{m+1} + M(y_{m+1} - y_{n+1}) = 2My_{m+1}
                     \end{align*}
                     So, $\abs{\sum_{j=m+1}^{n} x_j y_j} \leq 2M \abs{y_{m+1}}$ as desired.
                 \end{proof}

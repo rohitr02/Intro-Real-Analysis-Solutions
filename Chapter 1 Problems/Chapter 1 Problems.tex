@@ -267,7 +267,8 @@
                 Then, we would need to assume that the union of $m-1$ countable sets is countable and show that the union of $m$ countable sets is also countable.
                 \item [(b)] Explain why induction cannot be used to prove part (ii) of Theorem 1.4.13 from part (i).
                 
-                Induction cannot be used to prove part (ii) of Theorem 1.4.13 from part (i) because it can only be used on $n \in \mathbb{N}$ and $\infty \notin \mathbb{N}$.
+                Induction is used to prove properties holding true at each $n \in \mathbb{N}$.
+                Since this problem already tells us that $A_n$ is countable for each $n \in \mathbb{N}$, we can't use induction to prove anything about the union of these sets.
                 \item [(c)] Show how arranging N into the two-dimensional array
                     \begin{align*}
                         &1 && 3 && 6 && 10 && 15 && ... \\
@@ -393,7 +394,7 @@
                 
                 Yes, it contains an uncountable antichain.
                 In order to find it we first define the set of even natural numbers $E = \{2n : n \in \mathbb{N}\}$ and the set of odd natural numbers $O = \{2n-1 : n \in \mathbb{N}\}$.
-                Then, we can form subsets of $\mathbb{N}$ by picking elements in order from $E$ and $O$.
+                Then, we can form subsets of $\mathbb{N}$ by picking elements alternating from $E$ and $O$.
                 For example, $\{1,4,5,8,9,12,13,...\}$ or $\{2,3,6,7,10,11,14,15,...\}$ are examples of such subsets of $\bbN$.
                 The collection of all such sets is the antichain $A$.
                 This is because for every set in $A$, every index is given two choices -- to pick from $E$ or to pick from $O$.
