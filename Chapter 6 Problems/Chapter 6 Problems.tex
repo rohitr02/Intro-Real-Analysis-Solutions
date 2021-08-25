@@ -7,17 +7,82 @@
 
 \begin{document}
     \begin{itemize}[leftmargin=!,labelindent=5pt]
-        \item [6.2.1]
-        \item [6.2.8]
-        \item [6.2.11]
-        \item [6.3.1]
-        \item [6.3.2]
-        \item [6.3.3]
-        \item [6.4.3]
-        \item [6.4.4]
-        \item [6.4.7]
-        \item [6.5.2]
-        \item [6.5.8]
-        \item [6.5.9]
+        \item [6.2.11] Assume $(f_n)$ and $(g_n)$ are uniformly convergent sequences of functions.
+            \begin{itemize}
+                \item [(a)] Show that $(f_n + g_n)$ is a uniformly convergent sequence of functions.
+                    \begin{proof}
+                        Suppose $\epsilon > 0$ is arbitrarily chosen.
+                        Since $(f_n)$ is a uniformly convergent sequence of functions, we can choose $N_1 \in \bbN$ such that $\abs{f_n(x) - f_m(x)} < \frac{\epsilon}{2}$ whenever $n,m \geq N_1$ and $x \in A$.
+                        Similarly, since $(g_n)$ is a uniformly convergent sequence of functions, we can choose $N_2 \in \bbN$ such that $\abs{g_n(x) - g_m(x)} < \frac{\epsilon}{2}$ whenever $n,m \geq N_2$ and $x \in A$.
+                        Let $N = \max(N_1, N_2)$.
+                        Then, $\abs{f_n(x) + g_n(x) - f_m(x) - g_m(x)} \leq \abs{f_n(x) - f_m(x)} + \abs{g_n(x) - g_m(x)} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$ whenever $n,m \geq N$ and $x \in A$.
+                        Thus, by the Cauchy Criterion for Uniform Convergence, $(f_n + g_n)$ is a uniformly convergent sequence of functions.
+                    \end{proof}
+                \item [(b)] Give an example to show that the product $(f_n g_n)$ may not converge uniformly.
+                
+                    Let $f_n = \frac{1}{n(1+x)}$ which the textbook says uniformly converges to $0$ on $\bbR$.
+
+                    Let $g_n = \frac{1}{n} + x$ which we can see converges to $x$ on $\bbR$.
+
+                    Then $f_n * g_n = \frac{1}{n^2(1+x)} + \frac{x}{n(1+x)}$.
+                    The limit of this as $n \to \infty$ is $0$.
+                    To see that it is not uniformly convergent notice that $\abs{f_n(x) - f(x)} = \abs{\frac{xn+1}{n^2(1+x)}}$ which means that $N > \frac{xn+1}{n^2(1+x)}$.
+                    So, $N$ depends on $x$ and thus there is no way to pick an $N$ that will satisfy all $x$.
+                    Thus, it fails to be uniformly convergent.
+                \item [(c)] Prove that if there exists an $M > 0$ such that $\abs{f_n}\leq M$ and $\abs{g_n} \leq M$ for all $n \in \bbN$, then $(f_n g_n)$ does converge uniformly.
+                    \begin{proof}
+                        Suppose $\epsilon > 0$ is arbitrarily chosen.
+                        Assume there exists an $M > 0$ such that $\abs{f_n}\leq M$ and $\abs{g_n} \leq M$ for all $n \in \bbN$.
+                        Need to show that $(f_n g_n)$ does converge uniformly, that is there exists $N \in \bbN$ such that for all $m,n \geq N$ and $x\in A$, it holds true that $\abs{f_n(x)g_n(x) - f_m(x)g_m(x)} < \epsilon$ which when simplified becomes
+                        \begin{align*}
+                            \abs{f_n(x)g_n(x) - f_m(x)g_m(x)} &= \abs{f_n(x)g_n(x) - f_n(x)g_m(x) + f_n(x)g_m(x) - f_m(x)g_m(x)}\\
+                            &= \abs{f_n(x)(g_n(x) - g_m(x)) + g_m(x) (f_n(x) - f_m(x))}\\
+                            &\leq \abs{f_n(x)(g_n(x) - g_m(x))} + \abs{g_m(x) (f_n(x) - f_m(x))}\\
+                            &\leq \abs{f_n(x)}\abs{(g_n(x) - g_m(x))} + \abs{g_m(x)}\abs{f_n(x) - f_m(x)} < \epsilon
+                        \end{align*}
+                        Since $(f_n)$ is a uniformly convergent sequence of functions, we can choose $N_1 \in \bbN$ such that $\abs{f_n(x) - f_m(x)} < \frac{\epsilon}{2M}$ whenever $n,m \geq N_1$ and $x \in A$.
+                        Since $(g_n)$ is a uniformly convergent sequence of functions, we can choose $N_2 \in \bbN$ such that $\abs{g_n(x) - g_m(x)} < \frac{\epsilon}{2M}$ whenever $n,m \geq N_2$ and $x \in A$.
+                        Then, let $N = \max(N_1, N_2)$.
+                        So, we have that $\abs{f_n(x)}\abs{(g_n(x) - g_m(x))} + \abs{g_m(x)}\abs{f_n(x) - f_m(x)} < \abs{f_n(x)}\frac{\epsilon}{2M} + \abs{g_m(x)}\frac{\epsilon}{2M}$.
+                        Since $\abs{f_n}\leq M$ and $\abs{g_n} \leq M$ for all $n \in \bbN$, this simplifies to $M\frac{\epsilon}{2M} + M\frac{\epsilon}{2M} = \epsilon$.
+                        So, $\abs{f_n(x)g_n(x) - f_m(x)g_m(x)} < \epsilon$ for all $m,n \geq N$ and $x\in A$ as desired which means $(f_n g_n)$ converges uniformly.
+                    \end{proof}
+            \end{itemize}
+        \item [6.3.3] Consider the sequence of functions $f_n(x) = \frac{x}{1+nx^2}$. Exercise 6.2.4 contains some advice for how to show that $(f_n)$ converges uniformly on $\bbR$. Review or complete that exercise. Now, let $f = \lim f_n$. Compute $f_n'(x)$ and find all the values of $x$ for which $f'(x) = \lim f_n'(x)$.
+            
+            $f_n'(x) = \frac{1-nx^2}{(nx^2 + 1)^2}$.
+
+            $f'(x) = \lim f_n'(x)$ for all $x \neq 0$.
+            We can see this because $f = \lim f_n$ and $f_n \to 0$ for all $x$ which means that $\lim f_n'(x) = f'(x) = 0$ when $x \neq 0$, but when $x = 0$, $f'(x) = 1$ and $\lim f_n'(x) = 0$ -- thus they are not equal at $x=0$.
+        \item [6.4.7] Let $h(x) = \sum_{n=1}^\infty \frac{1}{x^2 + n^2}$.
+            \begin{itemize}
+                \item [(a)] Show that $h$ is a continuous function defined on all of $\bbR$.
+                    \begin{proof}
+                        Let $M_n = \frac{1}{n^2}$.
+                        Notice that $\sum_{n=1}^\infty M_n$ converges by the p-series test.
+                        Then, since $\abs{\frac{1}{x^2 + n^2}} \leq M_n$ and $\sum_{n=1}^\infty M_n$ converges, we know by the Weierstrass M-Test that $\sum_{n=1}^\infty \frac{1}{x^2 + n^2}$ converges uniformly.
+                        Thus, since it converges uniformly and $\frac{1}{x^2 + n^2}$ is continuous for all $x \in \bbR$ and $n \geq 1$, $h$ must be a continuous function defined on all of $\bbR$.
+                    \end{proof}
+                \item [(b)] Is $h$ differentiable? If so, is the derivative function $h'$ continuous?
+                
+                    Yes it is differentiable and the derivative function $h'$ is continuous.
+                    First, we look at the derivative of $\frac{1}{x^2 + n^2}$ which is $\frac{-2x}{(x^2 + n^2)^2}$.
+                    Notice that $\sum_{n=1}^\infty \frac{-2x}{(x^2 + n^2)^2} = \sum_{n=1}^\infty \abs{\frac{-2x}{x^2 + n^2}} \frac{1}{x^2 + n^2} \leq \sum_{n=1}^\infty \abs{\frac{-2x}{x^2 + n^2}} \frac{1}{n^2} \leq \sum_{n=1}^\infty \frac{2\abs{x}}{n^2 x^2 + n^4} \leq \sum_{n=1}^\infty \frac{1}{n^3}$ which we know converges by the p-series test. 
+                    Let $M_n = \frac{1}{n^3}$.
+                    So, by the Weierstrass M-Test, $\sum_{n=1}^\infty \frac{-2x}{(x^2 + n^2)^2}$ converges uniformly for all $x$ meaning that $h$ is differentiable.
+                    Similar to part a, we see that since $h'$ converges uniformly and it is continuous for all $x \in \bbR$ with $n \geq 1$, we know that $h'$ must be continuous.
+
+            \end{itemize}
+        \item [6.5.9] Use Theorem 6.5.7 to argue that power series are unique. If we have $\sum_{n=0}^{\infty} a_n x^n = \sum_{n=0}^{\infty} b_n x^n$ for all $x$ in an interval $(-R, R)$, prove that $a_n = b_n$ for all $n = 0,1,2 ... $. (Start by showing that $a_0 = b_0$.)
+            \begin{proof}
+                Suppose $f(x) = \sum_{n=0}^{\infty} a_n x^n$ and $g(x) = \sum_{n=0}^{\infty} b_n x^n$.
+                Assume $\sum_{n=0}^{\infty} a_n x^n = \sum_{n=0}^{\infty} b_n x^n$, in other words $f(x) = g(x)$, for all $x$ in an interval $(-R, R)$.
+                Then, for $x = 0$, we have $a_0 = f(0)$ and $b_0 = g(0)$ which means $a_0 = b_0$.
+                Next, take the derivative of $f$ and $g$ to get $\sum_{n=1}^{\infty} na_n x^{n-1}$ and $\sum_{n=1}^{\infty} nb_n x^{n-1}$ respectively.
+                Once again, for $x=0$, we have $a_1 = f'(0)$ and $b_1 = g'(0)$ which means that $a_1 = b_1$.
+                We can inductively continue this process to find that the $k'th$ derivative of $f$ and $g$ are $\sum_{n=k}^\infty \frac{n!}{(n-k)!}a_n x^{n-k}$ and $\sum_{n=k}^\infty \frac{n!}{(n-k)!}b_n x^{n-k}$ respectively.
+                Then, once again, for $x=0$, we have $a_k = f^k(0)$ and $b_k = g^k(0)$ which means that $a_k = b_k$.
+                Thus, $a_n = b_n$ for all $n = 0,1,2 ... $ as desired.
+            \end{proof}
     \end{itemize}
 \end{document}
