@@ -22,7 +22,7 @@
                 
                     Let $f_n = \frac{1}{n(1+x)}$ which the textbook says uniformly converges to $0$ on $\bbR$.
 
-                    Let $g_n = \frac{1}{n} + x$ which we can see converges to $x$ on $\bbR$.
+                    Let $g_n = \frac{1}{n} + x$ which we can see converges uniformly to $x$ on $\bbR$.
 
                     Then $f_n * g_n = \frac{1}{n^2(1+x)} + \frac{x}{n(1+x)}$.
                     The limit of this as $n \to \infty$ is $0$.
@@ -43,9 +43,10 @@
                         Since $(f_n)$ is a uniformly convergent sequence of functions, we can choose $N_1 \in \bbN$ such that $\abs{f_n(x) - f_m(x)} < \frac{\epsilon}{2M}$ whenever $n,m \geq N_1$ and $x \in A$.
                         Since $(g_n)$ is a uniformly convergent sequence of functions, we can choose $N_2 \in \bbN$ such that $\abs{g_n(x) - g_m(x)} < \frac{\epsilon}{2M}$ whenever $n,m \geq N_2$ and $x \in A$.
                         Then, let $N = \max(N_1, N_2)$.
-                        So, we have that $\abs{f_n(x)}\abs{(g_n(x) - g_m(x))} + \abs{g_m(x)}\abs{f_n(x) - f_m(x)} < \abs{f_n(x)}\frac{\epsilon}{2M} + \abs{g_m(x)}\frac{\epsilon}{2M}$.
+                        So, we have that $\abs{f_n(x)}\abs{(g_n(x) - g_m(x))} + \abs{g_m(x)}\abs{f_n(x) - f_m(x)} < \abs{f_n(x)}\frac{\epsilon}{2M} + \abs{g_m(x)}\frac{\epsilon}{2M}$ whenever $n,m \geq N$ and $x \in A$.
                         Since $\abs{f_n}\leq M$ and $\abs{g_n} \leq M$ for all $n \in \bbN$, this simplifies to $M\frac{\epsilon}{2M} + M\frac{\epsilon}{2M} = \epsilon$.
-                        So, $\abs{f_n(x)g_n(x) - f_m(x)g_m(x)} < \epsilon$ for all $m,n \geq N$ and $x\in A$ as desired which means $(f_n g_n)$ converges uniformly.
+                        So, $\abs{f_n(x)g_n(x) - f_m(x)g_m(x)} < \epsilon$ for all $m,n \geq N$ and $x\in A$.
+                        Thus, $(f_n g_n)$ converges uniformly.
                     \end{proof}
             \end{itemize}
         \item [6.3.3] Consider the sequence of functions $f_n(x) = \frac{x}{1+nx^2}$. Exercise 6.2.4 contains some advice for how to show that $(f_n)$ converges uniformly on $\bbR$. Review or complete that exercise. Now, let $f = \lim f_n$. Compute $f_n'(x)$ and find all the values of $x$ for which $f'(x) = \lim f_n'(x)$.
@@ -67,10 +68,10 @@
                 
                     Yes it is differentiable and the derivative function $h'$ is continuous.
                     First, we look at the derivative of $\frac{1}{x^2 + n^2}$ which is $\frac{-2x}{(x^2 + n^2)^2}$.
-                    Notice that $\sum_{n=1}^\infty \frac{-2x}{(x^2 + n^2)^2} = \sum_{n=1}^\infty \abs{\frac{-2x}{x^2 + n^2}} \frac{1}{x^2 + n^2} \leq \sum_{n=1}^\infty \abs{\frac{-2x}{x^2 + n^2}} \frac{1}{n^2} \leq \sum_{n=1}^\infty \frac{2\abs{x}}{n^2 x^2 + n^4} \leq \sum_{n=1}^\infty \frac{1}{n^3}$ which we know converges by the p-series test. 
+                    Notice that $\sum_{n=1}^\infty \frac{-2x}{(x^2 + n^2)^2} = \sum_{n=1}^\infty \frac{\abs{-2x}}{x^2 + n^2} \frac{1}{x^2 + n^2} \leq \sum_{n=1}^\infty \frac{2\abs{x}}{n^2 x^2 + n^4} \leq \sum_{n=1}^\infty \frac{1}{n^3}$ which we know converges by the p-series test. 
                     Let $M_n = \frac{1}{n^3}$.
                     So, by the Weierstrass M-Test, $\sum_{n=1}^\infty \frac{-2x}{(x^2 + n^2)^2}$ converges uniformly for all $x$ meaning that $h$ is differentiable.
-                    Similar to part a, we see that since $h'$ converges uniformly and it is continuous for all $x \in \bbR$ with $n \geq 1$, we know that $h'$ must be continuous.
+                    Similar to part a, we see that since $h'$ converges uniformly and $\frac{-2x}{(x^2 + n^2)^2}$ is continuous for all $x \in \bbR$ with $n \geq 1$, we know that $h'$ must be continuous.
 
             \end{itemize}
         \item [6.5.9] Use Theorem 6.5.7 to argue that power series are unique. If we have $\sum_{n=0}^{\infty} a_n x^n = \sum_{n=0}^{\infty} b_n x^n$ for all $x$ in an interval $(-R, R)$, prove that $a_n = b_n$ for all $n = 0,1,2 ... $. (Start by showing that $a_0 = b_0$.)
